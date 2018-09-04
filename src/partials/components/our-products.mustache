@@ -1,0 +1,59 @@
+<section class="our-products">
+  <span class="decorator-1"></span>
+  <span class="decorator-2"></span>
+  <div class="section-title-row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 text-right">
+          <div class="section-title">
+            <h2>Our Products</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="our-products__slider" data-js="our-products__slider">
+          {{#our-products-slides}}
+          <div class="our-products__slider__slide">
+            <div class="row">
+              <div class="col-6">
+                <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+                  <img src="img/product-image" alt="product">
+                </div>
+              </div>
+              <div class="desc col-6 pl-0">
+                <div class="product-title-image">
+                  <img src="img/product-title-image" alt="product-title">
+                </div>
+                <div class="product-desc">
+                  <p>
+                    A Clean refreshing taste that energizes
+                  </p>
+                </div>
+                <a href="#">Learn more</a>
+              </div>
+            </div>
+          </div>
+          {{/our-products-slides}}
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-11">
+        <div class="our-products__desc-slider" data-js="our-products__desc-slider">
+          {{#our-products-slides}}
+          <div>
+            <h3>We believe coconut water can be the start of something good.</h3>
+            <p>
+              A good choice, good hydration, maybe even part of a good life that includes a balanced diet and exercise. Coconut Water contains 5 electrolytes: potassium, magnesium, sodium, calcium, and phosphorus, that help keep you hydrated. Coconut water is naturally gluten-free, lactose-free, and dairy-free (by the way, Hydra Coco is non-GMO: if a bioengineered version of an ingredient exists, Hydra Coco does not use it), so you can breathe easy knowing you’re treating your body well. Life is hectic. We believe in the power of small changes and the little things that allow us to flourish. And we think enjoying ice-cold Hydra Coco Coconut Water is a great place to start.
+            </p>
+          </div>
+          {{/our-products-slides}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

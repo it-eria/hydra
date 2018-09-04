@@ -1,0 +1,151 @@
+.our-products {
+  margin-top: 80px;
+  position: relative;
+  .decorator-1 {
+    display: block;
+    width: 145px;
+    height: 102px;
+    background-color: rgba(#373737, .2);
+    position: absolute;
+    z-index: 0;
+    bottom: 90px;
+    right: 0;
+  }
+  &__slider {
+    margin-top: -210px;
+    height: 245px;
+    padding: 20px 0;
+    background-color: transparent;
+    position: relative;
+    &__slide {
+      width: calc(100% - 100px) !important;
+      position: relative;
+      height: 100%;
+      background-color: $c-white;      
+      .desc {
+        padding-top: 20px;
+      }
+      .product-title-image {
+        margin-left: auto;
+        width: 133px;
+        height: 34px;
+        background-color: $c-light-blue-2;
+        left: 15px;
+        top: 10px;
+        z-index: 700;
+      }
+      * {
+        position: relative;
+        z-index: 600;
+      }
+      .product-desc {
+        height: calc(100% - 40px);
+        padding: 15px 10px 30px;
+        background-color: $c-product-desc-grey;
+        p {
+          font-family: $f-extralight;
+          color: $c-dark;
+          font-size: 1.1875rem;
+          line-height: 1.31rem;
+        }
+      }
+      a {
+        display: block;
+        margin-left: auto;
+        width: 126px;
+        padding: 5px 5px;
+        background-color: $c-light-blue-2;
+        text-align: center;
+        top: -27px;
+        font-family: $f-light;
+        font-size: 1rem;
+        color: $c-white;
+        transition: all .3s ease-in-out;
+        &:hover {
+          text-decoration: none;
+          background-color: lighten($c-light-blue-2, 5%);
+        }
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 40%;
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        z-index: 100;
+        background-color: $c-white;
+      }
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 15px;
+      height: 40%;
+      background-color: $c-white;
+      position: absolute;
+      left: -15px;
+      bottom: 20px;
+    }
+    .slick-arrow {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      z-index: 8888;
+      top: 50%;
+      outline: none;
+      cursor: pointer;
+      &.slick-prev {
+        border-right: 8px solid #888888;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        left: 0;
+      }
+      &.slick-next {
+        border-left: 8px solid #888888;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        right: 0;
+      }
+    }
+    .slick-dots {
+      position: absolute;
+      bottom: 12px;
+      left: -15px;
+      width: calc(100% + 5px);
+      background-color: #fff;
+      padding-bottom: 5px;
+      li {
+        button {
+          background-color: #476684;
+        }
+      }
+    }
+  }
+  &__desc-slider {
+    padding: 60px 0 70px;
+    color: $c-white;
+    text-shadow: 0 3px 6px rgba(#000000, .2);
+    h3 {
+      font-family: $f-bold;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    p {
+      font-family: $f-light;
+      font-size: 0.875rem;
+    }
+  }
+  .section-title-row {
+    position: relative;
+    top: -170px;
+    padding-right: 35px;
+    z-index: 500;
+  }
+  .section-title {
+    background-color: $c-dark-blue;
+    color: $c-white;
+  }
+  background-color: $c-light-blue-2;
+}

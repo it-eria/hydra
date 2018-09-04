@@ -1,0 +1,32 @@
+.main-slider {
+  height: 540px;
+  position: relative;
+  .slick-slide {
+    background-color: rgba($c-watermelon, .5);
+    &:first-child {
+      display: block;
+    }
+    &:nth-child(4n-3) {
+      background-color: rgba($c-mango, .5);
+    }
+    &:nth-child(4n-2) {
+      background-color: rgba($c-pure, .5);
+    }
+    &:nth-child(4n-1) {
+      background-color: rgba($c-pineapple, .5);
+    }
+  }
+  &__slide {
+    height: 100%;
+    display: none;
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: 100px;
+    li {
+      button {
+        background-color: $c-main-slider-dot;
+      }
+    }
+  }
+}

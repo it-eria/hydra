@@ -1,0 +1,10 @@
+@import "partials/fonts";
+@import "partials/variables";
+@import "partials/general";
+
+@media screen and (min-width: 320px) {
+  @import "partials/header";
+  @import "partials/main-slider";
+  @import "partials/our-products";
+  @import "partials/our-blog";
+}

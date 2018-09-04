@@ -1,0 +1,115 @@
+body, html {
+  min-width: 320px;
+  font-size: 16px;
+}
+/* ----  temproary ---- */
+html {
+  background-color: $c-dark;
+}
+body {
+  max-width: 375px;
+  margin: 0 auto;
+}
+/* -------------------- */
+* {
+  outline: none;
+}
+
+body {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+p,h1,h2,h3,h4,h5,h6,ul,li,a,div,section,header,footer {
+  margin: 0;
+  padding: 0;
+}
+
+strong, b {
+  font-family: $f-bold;
+}
+
+.btn, .btn:focus {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.slick-slider {
+  .slick-list, .slick-track, .slick-slide, .slick-slide > div {
+    height: 100%;
+  }
+}
+
+.slick-arrow {
+  position: absolute;
+  font-size: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.arr {
+  display: inline-block;
+}
+
+.slick-dots {
+  list-style: none;
+  width: 100%;
+  font-size: 0;
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-right: 18px;
+    &:last-child {
+      margin-right: 0;
+    }
+    button {
+      width: 8px;
+      height: 8px;
+      font-size: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: transparent;
+      opacity: .6;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+      outline: none;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &.slick-active {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.section-title {
+  display: inline-block;
+  font-family: $f-bold;
+  padding: 5px 20px 0 30px;
+  font-size: 1.25rem;
+}
+
+.more-link {
+  display: inline-block;
+  background-color: #3DF2FF;
+  padding: 0 5px;
+  font-family: $f-light;
+  font-size: 1rem;
+  color: #444444;
+  &:hover {
+    text-decoration: none;
+    color: #444444;
+  }
+}
