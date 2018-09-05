@@ -2,6 +2,7 @@
   .ml-list {
     list-style: none;
     transform: translate(0, -75%);
+    z-index: 300;
     li {
       a {
         display: block;
@@ -9,11 +10,11 @@
         font-size: 19px;
         color: $c-dark;
         background-color: #ECECEC;
-        border: 1px solid #D1D1D1;
         padding: 5px 9px 4px;
         transition: all .3s ease-in-out;
         &.active {
           font-family: $f-bold;
+          border: 1px solid #D1D1D1;
           background-image: linear-gradient(180deg, #E8E8E8 48%, #C4C4C4 100%, #B2B2B2 53%); 
         }
         &:hover {
@@ -25,13 +26,254 @@
   }
   .buy {
     display: block;
-    border-right: 150px solid rgba(#3D3D3D, .24);
-    border-top: 100px solid transparent;
-    border-bottom: 100px solid transparent;
+    width: 150px;
+    height: 200px;
+    float: right;
+    position: relative;
+    background-image: url('../img/buy-bg.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 100%;
+    overflow: hidden;
     span {
+      display: block;
+      width: 100%;
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $c-white;
+      font-family: $f-extrabold;
+      font-size: 24px;
+      line-height: 24px;
+      text-transform: uppercase;
+      text-align: right;
+      padding-right: 5px;
+      animation: buy 3s linear infinite;
+      transition: all .3s ease-in-out;
+      small {
+        display: inline-block;
+        vertical-align: top;
+        font-family: $f-regular;
+        font-size: 10px;
+        line-height: 11px;
+        text-align: center;
+        margin-left: 3px;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      span {
+        left: calc(50% + 5px);
+      }
+    }
+  }
+  .filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 208px;
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
+    background-color: #ECECEC;
+    border: 1px solid rgba(#707070, .21);
+    cursor: pointer;
+    ul {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 0;
+      list-style: none;
+      background-color: rgba(#3D3D3D, .7);
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      transition: all .3s ease-in-out;
+      overflow: hidden;
+      li {
+        a {
+          display: block;
+          padding: 10px;
+          text-align: left;
+          font-family: $f-bold;
+          font-size: 13px;
+          color: $c-white;
+          transition: all .3s ease-in-out;
+          &:hover {
+            text-decoration: none;
+            background-color: rgba(#3D3D3D, .7);
+          }
+        }
+      }
+    }
+    .current {
+      font-family: $f-regular;
+      font-size: 19px;
+      color: $c-dark;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      width: 12px;
+      height: 8px;
+      border-bottom: 1px solid #707070;
+      overflow: hidden;
+      transform-origin: 50% 50%;
+      transform: translate(0, -50%) rotate(180deg);
+      transition: all .4s ease-in-out;
+      &:after {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        background-color: #A2A2A2;
+        border: 1px solid #707070;
+        transform-origin: 50% 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -10%) rotate(45deg);
+      }
+    }
+    &.opened {
+      ul {
+        max-height: 50vh;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          width: 8px;
+          background-color: rgba($c-white, .5);
+        }  
+        &::-webkit-scrollbar-thumb {
+          width: 8px;
+          background-color: rgba($c-white, .8);
+          transition: all .3s ease-in-out;
+          border-radius: 5px;
+        }  
+        &::-webkit-scrollbar-thumb:vertical:hover {
+          background-color: $c-white;
+        }
+      }
+      .arrow {
+        transform: translate(0, -50%) rotate(0);
+      }
+    }
+  }
+  .product-page-nav {
+    background-color: rgba(#ABABAB, .16);
+    border-top: 1px solid rgba(#707070, .33);
+    border-bottom: 1px solid rgba(#707070, .33);
+    overflow-x: hidden;
+    ul {
+      display: flex;
+      list-style: none;
+      padding: 2px 0;
+      min-height: 64px;
+      li {
+        width: calc(100% / 4);
+        border-left: 1px solid rgba(#464646, .16);
+        transition: all .3s ease-in-out;
+        position: relative;
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 0;
+          position: absolute;
+          top: -2px;
+          left: 0;
+          background-color: rgba(#3D3D3D, .83);
+          transition: all .3s ease-in-out;
+        }
+        &:first-child {
+          &:before {
+            width: 100vw;
+            right: 0;
+            left: auto;
+          }
+        }
+        &:last-child {
+          &:before {
+            width: 100vw;
+          }
+        }
+        &:hover {
+          background-color: rgba(#ABABAB, .5);
+          &:before {
+            height: calc(100% + 4px);
+          }
+        }
+        &:first-child {
+          border-left: none;
+        }
+        a {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          color: $c-white;
+          font-family: $f-bold;
+          font-size: 17px;
+          line-height: 19px;
+          position: relative;
+          z-index: 500;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .flyouts {
+    padding: 20px 10px 20px 20px;
+    width: 100%;
+    height: 57vh;
+    bottom: 100%;
+    background-color: $c-white;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(#000000, .46);
+    z-index: 8888;
+    .content {
+      height: 100%;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 17px;
+        background-image: linear-gradient(180deg, #3E3E3E 0%, #7E7E7E 100%);
+      }  
+      &::-webkit-scrollbar-thumb {
+        width: 17px;
+        background-color: $c-white;
+        border-radius: 8px;
+        border: 1px solid #707070;
+      }
+    }
+    .product-detail-text {
+      font-family: $f-bold;
+      font-size: 17px;
+      line-height: 19px;
+      color: #A6BBBE;
     }
   }
 }
 
-
+@keyframes buy {
+  0% {
+    top: 48%;
+  }
+  2% {
+    top: 52%;
+  }
+  4% {
+    top: 48%;
+  }
+  6% {
+    top: 52%;
+  }
+  8% {
+    top: 50%;
+  }
+}

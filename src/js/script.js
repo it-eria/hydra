@@ -12,6 +12,16 @@ $(function() {
     });
   });
 
+  $('[data-js="filter"]').on('click', function(e) {
+    e.preventDefault();
+    $(this).toggleClass('opened');
+  });
+
+  $('[data-js="filter"] ul li a').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().parent().parent().find('.current').text($(this).text());
+  });
+
   var mainSliderParams = {
     slidesToShow: 1,
     slidesToScroll: 1,

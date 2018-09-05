@@ -2,9 +2,11 @@
   "main-slider-slides": [
    {
      "image": "img/main-slide.jpg"
-   },{
+   },
+   {
     "image": "img/main-slide-2.jpg"
-   },{
+   },
+   {
     "image": "img/main-slide-3.jpg"
    }
   ],
@@ -24,6 +26,9 @@
   ],
   "sport": {
     "body-class": "product product--sport",
-    "product-image": "img/sport.png"
+    "product-image": "img/sport.png",
+    "product-type-image": "img/sport-white.png",
+    "product-details-image": "img/A497D04B.png",
+    "product-detail-text": "We believe the perfect sports drink must include all of the benefits you need “vitamins and electrolytes” without the extra stuff you don't “synthetic colors, flavors, and added sugars” that most sports drinks have. Hydra Coco Sport allows nature to do most of the talking by combining pure “not from concentrate” coconut water loaded with the 5 most important electrolytes the body needs to remain hydrated, with key vitamins C, B12 ,B6 ,B3 ,B1, and B5 known for boosting overall health.Hydra Coco Sport is perfectly balanced sports drink for your active lifestyle, with the mouth-watering sweet taste of the tropics in every sip. We believe the perfect sports drink must include all of the benefits you need “vitamins and electrolytes” without the extra stuff you don't “synthetic colors, flavors, and added sugars” that most sports drinks have. Hydra Coco Sport allows nature to do most of the talking by combining pure “not from concentrate” coconut water loaded with the 5 most important electrolytes the body needs to remain hydrated, with key vitamins C, B12 ,B6 ,B3 ,B1, and B5 known for boosting overall health.Hydra Coco Sport is perfectly balanced sports drink for your active lifestyle, with the mouth-watering sweet taste of the tropics in every sip"
   }
 }
