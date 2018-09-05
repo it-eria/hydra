@@ -11,6 +11,15 @@
     bottom: 90px;
     right: 0;
   }
+  .decorator-2 {
+    display: block;
+    width: 28px;
+    height: 61px;
+    background-color: #9CC7F2;
+    position: absolute;
+    top: 100%;
+    right: 0;
+  }
   &__slider {
     margin-top: -210px;
     height: 245px;
@@ -18,12 +27,28 @@
     background-color: transparent;
     position: relative;
     &__slide {
-      width: calc(100% - 100px) !important;
+      width: calc(100% - 135px) !important;
       position: relative;
       height: 100%;
-      background-color: $c-white;      
+      background-color: $c-white;
       .desc {
         padding-top: 20px;
+      }
+      .product-thumbnail {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+        img {
+          display: block;
+          width: auto;
+          height: 160px;
+        }
+      }
+      .row {
+        height: 100%;
       }
       .product-title-image {
         margin-left: auto;
@@ -33,6 +58,12 @@
         left: 15px;
         top: 10px;
         z-index: 700;
+        img {
+          display: block;
+          width: auto;
+          height: 100%;
+          margin: 0 auto;
+        }
       }
       * {
         position: relative;
@@ -110,12 +141,13 @@
       }
     }
     .slick-dots {
+      width: auto;
       position: absolute;
-      bottom: 12px;
+      bottom: -3px;
       left: -15px;
-      width: calc(100% + 5px);
+      right: 0;
       background-color: #fff;
-      padding-bottom: 5px;
+      padding: 10px 0 5px;
       li {
         button {
           background-color: #476684;

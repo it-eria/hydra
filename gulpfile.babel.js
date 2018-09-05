@@ -18,9 +18,10 @@ const serverConfig = {
     baseDir: "./build",
     serveStaticOptions: {
         extensions: ["html"]
-    }        
+    }      
   },
-  notify: false
+  notify: false,
+  ghostMode: false
 }
 
 // Clear build directorie
@@ -115,7 +116,13 @@ export function watch() {
 // Build Task
 gulp.task('build', gulp.series(
   delBuild,
-  gulp.parallel(styles, vendorStyles, mustacheToHtml, scripts, fonts, images, minStyles)
+  styles,
+  vendorStyles,
+  mustacheToHtml,
+  scripts,
+  fonts,
+  images,
+  minStyles
 ));
 
 // Dev Task

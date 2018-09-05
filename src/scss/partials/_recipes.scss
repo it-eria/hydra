@@ -1,0 +1,118 @@
+.recipes {
+  padding: 20px 15px 60px;
+  background-color: rgba(#7DE2E3, .9);
+  position: relative;
+  overflow: hidden;
+  .section-title {
+    position: absolute;
+    left: 0;
+    top: 33px;
+    background-color: #9D8330;
+    color: $c-white;
+    z-index: 500;
+  }
+  .recipe-teaser {
+    background-color: rgba(#D9C148, .2);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    &:nth-child(even) {
+      background-color: transparent;
+      .teaser-desc {
+        order: 2;
+      }
+      .teaser-thumbnail {
+        order: 1;
+      }
+    }
+    &:first-child {
+      padding-top: 40px;
+    }
+  }
+  .teaser-desc {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #fff;
+    padding: 20px 10px;
+    width: 100%;
+    max-width: 44%;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16);
+    position: relative;
+    z-index: 300;
+    h3 {
+      font-family: $f-bold;
+      font-size: 1.25rem;
+      color: #6e6e6e;
+      margin-bottom: 10px;
+    }
+    a {
+      width: auto;
+      margin-top: auto;
+    }
+  }
+  .teaser-thumbnail {
+    width: 100%;
+    max-width: 57%;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16);
+    position: relative;
+    z-index: 200;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .social-media-feed-row {
+    position: relative;
+    top: -15px;
+    z-index: 600;
+  }
+  .social-media-feed-block {
+    background-color: #F5F7FD;
+    min-height: 312px;
+    flex-flow: row wrap;
+    padding: 20px 5px 20px 20px;
+    .content {
+      overflow: auto;
+      max-height: 270px;
+      margin-bottom: 10px;
+      width: 100%;
+      &::-webkit-scrollbar {
+        width: 8px;
+        background-color: rgba($c-dark, .5);
+      }  
+      &::-webkit-scrollbar-thumb {
+        width: 5px;
+        background-color: rgba($c-dark, .5);
+        transition: all .3s ease-in-out;
+      }  
+      &::-webkit-scrollbar-thumb:vertical:hover {
+        background-color: $c-dark;
+      }
+    }
+    a {
+      display: block;
+      margin: auto auto 0 auto;
+      background-color: #4D4D4D;
+      color: #fff;
+      font-family: $f-bold;
+      font-size: 1.3125rem;
+      padding: 10px 12px;
+      transition: all .3s ease-in-out;
+      &:hover {
+        text-decoration: none;
+        background-color: rgba(#4D4D4D, .8);
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 500;
+      width: 50%;
+      height: calc(100% + 220px);
+      background-color: #F5F7FD;
+      left: 100%;
+      bottom: 0;
+    }
+  }
+}

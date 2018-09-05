@@ -1,0 +1,32 @@
+<section class="recipes" data-aos="fade-up">
+  <div class="section-title" data-aos="fade-right" data-aos-delay="300">
+    <h2>Recipes</h2>
+  </div>
+  <div class="container">
+    {{#recipe-teasers}}
+    <div class="row justify-content-center recipe-teaser" data-aos="fade-up" data-aos-delay="600">
+      <div class="col-11">
+        <div class="d-flex">
+          <div class="teaser-desc">
+            <h3>{{title}}</h3>
+            <a href="#" class="more-link">Read More</a>
+          </div>
+          <div class="teaser-thumbnail">
+            <img src="img/pic-3.jpg" alt="image">
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/recipe-teasers}}
+    <div class="row social-media-feed-row justify-content-center" data-aos="fade-right" data-aos-delay="300">
+      <div class="col-11">
+        <div class="d-flex position-relative social-media-feed-block">
+          <div class="content">
+            <!-- Here will be feeds -->
+          </div>
+          <a href="#">Social Media Feed</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

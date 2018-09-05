@@ -48,4 +48,6 @@ $(function() {
   $('[data-js="main-slider"]').slick(mainSliderParams);
   $('[data-js="our-products__slider"]').slick(productsSliderParams);
   $('[data-js="our-products__desc-slider"]').slick(productsDescSliderParams);
+
+  AOS.init();
 });
