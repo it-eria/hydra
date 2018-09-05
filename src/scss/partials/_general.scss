@@ -20,6 +20,12 @@ body {
   height: auto;
   min-height: 100vh;
   line-height: 1.5;
+  &.product {
+    min-height: 100%;
+    &--sport {
+      background-color: #A0C6EC;
+    }
+  }
 }
 
 p,h1,h2,h3,h4,h5,h6,ul,li,a,div,section,header,footer {

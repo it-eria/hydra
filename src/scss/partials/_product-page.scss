@@ -1,0 +1,37 @@
+.b-product {
+  .ml-list {
+    list-style: none;
+    transform: translate(0, -75%);
+    li {
+      a {
+        display: block;
+        font-family: $f-regular;
+        font-size: 19px;
+        color: $c-dark;
+        background-color: #ECECEC;
+        border: 1px solid #D1D1D1;
+        padding: 5px 9px 4px;
+        transition: all .3s ease-in-out;
+        &.active {
+          font-family: $f-bold;
+          background-image: linear-gradient(180deg, #E8E8E8 48%, #C4C4C4 100%, #B2B2B2 53%); 
+        }
+        &:hover {
+          text-decoration: none;
+          background-color: darken(#ECECEC, 5%);
+        }
+      }
+    }
+  }
+  .buy {
+    display: block;
+    border-right: 150px solid rgba(#3D3D3D, .24);
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    span {
+      position: absolute;
+    }
+  }
+}
+
+

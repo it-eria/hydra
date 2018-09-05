@@ -1,6 +1,12 @@
 {
   "main-slider-slides": [
-   {},{},{}
+   {
+     "image": "img/main-slide.jpg"
+   },{
+    "image": "img/main-slide-2.jpg"
+   },{
+    "image": "img/main-slide-3.jpg"
+   }
   ],
   "our-products-slides": [
     {},{},{}
@@ -15,5 +21,9 @@
     {
       "title": "Coconut Grapefruit"
     }
-  ]
+  ],
+  "sport": {
+    "body-class": "product product--sport",
+    "product-image": "img/sport.png"
+  }
 }
