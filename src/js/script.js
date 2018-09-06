@@ -22,14 +22,32 @@ $(function() {
     $(this).parent().parent().parent().find('.current').text($(this).text());
   });
 
+  $('[data-js="product-page-nav"] ul li a').on('click', function(e) {
+    e.preventDefault();
+    if($(this).parent().hasClass('active')) {
+      $('[data-js="product-page-nav"] ul li').removeClass('active');
+      $('.flyouts').slideUp(300);
+      $('.flyouts #'+target).fadeOut(300);
+    } else {
+      var target = $(this).attr('data-target');
+      $('[data-js="product-page-nav"] ul li').removeClass('active');
+      $(this).parent().toggleClass('active');
+      $('.flyouts .inf-window').hide();
+      $('.flyouts').slideDown(300);
+      $('.flyouts #'+target).fadeIn(300);
+    }
+  });
+
   var mainSliderParams = {
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
-    dots: true,
+    dots: false,
     autoplay: true,
-    autoplaySpeed: 5000
+    autoplaySpeed: 8000,
+    fade: true,
+    speed: 600
   }
   
   var productsSliderParams = {

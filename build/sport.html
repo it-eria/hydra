@@ -103,10 +103,10 @@
       </div>
     </div>
   </div>
-  <div class="position-relative  mt-4">
+  <div class="position-relative mt-4">
     <div class="flyouts position-absolute">
-      <div class="content">
-        <div id="product-details">
+      <div class="inf-window" id="product-details">
+        <div class="content">
           <div class="text-center">
             <img src="img&#x2F;A497D04B.png" alt="product details image" class="img-fluid">
           </div>
@@ -115,8 +115,20 @@
           </div>
         </div>
       </div>
+      <div class="inf-window text-center" id="nutrion">
+        <div class="content">
+          <img src="img/nutrion.jpg" alt="nutrion" class="nutrion-image">
+        </div>
+        <span><b>Ingredients:</b> CoconutWater, Less than 1% of Citric Acid, abscorbic acid (Vitamin C), Thiamin (Vitamin B1), Niacinamide (Vitamin B3 ), Pyridoxine hcl (Vitamin B6), Cyanocobalamin (Vitamin B12), Panthotenic acid (Vitamin B5)</span>
+      </div>
+      <div class="inf-window" id="store">
+        <h5>Store Locator:</h5>
+        <div class="content">
+          
+        </div>
+      </div>
     </div>
-    <div class="product-page-nav">
+    <div class="product-page-nav" data-js="product-page-nav">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -127,12 +139,12 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" data-target="nutrion">
                   Nutrition
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" data-target="store">
                   Store Locator
                 </a>
               </li>
