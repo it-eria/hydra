@@ -69,12 +69,17 @@
     }
   }
   .label-for-filter {
-    text-align: center;
-    font-family: $f-regular;
-    font-size: 10px;
-    line-height: 11px;
-    text-align: center;
-    color: #fff;
+    max-width: 208px;
+    margin: 0 auto;
+    h5 {
+      text-align: left;
+      font-family: $f-regular;
+      text-transform: uppercase;
+      font-size: 10px;
+      line-height: 11px;
+      color: #fff;
+      margin-bottom: 5px;
+    }
   }
   .filter {
     display: flex;
@@ -238,7 +243,7 @@
   }
   .flyouts {
     width: 100%;
-    height: 61vh;
+    height: 80vh;
     bottom: 100%;
     background-color: $c-white;
     border-radius: 20px;
@@ -343,11 +348,10 @@
         }
         .results {
           max-width: calc(80% + 30px);
-          border-top: 1px solid #eeeeee;
           margin: 20px auto 0;
-          padding: 0 15px;
           &__header {
-            padding: 10px 0;
+            padding: 10px 15px;
+            border-top: 1px solid #eeeeee;
             font-family: $f-regular;
             font-size: 17px;
             color: $c-dark;
@@ -374,12 +378,46 @@
             }
           }
           &__list {
-            padding: 0 15px;
             ul {
               list-style: none;
               li {
-                padding: 20px 0;
                 border-top: 1px solid #eeeeee;
+                padding: 20px 15px;
+                color: $c-dark;
+                h5 {
+                  font-size: 18px;
+                  font-family: $f-bold;
+                }
+                address {
+                  font-family: $f-regular;
+                  font-size: 16px;
+                  margin-bottom: 5px;
+                }
+                span {
+                  font-family: $f-regular;
+                  font-size: 16px;
+                }
+                .more {
+                  display: block;
+                  width: 15px;
+                  height: 15px;
+                  background-color: $c-dark;
+                  border-radius: 50%;
+                  position: relative;
+                  &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 70%;
+                    height: 70%;
+                    border: 2px solid #fff;
+                    border-left: none;
+                    border-bottom: none;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                  }
+                }
               }
             }
           }
