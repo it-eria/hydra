@@ -41,6 +41,11 @@ $(function() {
     }
   });
 
+  $('[data-js="panel__title"]').on('click', function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('active').find('.panel__body').slideToggle(300);
+  });
+
   var mainSliderParams = {
     slidesToShow: 1,
     slidesToScroll: 1,
