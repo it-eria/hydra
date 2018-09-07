@@ -103,14 +103,23 @@ strong, b {
 .section-title {
   display: inline-block;
   font-family: $f-bold;
-  padding: 5px 20px 0 30px;
-  font-size: 1.25rem;
+  padding: 0 16px;
+  h2 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  &--big {
+    padding: 7px 26px;
+    h2 {
+      font-size: 25px;
+    }
+  }
 }
 
 .more-link {
   display: inline-block;
   background-color: #3DF2FF;
-  padding: 0 5px;
+  padding: 0 7px;
   font-family: $f-light;
   font-size: 1rem;
   color: #444444;
@@ -118,6 +127,48 @@ strong, b {
     text-decoration: none;
     color: #444444;
   }
+}
+
+.view-all {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: $f-bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff;
+  &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/view-all.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    margin-left: 10px;
+    position: relative;
+    top: -1px;
+    left: 0;
+    transition: all .3s ease-in-out;
+  }
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    &:after {
+      left: 5px;
+    }
+  }
+}
+
+i.quotes {
+  display: inline-block;
+  width: 37px;
+  height: 37px;
+  background-image: url('../img/quotes.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .z-index {

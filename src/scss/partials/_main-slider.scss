@@ -3,7 +3,7 @@
   
 }
 .main-slider {
-  height: 540px;
+  height: 640px;
   position: relative;
   .slick-slide {
     background-color: rgba($c-watermelon, .5);
@@ -43,16 +43,16 @@
     &:nth-child(1) {
       .main-slider__slide {
         .learn-more {
-          top: 42%;
-          left: 54%;
+          top: 36%;
+          left: 52%;
         }
       }
     }
     &:nth-child(2) {
       .main-slider__slide {
         .learn-more {
-          top: 59%;
-          left: 61%;
+          top: 56%;
+          left: 58%;
         }
       }
     }
@@ -61,13 +61,16 @@
         .learn-more {
           background-color: #fff;
           color: #5471d9;
+          top: 57%;
+          left: 42%;
         }
       }
     }
     &:nth-child(4) {
       .main-slider__slide {
         .learn-more {
-          left: 49%;
+          top: 43%;
+          left: 47%;
         }
       }
     }

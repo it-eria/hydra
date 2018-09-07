@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="372px" height="141px" viewBox="0 0 372 141" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>social background</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.06">
+        <g id="iPhone-8_08" transform="translate(-3.000000, -3474.000000)" fill="#5471D9" fill-rule="nonzero">
+            <g id="social-background" transform="translate(3.000000, 3474.000000)">
+                <polygon id="Rectangle_161" points="290 35 382 35 382 86 290 86"></polygon>
+                <polygon id="Rectangle_161" points="290 35 382 35 382 86 290 86"></polygon>
+                <polygon id="Rectangle_161" points="15 0 107 0 107 51 15 51"></polygon>
+                <polygon id="Rectangle_161" points="139 90 231 90 231 141 139 141"></polygon>
+                <polygon id="Rectangle_161" transform="translate(180.000000, 72.500000) rotate(-270.000000) translate(-180.000000, -72.500000) " points="134 -107 226 -107 226 252 134 252"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

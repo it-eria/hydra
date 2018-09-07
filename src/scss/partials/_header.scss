@@ -104,29 +104,27 @@
           display: block;
           position: absolute;
           z-index: 200;
-          top: 0;
+          top: 15px;
           right: 0;
-          left: 70%;
-          height: 68px;
+          left: 90%;
+          height: 48px;
           cursor: pointer;
           &:after {
             content: '';
             display: block;
-            width: 15px;
-            height: 15px;
-            border: 1px solid $c-light-grey;
+            border-top: 7px solid $c-dark;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
             transform-origin: 50% 50%;
-            transform: translate(-50%, -100%) rotate(45deg);
+            transform: translate(-50%, -50%);
             position: absolute;
-            bottom: 5px;
-            right: 0;
-            border-top: none;
-            border-left: none;
+            top: 50%;
+            left: 50%;
             transition: all .3s ease-in-out;
           }
           &:hover {
             &:after {
-              bottom: 0; 
+              transform: translate(-50%, -20%);    
             }
           }
         }
@@ -172,12 +170,7 @@
           }
           .arr--down {
             &:after {
-              transform: translate(-50%, -50%) rotate(225deg);
-            }
-            &:hover {
-              &:after {
-                bottom: 5px; 
-              }
+              transform: translate(-50%, -50%) rotate(180deg);
             }
           }
         }

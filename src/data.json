@@ -18,13 +18,16 @@
   ],
   "recipe-teasers": [
     {
-      "title": "Coconut Grapefruit"
+      "title": "Coconut Grapefruit Smoothie",
+      "image": "img/pic-3.jpg"
     },
     {
-      "title": "Coconut Grapefruit"
+      "title": "Refreshing Cucumber Coconut Ice Pops",
+      "image": "img/pic-4.jpg"
     },
     {
-      "title": "Coconut Grapefruit"
+      "title": "Mango Coco Daquiris",
+      "image": "img/pic-5.jpg"
     }
   ],
   "sport": {

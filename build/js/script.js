@@ -44,7 +44,7 @@ $(function() {
     infinite: true,
     arrows: false,
     dots: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 8000,
     fade: true,
     speed: 600
@@ -56,8 +56,7 @@ $(function() {
     infinite: true,
     arrows: true,
     dots: true,
-    autoplay: true,
-    variableWidth: true,
+    autoplay: false,
     autoplaySpeed: 5000,
     asNavFor: '[data-js="our-products__desc-slider"]'
   }
@@ -76,6 +75,16 @@ $(function() {
   $('[data-js="main-slider"]').slick(mainSliderParams);
   $('[data-js="our-products__slider"]').slick(productsSliderParams);
   $('[data-js="our-products__desc-slider"]').slick(productsDescSliderParams);
+
+  $('[data-js="recipe-teaser-thumbnail"]').each(function() {
+    if($(this).find('img').length > 0) {
+      var imgUrl = $(this).find('img').attr('src');
+      $(this).find('img').css('opacity', '0');
+      $(this).css({
+        'background-image': 'url(' + imgUrl + ')'
+      });
+    }
+  });
 
   AOS.init();
 });

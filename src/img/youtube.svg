@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>youtube</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
+        <g id="iPhone-8_08" transform="translate(-199.000000, -3520.000000)">
+            <g id="Group-11" transform="translate(59.000000, 3520.000000)">
+                <g id="youtube" transform="translate(140.000000, 0.000000)">
+                    <rect id="Rectangle-2" stroke="#5471D9" x="0.5" y="0.5" width="49" height="49"></rect>
+                    <g id="youtube-2" transform="translate(10.000000, 14.000000)" fill="#5471D9" fill-rule="nonzero">
+                        <path d="M23.717987,0.0255194805 L6.21714286,0.0255194805 C2.78350649,0.0255194805 0,2.80902597 0,6.24266234 L0,14.9912338 C0,18.4248701 2.78350649,21.2083766 6.21714286,21.2083766 L23.717987,21.2083766 C27.1516234,21.2083766 29.9351299,18.4248701 29.9351299,14.9912338 L29.9351299,6.24266234 C29.9351299,2.80902597 27.1516234,0.0255194805 23.717987,0.0255194805 Z M19.5133766,11.0425974 L11.3276623,14.9466883 C11.1095455,15.0507143 10.8575974,14.8916883 10.8575974,14.6500649 L10.8575974,6.59785714 C10.8575974,6.35279221 11.1161688,6.19396104 11.3347403,6.30474026 L19.5204545,10.4528571 C19.7638312,10.5761688 19.7596104,10.9251948 19.5133766,11.0425974 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
