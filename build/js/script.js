@@ -7,8 +7,11 @@ $(function() {
   
   $('[data-js="main-nav"] > ul > li').each(function(index) {
     if($(this).find('ul').length > 0) $(this).append('<span class="arr arr--down"></span>');
-    $('[data-js="main-nav"] > ul > li > .arr--down').on('click', function() {
-      $(this).parent().toggleClass('open');
+    $('[data-js="main-nav"] > ul > li').on('click', function(e) {
+      if($(this).find('.arr--down').length > 0) {
+        e.preventDefault();
+        $(this).toggleClass('open');
+      }
     });
   });
 
