@@ -543,7 +543,12 @@
     }
     .product-detail-title {
       h4 {
-        font-family: $f-b-medium;
+        span {
+          font-family: $f-b-light;
+          font-style: normal;
+          font-size: 29px;
+        }
+        font-family: $f-b-demi;
         font-size: 31px;
         color: #000000;
         font-style: italic;
@@ -563,7 +568,11 @@
   }
   .product-type {
     h3 {
-      font-family: $f-b-medium;
+      span {
+        font-family: $f-b-light;
+        font-style: normal;
+      }
+      font-family: $f-b-demi;
       font-size: 31px;
       color: #fff;
       font-style: italic;
