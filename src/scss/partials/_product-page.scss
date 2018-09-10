@@ -280,7 +280,7 @@
           padding-left: 5px;
           font-size: 12px;
           line-height: 14px;
-          color: #878787;
+          color: #78878a;
           max-height: 56px;
           overflow: hidden;
           b {
@@ -370,7 +370,7 @@
           margin: 20px auto 0;
           &__header {
             padding: 10px 15px;
-            border-top: 1px solid #eeeeee;
+            border-top: 1px solid rgba($c-dark, .2);
             font-family: $f-regular;
             font-size: 17px;
             color: $c-dark;
@@ -400,7 +400,7 @@
             ul {
               list-style: none;
               li {
-                border-top: 1px solid #eeeeee;
+                border-top: 1px solid rgba($c-dark, .2);
                 padding: 20px 15px;
                 color: $c-dark;
                 h5 {

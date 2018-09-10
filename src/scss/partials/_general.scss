@@ -36,7 +36,7 @@ body {
       background-color: #A0C6EC;
       .b-product {
         .flyouts {
-          background-color: lighten(#A0C6EC, 15%);
+          background-color: lighten(#A0C6EC, 41%);
         }
       }
     }
@@ -44,9 +44,26 @@ body {
       background-color: #DC673C;
       .b-product {
         .flyouts {
-          background-color: lighten(#DC673C, 15%);
-          .product-detail-text {
-            color: rgba($c-white, .8);
+          background-color: lighten(#DC673C, 41%);
+          .inf-window#faq {
+            color: #DC673C;
+            h3 {
+              color: currentColor;
+            }
+            .panel {
+              &__title {
+                color: currentColor;
+                &:after {
+                  border-color: currentColor;
+                }
+              }
+            }
+            .more {
+              background-color: #DC673C;
+              &:hover {
+                background-color: darken(#DC673C, 5%);
+              }
+            }
           }
         }
       }
@@ -55,24 +72,83 @@ body {
       background-color: #FECE00;
       .b-product {
         .flyouts {
-          background-color: lighten(#FECE00, 15%);
+          background-color: lighten(#FECE00, 41%);
+          .inf-window#faq {
+            color: #FECE00;
+            h3 {
+              color: currentColor;
+            }
+            .panel {
+              &__title {
+                color: currentColor;
+                &:after {
+                  border-color: currentColor;
+                }
+              }
+            }
+            .more {
+              background-color: #FECE00;
+              &:hover {
+                background-color: darken(#FECE00, 5%);
+              }
+            }
+          }
         }
-      }
-      
+      }      
     }
     &--watermelon-and-lime {
       background-color: #FB4667;
       .b-product {
         .flyouts {
-          background-color: lighten(#FB4667, 15%);
+          background-color: lighten(#FB4667, 34%);
+          .inf-window#faq {
+            color: #FB4667;
+            h3 {
+              color: currentColor;
+            }
+            .panel {
+              &__title {
+                color: currentColor;
+                &:after {
+                  border-color: currentColor;
+                }
+              }
+            }
+            .more {
+              background-color: #FB4667;
+              &:hover {
+                background-color: darken(#FB4667, 5%);
+              }
+            }
+          }
         }
-      }
+      } 
     }
     &--pure {
       background-color: #C5D9A6;
       .b-product {
         .flyouts {
-          background-color: lighten(#C5D9A6, 15%);
+          background-color: lighten(#C5D9A6, 22%);
+          .inf-window#faq {
+            color: rgb(173, 200, 131);
+            h3 {
+              color: currentColor;
+            }
+            .panel {
+              &__title {
+                color: currentColor;
+                &:after {
+                  border-color: currentColor;
+                }
+              }
+            }
+            .more {
+              background-color: rgb(173, 200, 131);
+              &:hover {
+                background-color: darken(rgb(173, 200, 131), 5%);
+              }
+            }
+          }
         }
       }
     }
