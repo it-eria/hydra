@@ -65,24 +65,11 @@ $(function() {
     arrows: true,
     dots: true,
     autoplay: false,
-    autoplaySpeed: 5000,
-    asNavFor: '[data-js="our-products__desc-slider"]'
-  }
-
-  var productsDescSliderParams = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    arrows: false,
-    dots: false,
-    autoplay: false,
-    swipe: false,
-    draggable: false
+    autoplaySpeed: 5000
   }
 
   $('[data-js="main-slider"]').slick(mainSliderParams);
   $('[data-js="our-products__slider"]').slick(productsSliderParams);
-  $('[data-js="our-products__desc-slider"]').slick(productsDescSliderParams);
 
   $('[data-js="recipe-teaser-thumbnail"]').each(function() {
     if($(this).find('img').length > 0) {
