@@ -531,6 +531,7 @@
         overflow-y: auto;
         border: 1px solid $c-dark;
         background-color: #fff;
+        position: relative;
         &::-webkit-scrollbar {
           width: 17px;
           background-image: linear-gradient(180deg, #3E3E3E 0%, #7E7E7E 100%);
@@ -559,14 +560,37 @@
     }
     .product-detail-text {
       font-family: $f-bold;
-      font-size: 17px;
-      line-height: 19px;
+      font-size: 10px;
+      line-height: 12px;
       // color: #A6BBBE;
       color: rgb(120, 135, 138);
     }
     .nutrion-image {
       width: 100%;
       height: auto;
+      left: 0;
+      top: 0;
+      opacity: .3;
+    }
+    .nutrition-table {
+      max-width: 90%;
+      margin: 8px auto;
+      padding: 0 3px;
+      color: #000000;
+      border: 2px solid currentColor;
+      text-align: left;
+      * {
+        color: #000000;
+      }
+      h2 {
+        font-family: $f-extrabold;
+        font-size: 35px;
+        line-height: 40px;
+        letter-spacing: 3px;
+        border-bottom: 1px solid #000;
+        margin: 0 0 3px 0;
+        padding: 0;
+      }
     }
   }
   .product-type {
