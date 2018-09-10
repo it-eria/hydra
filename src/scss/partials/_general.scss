@@ -9,8 +9,7 @@ html {
   background-color: $c-dark;
 }
 body {
-  // max-width: 375px;
-  max-width: 992px;
+  max-width: 375px;
   margin: 0 auto;
   overflow-x: hidden;
 }
@@ -35,18 +34,47 @@ body {
     min-height: 100%;
     &--sport {
       background-color: #A0C6EC;
+      .b-product {
+        .flyouts {
+          background-color: lighten(#A0C6EC, 15%);
+        }
+      }
     }
     &--mango {
       background-color: #DC673C;
+      .b-product {
+        .flyouts {
+          background-color: lighten(#DC673C, 15%);
+          .product-detail-text {
+            color: rgba($c-white, .8);
+          }
+        }
+      }
     }
     &--pineapple {
       background-color: #FECE00;
+      .b-product {
+        .flyouts {
+          background-color: lighten(#FECE00, 15%);
+        }
+      }
+      
     }
     &--watermelon-and-lime {
       background-color: #FB4667;
+      .b-product {
+        .flyouts {
+          background-color: lighten(#FB4667, 15%);
+        }
+      }
     }
     &--pure {
       background-color: #C5D9A6;
+      .b-product {
+        .flyouts {
+          background-color: lighten(#C5D9A6, 15%);
+        }
+      }
     }
   }
 }

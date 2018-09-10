@@ -263,7 +263,7 @@
     background-color: $c-white;
     border-radius: 20px;
     box-shadow: 0 3px 6px rgba(#000000, .46);
-    z-index: 8888;
+    z-index: 999999;
     display: none;
     .inf-window {
       padding: 20px 10px 20px 20px;
@@ -492,7 +492,7 @@
           }
           &__body {
             padding: 5px 15px;
-            background-color: #fafafa;
+            // background-color: #fafafa;
             border: 2px solid #dadada;
             border-top: none;
             display: none;
@@ -559,7 +559,8 @@
       font-family: $f-bold;
       font-size: 17px;
       line-height: 19px;
-      color: #A6BBBE;
+      // color: #A6BBBE;
+      color: rgb(120, 135, 138);
     }
     .nutrion-image {
       width: 100%;
