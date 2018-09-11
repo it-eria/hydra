@@ -306,3 +306,9 @@ i.quotes {
     z-index: 200;
   }
 }
+
+@media body and (min-height: 500px) {
+  .b-product .flyouts {
+    height: 80vh;
+  }
+}

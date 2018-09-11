@@ -266,7 +266,7 @@
     z-index: 999999;
     display: none;
     .inf-window {
-      padding: 20px 10px 20px 20px;
+      padding: 20px 20px 20px 20px;
       height: 100%;
       &#nutrion {
         .content {
@@ -455,7 +455,7 @@
         }
         h3 {
           text-align: center;
-          color: #005d99;
+          color: rgb(72,72,72);
           font-family: $f-extrabold;
           text-transform: uppercase;
           font-size: 20px;
@@ -469,7 +469,7 @@
             position: relative;
             padding: 15px 35px 15px 15px;
             font-family: $f-bold;
-            color: #005d99;
+            color: rgb(72,72,72);
             font-size: 19px;
             line-height: 21px;
             border: 2px solid #dadada;
@@ -479,7 +479,7 @@
               display: block;
               width: 15px;
               height: 15px;
-              border: 5px solid #00a8da;
+              border: 5px solid rgb(72,72,72);
               border-left: none;
               border-top: none;
               position: absolute;
@@ -492,7 +492,7 @@
           }
           &__body {
             padding: 5px 15px;
-            // background-color: #fafafa;
+            background-color: #fff;
             border: 2px solid #dadada;
             border-top: none;
             display: none;
@@ -559,10 +559,10 @@
       }
     }
     .product-detail-text {
+      padding: 0 15px !important;
       font-family: $f-bold;
-      font-size: 10px;
-      line-height: 12px;
-      // color: #A6BBBE;
+      font-size: 12px;
+      line-height: 14px;
       color: rgb(120, 135, 138);
     }
     .nutrion-image {
@@ -584,12 +584,122 @@
       }
       h2 {
         font-family: $f-extrabold;
-        font-size: 35px;
-        line-height: 40px;
-        letter-spacing: 3px;
+        font-size: 33px;
+        line-height: 33px;
+        letter-spacing: 2px;
         border-bottom: 1px solid #000;
-        margin: 0 0 3px 0;
+        margin: 0;
         padding: 0;
+      }
+      h4 {
+        font-family: $f-regular;
+        font-size: 20px;
+      }
+      .serving-size {
+        border-bottom: 8px solid currentColor;
+        &:after {
+          content: '';
+          display: block;
+          width: 100%;
+          clear: both;
+        }
+        * {
+          font-family: $f-bold;
+          vertical-align: bottom;
+        }
+        h3 {
+          float: left;
+          font-size: 18px;
+          padding: 0;
+          margin: 0;
+        }
+        span {
+          font-family: $f-bold !important;
+          float: right;
+          margin-top: 0 !important;
+          font-size: 16px !important;
+          color: #000 !important;
+        }
+      }
+      .amount {
+        border-bottom: 6px solid currentColor;
+        * {
+          font-family: $f-bold;
+          vertical-align: bottom;
+        }
+        small {
+          font-family: $f-bold;
+          font-size: 16px;
+          display: block;
+        }
+        h3 {
+          float: left;
+          font-size: 27px;
+          line-height: 20px;
+          margin: 0;
+          padding: 0;
+        }
+        p {
+          float: right;
+          font-size: 36px;
+          line-height: 14px;
+        }
+      }
+      .border-bottom {
+        border-bottom: 1px solid rgba(#000, .2) !important;
+      }
+      h6 {
+        font-family: $f-bold;
+        font-size: 14px;
+        padding-top: 2px;
+      }
+      ul {
+        list-style: none;
+        border-bottom: 6px solid #000;
+        li {
+          border-top: 1px solid rgba(#000, .2);
+          font-size: 16px;
+          font-family: $f-regular;
+          &:first-child {
+            border-top: none;
+          }
+          b {
+            font-family: $f-extrabold;
+          }
+          i {
+            font-style: italic;
+          }
+          span {
+            font-size: 16px !important;
+            line-height: 19px !important;
+            font-family: $f-extrabold !important;
+            float: right;
+            margin-top: 2px !important;
+            color: #000 !important;
+          }
+          &:after {
+            content: '';
+            display: block;
+            clear: both;
+          }
+          ul {
+            border-bottom: none;
+            li {
+              padding-left: 15px;
+              &:first-child {
+                border-top: 1px solid rgba(#000, .2);
+              }
+            }
+          }
+        }
+      }
+      .text-after {
+        p {
+          font-size: 12px;
+          font-family: $f-regular;
+          color: #000;
+          line-height: 14px !important;
+        }
       }
     }
   }

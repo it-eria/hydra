@@ -1,8 +1,8 @@
 .b-faq {
-  background-color: #fff;
+  padding-top: 100px !important;
   h3 {
     text-align: center;
-    color: #005d99;
+    color: rgb(72,72,72);
     font-family: $f-extrabold;
     text-transform: uppercase;
     font-size: 20px;
@@ -16,17 +16,18 @@
       position: relative;
       padding: 15px 35px 15px 15px;
       font-family: $f-bold;
-      color: #005d99;
+      color: rgb(72,72,72);
       font-size: 19px;
       line-height: 21px;
       border: 2px solid #dadada;
+      background-color: #fff;
       cursor: pointer;
       &:after {
         content: '';
         display: block;
         width: 15px;
         height: 15px;
-        border: 5px solid #00a8da;
+        border: 5px solid rgb(72,72,72);
         border-left: none;
         border-top: none;
         position: absolute;
@@ -39,7 +40,7 @@
     }
     &__body {
       padding: 5px 15px;
-      background-color: #fafafa;
+      background-color: #fff;
       border: 2px solid #dadada;
       border-top: none;
       display: none;
