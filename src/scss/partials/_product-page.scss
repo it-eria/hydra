@@ -276,15 +276,19 @@
         span {
           margin-top: 15px;
           display: block;
+          background-color: #fff;
+          padding: 5px;
           font-family: $f-light;
           padding-left: 5px;
           font-size: 12px;
           line-height: 14px;
           color: #78878a;
-          max-height: 56px;
+          max-height: 66px;
           overflow: hidden;
+          border-radius: 6px;
           b {
-            font-family: $f-bold;
+            font-weight: 900;
+            font-family: $f-extrabold;
           }
         }
       }
