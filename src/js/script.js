@@ -51,8 +51,8 @@ $(function() {
     slidesToScroll: 1,
     infinite: true,
     arrows: false,
-    dots: false,
-    autoplay: false,
+    dots: true,
+    autoplay: true,
     autoplaySpeed: 8000,
     fade: true,
     speed: 600
