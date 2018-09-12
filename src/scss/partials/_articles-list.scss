@@ -1,0 +1,105 @@
+.articles-list {
+  padding-top: 100px;
+}
+
+.article-small {
+  border: 1px solid #dadada;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0, .3);
+  padding: 10px;
+  border-radius: 6px;
+  & + .article-small {
+    margin-top: 30px;
+  }
+  .thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 6px;
+    img {
+      transition: all 1.3s linear;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .title {
+    a {
+      font-family: $f-bold;
+      font-size: 28px;
+      line-height: 30px;
+      color: #777777;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+  p {
+    font-family: $f-regular;
+    font-size: 17px;
+    color: rgba(#000, .5);
+  }
+  .read-more {
+    display: inline-flex;
+    padding: 3px 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #5471d9;
+    color: #fff;
+    font-family: $f-regular;
+    font-size: 17px;
+    border-radius: 3px;
+    text-transform: capitalize;
+    transition: all .3s ease-in-out;
+    &:hover {
+      background-color: darken(#5471d9, 5%);
+      text-decoration: none;
+    }
+  }
+}
+
+.share-wrapper {
+  h6 {
+    font-family: $f-bold;
+    font-size: 14px;
+    color: #777777;
+  }
+  .socials-list {
+    display: block;
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-size: 0;
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: contain;
+        transition: all .3s ease-in-out;
+        &:hover {
+          background-color: rgba(#5471d9, .3);
+        }
+        &.fb {
+          background-image: url('../img/facebook.svg');
+        }
+        &.pt {
+          background-image: url('../img/pinterest.svg');
+        }
+        &.inst {
+          background-image: url('../img/instagram.svg');
+        }
+        &.yt {
+          background-image: url('../img/youtube.svg');
+        }
+      }
+    }
+  }
+}

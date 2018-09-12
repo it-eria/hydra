@@ -23,7 +23,7 @@
     },
     {
       "title": "Refreshing Cucumber Coconut Ice Pops",
-      "image": "img/pic-4.jpg"
+      "image": "img/pic-6.jpg"
     },
     {
       "title": "Mango Coco Daquiris",
@@ -68,6 +68,241 @@
     "body-class": "inner-page"
   },
   "faq": {
+    "body-class": "inner-page",
+    "outer-panels": [
+      {
+        "outer-title": "Coconut water",
+        "inner-panels": [
+          {
+            "inner-title": "Does Vita Coco need to be refrigerated? How long does Vita Coco last?",
+            "inner-body": "Tetra Pak allows our coconut water to be shelf stable for up to 12 months outside of the fridge. For best taste, after you open a Vita Coco, place it in a refrigerator and consume within 24-48 hours—nobody likes sour coconuts."
+          },
+          {
+            "inner-title": "When should I drink Vita Coco?",
+            "inner-body": "Our coconut water is good anytime and anywhere! But for starters, we find that most people like coconut water: on the go; before, during, or after exercise; as a mixer; after a night out; in smoothies; and with meals!"
+          },
+          {
+            "inner-title": "How much Vita Coco should I drink?",
+            "inner-body": "Your consumption of our coconut water should be based on personal lifestyle, diet activity level, and always with moderation in mind!"
+          },
+          {
+            "inner-title": "Is it safe to drink Vita Coco while pregnant?",
+            "inner-body": "Yes! Pregnant women can drink our coconut water, because it’s flash pasteurized (learn more about flash pasteurization in the OUR PRODUCTS section). If you have an allergy or health condition, check with a physician before consuming Vita Coco just to be safe!"
+          },
+          {
+            "inner-title": "What is coconut water?",
+            "inner-body": "Coconut water is the clear, fat-free liquid that’s inside a young coconut when you crack it open! It’s naturally rich electrolytes, especially potassium. It’s low in calories, cholesterol-free, and tastes great!"
+          },
+          {
+            "inner-title": "Is Vita Coco coconut water gluten-free?",
+            "inner-body": "You bet! All of our products are gluten-free!"
+          },
+          {
+            "inner-title": "Does coconut water have electrolytes?",
+            "inner-body": "Vita Coco contains naturally occurring electrolytes like potassium—more hydration, less funny business!"
+          },
+          {
+            "inner-title": "How many calories are in Vita Coco coconut water?",
+            "inner-body": "Not much! Our original coconut water contains 45 calories per serving."
+          },
+          {
+            "inner-title": "Is Vita Coco kosher?",
+            "inner-body": "Yup—kosher and K-star certified."
+          },
+          {
+            "inner-title": "Are Vita Coco beverages pasteurized?",
+            "inner-body": "Yes! After coconuts are harvested, washed, and cracked open, the liquid inside is flash-pasteurized and then packaged in a Tetra Pak. Flash pasteurization helps preserve the best natural flavor and nutrients, kill potentially harmful bacteria, and make Vita Coco coconut water shelf-stable for up to 12 months."
+          },
+          {
+            "inner-title": "How do you read the best-by date?",
+            "inner-body": "Not the way you think—the best-by date, found at the top of every Tetra Pak, is dated 12 months from the production date, and is read as such: day/month/year."
+          },
+          {
+            "inner-title": "What is Tetra Pak?",
+            "inner-body": "Tetra Pak is a BPA-free, eco- and socially-responsible form of packaging made from wood fiber, a sustainable resource. Tetra Pak keeps our coconut water fresh and gives it a shelf life of up to 12 months. For more information, visit www.tetrapak.com."
+          },
+          {
+            "inner-title": "Does Vita Coco add sugar to its coconut water?",
+            "inner-body": "Yes, a little bit—hear us out! Here’s why: coconuts can vary in taste, so we add less than 1% natural fruit sugar to our non-flavored coconut water. That helps to standardize the taste and sweetness levels regardless of harvest, time of year, or country of origin."
+          },
+          {
+            "inner-title": "What does “never from concentrate” mean?",
+            "inner-body": "Some other brands use coconut water from concentrate—meaning, reconstituted with water and additives before packaging—but, never Vita Coco. We’re committed to using only the freshest coconut water possible, giving us the right to say we’re never from concentrate!"
+          }
+        ]
+      },
+      {
+        "outer-title": "Sparkling",
+        "inner-panels": [
+          {
+            "inner-title": "When should I drink Vita Coco Sparkling?",
+            "inner-body": "Vita Coco Sparkling is a light and refreshing pick-me-up thanks to its naturally-occurring electrolytes and bubbly, fruity taste. It also pairs great with food or in cocktails! For best taste, it should be served chilled or over ice."
+          },
+          {
+            "inner-title": "Is Vita Coco Sparkling perishable?",
+            "inner-body": "Vita Coco Sparkling does not need to be refrigerated and is shelf stable for up to 9 months. For best taste, it should be consumed before the date marked on the can."
+          },
+          {
+            "inner-title": "What is Vita Coco Sparkling?",
+            "inner-body": "Vita Coco Sparkling is a refreshing blend of sparkling water, coconut water, fruit juice, and natural flavors. It is available in four flavors – Grapefruit, Lemon Ginger, Raspberry Lime, and Pineapple Passionfruit. It contains naturally occurring electrolytes from coconut water and has no added sugar."
+          },
+          {
+            "inner-title": "Is Vita Coco Sparkling recyclable?",
+            "inner-body": "You got it, Vita Coco Sparkling is packaged in a recyclable aluminum can."
+          },
+          {
+            "inner-title": "Does Vita Coco Sparkling have added sugar?",
+            "inner-body": "There is no added sugar in Vita Coco Sparkling. The sweetness comes from the coconut water and fruit juices."
+          },
+          {
+            "inner-title": "Is Vita Coco Sparkling gluten-free?",
+            "inner-body": "Yep! Vita Coco Sparkling is gluten-free, just like all of our other products!"
+          },
+          {
+            "inner-title": "Is Vita Coco Sparkling kosher?",
+            "inner-body": "Yup! Vita Coco Sparkling is certified kosher."
+          },
+          {
+            "inner-title": "Is Vita Coco Sparkling vegan?",
+            "inner-body": "Yes! Vita Coco Sparkling is certified vegan. No animal byproducts, we promise!"
+          }
+        ]
+      },
+      {
+        "outer-title": "Coconutmilk",
+        "inner-panels": [
+          {
+            "inner-title": "Is Vita Coco Coconutmilk perishable?",
+            "inner-body": "Yes. Vita Coco Coconutmilk is sold refrigerated and should remain refrigerated. Once opened, we recommend consuming it within 10 days."
+          },
+          {
+            "inner-title": "When should I drink Vita Coco Coconutmilk?",
+            "inner-body": "Enjoy Vita Coco Coconutmilk whenever you’d like! It’s delicious and smooth on its own, as well as in smoothies, coffee, and tea."
+          },
+          {
+            "inner-title": "When should I drink Vita Coco Coconutmilk?",
+            "inner-body": "Enjoy Vita Coco Coconutmilk whenever you’d like! It’s delicious and smooth on its own, as well as in smoothies, coffee, and tea."
+          },
+          {
+            "inner-title": "Can I use Vita Coco Coconutmilk for cooking and baking?",
+            "inner-body": "Of course! You can use Vita Coco Coconutmilk for cooking and baking – check out our “WAYS TO USE” section for inspiration!"
+          },
+          {
+            "inner-title": "What is Vita Coco Coconutmilk?",
+            "inner-body": "Vita Coco Coconutmilk is a delicious, smooth, plant-based milk made with our unique blend of coconut water, coconut cream, and other Non-GMO certified ingredients. It has no added sugar or carrageenan and is dairy-free, lactose-free, and soy-free."
+          },
+          {
+            "inner-title": "What’s the difference between coconut water and Vita Coco Coconutmilk?",
+            "inner-body": "Coconut water is the clear, nutritious liquid that comes from inside young coconuts. Vita Coco Coconutmilk is made by combining Vita Coco’s coconut water with coconut cream (from the meat of mature coconuts) and water."
+          },
+          {
+            "inner-title": "How is Vita Coco Coconutmilk made?",
+            "inner-body": "Vita Coco Coconutmilk is made with coconut water, coconut cream, a little bit of water, and less than 2% stabilizing ingredients (for “blend-ability”). We also include a blend of vitamins and minerals for added nutrition."
+          },
+          {
+            "inner-title": "Is Vita Coco Coconutmilk dairy free / lactose free?",
+            "inner-body": "Yes. Vita Coco Coconutmilk is dairy-free and lactose-free!"
+          },
+          {
+            "inner-title": "Is Vita Coco Coconutmilk gluten free?",
+            "inner-body": "Yes. Vita Coco Coconutmilk is gluten free, just like all of our other products!"
+          },
+          {
+            "inner-title": "Is Vita Coco Coconutmilk kosher?",
+            "inner-body": "Yup! Our Coconutmilk is certified kosher."
+          },
+          {
+            "inner-title": "Is Vita Coco Coconutmilk vegan?",
+            "inner-body": "Yes! Our Coconutmilk is certified vegan. No animal byproducts, we promise!"
+          },
+          {
+            "inner-title": "Is Vita Coco Coconutmilk Non-GMO?",
+            "inner-body": "Yes. Vita Coco Coconutmilk ingredients are certified Non-GMO."
+          },
+          {
+            "inner-title": "Is the Vita Coco Coconutmilk bottle recyclable and/or BPA-free?",
+            "inner-body": "Yes. Vita Coco Coconutmilk is packaged in recyclable, BPA-free PET bottles."
+          }
+        ]
+      },
+      {
+        "outer-title": "Coconut oil",
+        "inner-panels": [
+          {
+            "inner-title": "My coconut oil melted! Can I still use it?",
+            "inner-body": "Yup! Coconut oil is still safe to use even if it’s melted, as long as it’s still within shelf life."
+          },
+          {
+            "inner-title": "How much coconut oil should I eat in a day?",
+            "inner-body": "Coconut oil is a saturated fat, and current recommendations limit saturated fat intake to no more than 22 grams or 200 calories of saturated fats (including but not limited to coconut oil) for a person consuming a 2,000 calorie/day diet."
+          },
+          {
+            "inner-title": "How can I use coconut oil?",
+            "inner-body": "How can you NOT use coconut oil!? It’s great for cooking, baking, and tons of other uses. Check out our “Ways to Use” section for some inspiration."
+          },
+          {
+            "inner-title": "Is coconut oil good for dogs?",
+            "inner-body": "Hey, we get it-- if it’s good for you, it ought to be good enough for your best friend! But, we’re not puppy experts, and you should always check with a vet!"
+          },
+          {
+            "inner-title": "What is coconut oil?",
+            "inner-body": "Coconut oil is an edible oil extracted from the meat of mature coconuts. Ours is organic and cold-pressed, and it’s great for cooking, baking, and dozens of beauty and wellness needs."
+          },
+          {
+            "inner-title": "Is Vita Coco coconut oil organic?",
+            "inner-body": "Yup! Certified!"
+          },
+          {
+            "inner-title": "Does coconut oil expire? How long does coconut oil last?",
+            "inner-body": "In its packaging, and stored in a cool, dry place, our coconut oil lasts about 2 years on average."
+          },
+          {
+            "inner-title": "Do you refrigerate coconut oil?",
+            "inner-body": "Nope—just store it in a cool, dry place away from direct sunlight."
+          },
+          {
+            "inner-title": "What does “unrefined” mean?",
+            "inner-body": "Some brands “refine” their coconut oil, meaning that they chemically process and bleach dried coconut meat before extracting the oil. We don’t. Vita Coco is cold-pressed and chemical free, which makes it “unrefined.”"
+          },
+          {
+            "inner-title": "Wait, is it solid or liquid?",
+            "inner-body": "Both! Coconut oil solidifies in temperatures below 77 degrees F (23 degrees C)."
+          }
+        ]
+      }
+    ]
+  },
+  "articles-list": {
+    "body-class": "inner-page",
+    "articles": [
+      {
+        "image": "img/pic-4.jpg",
+        "article-title": "Hydration and preventing muscle cramps",
+        "article-short-desc": "Hydration and preventing muscle cramps lorem ipsum dolor..."
+      },
+      {
+        "image": "https://place-hold.it/1920x1080/dadada&fontsize=60",
+        "article-title": "Article title 2",
+        "article-short-desc": "This is excerpt for current article..."
+      },
+      {
+        "image": "https://place-hold.it/1920x1080/dadada&fontsize=60",
+        "article-title": "Article title 3",
+        "article-short-desc": "This is excerpt for current article..."
+      },
+      {
+        "image": "https://place-hold.it/1920x1080/dadada&fontsize=60",
+        "article-title": "Article title 4",
+        "article-short-desc": "This is excerpt for current article..."
+      },
+      {
+        "image": "https://place-hold.it/1920x1080/dadada&fontsize=60",
+        "article-title": "Article title 5",
+        "article-short-desc": "This is excerpt for current article..."
+      }
+    ]
+  },
+  "article-single": {
     "body-class": "inner-page"
   }
 }

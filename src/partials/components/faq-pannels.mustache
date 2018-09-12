@@ -3,50 +3,31 @@
     <div class="row">
       <div class="col-12">
         <h3>Still have questions</h3>
+        <!-- Outer panel -->
+        {{#outer-panels}}
         <div class="panel">
           <div class="panel__title" data-js="panel__title">
-            Does Vita Coco need to be refrigerated? How Long does Vita Coco last?
+            {{outer-title}}
           </div>
           <div class="panel__body">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto quibusdam quaerat debitis consectetur, incidunt
-              maiores qui exercitationem, perferendis dolorem, tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-            </p>
+            <!-- Inner panels -->
+            {{#inner-panels}}
+            <div class="panel">
+              <div class="panel__title" data-js="panel__title">
+                {{inner-title}}
+              </div>
+              <div class="panel__body">
+                <p>
+                  {{inner-body}}
+                </p>
+              </div>
+            </div>
+            {{/inner-panels}}
+            <!-- /Inner panels -->
           </div>
         </div>
-        <div class="panel">
-          <div class="panel__title" data-js="panel__title">
-            When should I drink Vita Coco?
-          </div>
-          <div class="panel__body">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto quibusdam quaerat debitis consectetur, incidunt
-              maiores qui exercitationem, perferendis dolorem, tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-            </p>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel__title" data-js="panel__title">
-            How much Vita Coco should I drink?
-          </div>
-          <div class="panel__body">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto quibusdam quaerat debitis consectetur, incidunt
-              maiores qui exercitationem, perferendis dolorem, tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-            </p>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel__title" data-js="panel__title">
-            Is it safe to drink Vita Coco while pregnant?
-          </div>
-          <div class="panel__body">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto quibusdam quaerat debitis consectetur, incidunt
-              maiores qui exercitationem, perferendis dolorem, tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-            </p>
-          </div>
-        </div>
+        {{/outer-panels}}
+        <!-- /Outer panel -->
       </div>
     </div>
   </div>

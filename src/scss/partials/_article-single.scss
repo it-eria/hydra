@@ -1,0 +1,37 @@
+.article-single {
+  padding-top: 100px;
+  .article {
+    h2 {
+      font-family: $f-bold;
+      color: #fff;
+      font-size: 36px;
+      line-height: 28px;
+    }
+    p {
+      font-family: $f-regular;
+      color: #fff;
+      font-size: 17px;
+      line-height: 20px;
+      margin-top: 20px;
+    }
+    img {
+      box-shadow: 0 3px 3px rgba(#000, .3);
+    }
+  }
+  .share-wrapper {
+    background-color: #e7e8ef;
+    padding: 15px;
+    h6 {
+      font-size: 20px;
+    }
+    .socials-list {
+      li {
+        margin-right: 20px;
+        a {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}

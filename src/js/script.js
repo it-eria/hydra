@@ -43,7 +43,7 @@ $(function() {
 
   $('[data-js="panel__title"]').on('click', function(e) {
     e.preventDefault();
-    $(this).parent().toggleClass('active').find('.panel__body').slideToggle(300);
+    $(this).parent().toggleClass('active').find('.panel__body').eq(0).slideToggle(300);
   });
 
   var mainSliderParams = {

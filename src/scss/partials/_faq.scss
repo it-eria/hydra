@@ -39,7 +39,7 @@
       }
     }
     &__body {
-      padding: 5px 15px;
+      padding: 10px 15px;
       background-color: #fff;
       border: 2px solid #dadada;
       border-top: none;
@@ -50,9 +50,12 @@
         line-height: 20px;
         color: #808080;
       }
+      .panel:first-child {
+        margin-top: 0;
+      }
     }
     &.active {
-      .panel__title:after {
+      & > .panel__title:after {
         transform: translate(0, -50%) rotate(225deg);
       }
     }
