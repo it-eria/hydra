@@ -46,6 +46,27 @@ $(function() {
     $(this).parent().toggleClass('active').find('.panel__body').eq(0).slideToggle(300);
   });
 
+  $('.panel.active > .panel__body').slideDown(300);
+
+  var categories = [];
+  var products = [];
+
+  function checkAll() {
+    if($('.f-filter input[type="checkbox"]#cat-all').is(':checked')) {
+      $('.f-filter input[type="checkbox"].category').attr('checked', true);
+    }
+    if($('.f-filter input[type="checkbox"]#prod-all').is(':checked')) {
+      $('.f-filter input[type="checkbox"].product').attr('checked', true);
+    }
+  }
+
+  checkAll();
+
+
+  $('.f-filter input[type="checkbox"]').on('change', function() {
+    checkAll();
+  });
+
   var mainSliderParams = {
     slidesToShow: 1,
     slidesToScroll: 1,

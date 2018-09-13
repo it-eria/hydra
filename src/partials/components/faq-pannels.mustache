@@ -3,31 +3,37 @@
     <div class="row">
       <div class="col-12">
         <h3>Still have questions</h3>
-        <!-- Outer panel -->
-        {{#outer-panels}}
-        <div class="panel">
+        <div class="panel active">
           <div class="panel__title" data-js="panel__title">
-            {{outer-title}}
+            Filters  
           </div>
           <div class="panel__body">
-            <!-- Inner panels -->
-            {{#inner-panels}}
-            <div class="panel">
-              <div class="panel__title" data-js="panel__title">
-                {{inner-title}}
-              </div>
-              <div class="panel__body">
-                <p>
-                  {{inner-body}}
-                </p>
-              </div>
-            </div>
-            {{/inner-panels}}
-            <!-- /Inner panels -->
+            <form class="f-filter">
+              <fieldset>
+                <legend>Categories</legend>
+                <input type="checkbox" class="category" id="cat-all" checked>
+                <label for="cat-all">All</label>
+                <input type="checkbox" class="category" id="cat-1">
+                <label for="cat-1">Category 1</label>
+                <input type="checkbox" class="category" id="cat-2">
+                <label for="cat-2">Category 2</label>
+                <input type="checkbox" class="category" id="cat-3">
+                <label for="cat-3">Category 3</label>
+              </fieldset>
+              <fieldset>
+                <legend>Products</legend>
+                <input type="checkbox" class="product" id="prod-all" checked>
+                <label for="prod-all">All</label>
+                <input type="checkbox" class="product" id="prod-1">
+                <label for="prod-1">Product 1</label>
+                <input type="checkbox" class="product" id="prod-2">
+                <label for="prod-2">Product 2</label>
+                <input type="checkbox" class="product" id="prod-3">
+                <label for="prod-3">Product 3</label>
+              </fieldset>
+            </form>
           </div>
         </div>
-        {{/outer-panels}}
-        <!-- /Outer panel -->
       </div>
     </div>
   </div>

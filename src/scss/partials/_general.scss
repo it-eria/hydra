@@ -29,6 +29,9 @@ body {
       height: 480px;
       overflow: hidden;
     }
+    .header {
+      background-color: #A0C6EC;
+    }
   }
   &.product {
     min-height: 100%;
@@ -304,6 +307,58 @@ i.quotes {
   }
   &-200 {
     z-index: 200;
+  }
+}
+
+.f-filter {
+  display: block;
+  fieldset {
+    border: 2px solid rgba($c-dark, .3);
+    color: $c-dark;
+    padding: 0 15px 15px;
+    border-radius: 6px;
+    & + fieldset {
+      margin-top: 15px;
+    }
+    legend {
+      display: inline-block;
+      width: auto;
+      background-color: #fff;
+      font-family: $f-bold;
+      font-size: 23px;
+      color: $c-dark-blue;
+      margin-left: 10px;
+      padding: 2px 5px;
+      margin: 0;
+    }
+    input[type="checkbox"] {
+      display: none;
+      &:checked + label:before {
+        background-color: $c-dark-blue;
+      }
+    }
+    label {
+      display: inline-block;
+      padding-left: 20px;
+      position: relative;
+      font-family: $f-regular;
+      font-size: 17px;
+      line-height: 15px;
+      margin: 15px 15px 0 0;
+      cursor: pointer;
+      &:before {
+        content: '';
+        display: block;
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -66%);
+        border: 1px solid $c-dark;
+        transition: all .3s ease-in-out;
+      }
+    }
   }
 }
 

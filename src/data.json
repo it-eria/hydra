@@ -69,6 +69,7 @@
   },
   "faq": {
     "body-class": "inner-page",
+    "banner-image": "img/FAQ992.jpg",
     "outer-panels": [
       {
         "outer-title": "Coconut water",
@@ -274,6 +275,7 @@
   },
   "articles-list": {
     "body-class": "inner-page",
+    "banner-image": "img/BLOG992.jpg",
     "articles": [
       {
         "image": "img/pic-4.jpg",
