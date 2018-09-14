@@ -68,7 +68,7 @@
     <div class="row">
       <div class="col-12">
         <h3>Still have questions</h3>
-        <div class="panel active">
+        <div class="panel">
           <div class="panel__title" data-js="panel__title">
             Filters  
           </div>
@@ -76,7 +76,7 @@
             <form class="f-filter">
               <fieldset>
                 <legend>Categories</legend>
-                <input type="checkbox" class="category" id="cat-all" checked>
+                <input type="checkbox" class="category" id="cat-all" data-js="check-all">
                 <label for="cat-all">All</label>
                 <input type="checkbox" class="category" id="cat-1">
                 <label for="cat-1">Category 1</label>
@@ -87,7 +87,7 @@
               </fieldset>
               <fieldset>
                 <legend>Products</legend>
-                <input type="checkbox" class="product" id="prod-all" checked>
+                <input type="checkbox" class="product" id="prod-all" data-js="check-all">
                 <label for="prod-all">All</label>
                 <input type="checkbox" class="product" id="prod-1">
                 <label for="prod-1">Product 1</label>
@@ -98,6 +98,96 @@
               </fieldset>
             </form>
           </div>
+
+        </div>
+        <div class="filter-results">
+          <!-- Category 1 -->
+          <div class="category-group" data-filter-target="cat-1">
+            <h2>Category 1</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 1 -->
+          <!-- Category 2 -->
+          <div class="category-group" data-filter-target="cat-2">
+            <h2>Category 2</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 2 -->
+          <!-- Category 3 -->
+          <div class="category-group" data-filter-target="cat-3">
+            <h2>Category 3</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 3 -->
         </div>
       </div>
     </div>

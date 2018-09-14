@@ -28,7 +28,7 @@
         border-left: 9px solid transparent;
         border-right: 9px solid transparent;
         transform-origin: 50% 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(0, -50%);
         position: absolute;
         top: 50%;
         right: 15px;
@@ -53,8 +53,28 @@
     }
     &.active {
       & > .panel__title:after {
-        transform: translate(-50%, -50%) rotate(180deg);
+        transform: translate(0, -50%) rotate(180deg);
       }
+    }
+  }
+  .category-group {
+    margin-top: 60px;
+    h2 {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      font-size: 30px;
+      color: #fff;
+      text-shadow: 0 3px 6px rgba(0,0,0,.3);
+      font-family: $f-bold;
+    }
+  }
+  div[data-filter-target] {
+    display: none;
+  }
+  .filter-results {
+    .panel:first-of-type {
+      margin-top: 15px;
     }
   }
 }

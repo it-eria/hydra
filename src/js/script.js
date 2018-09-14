@@ -48,23 +48,30 @@ $(function() {
 
   $('.panel.active > .panel__body').slideDown(300);
 
-  var categories = [];
-  var products = [];
+  $('[data-js="check-all"]').each(function(index) {
+    if($(this).is(':checked')) $(this).parent().find('input[type="checkbox"]').prop('checked', true);
+  });
 
-  function checkAll() {
-    if($('.f-filter input[type="checkbox"]#cat-all').is(':checked')) {
-      $('.f-filter input[type="checkbox"].category').attr('checked', true);
-    }
-    if($('.f-filter input[type="checkbox"]#prod-all').is(':checked')) {
-      $('.f-filter input[type="checkbox"].product').attr('checked', true);
+  function filters() {
+    var filters = [];
+    $('*[data-filter-target]').fadeOut(300);
+    $('.f-filter input[type="checkbox"]:checked').each(function(index) {
+      filters.push($(this).attr('id'));
+    });
+    for(var i=0; i < filters.length; i++) {
+      $('[data-filter-target="'+filters[i]+'"]').fadeIn(300);
     }
   }
 
-  checkAll();
-
+  filters();
 
   $('.f-filter input[type="checkbox"]').on('change', function() {
-    checkAll();
+    if($(this).attr('data-js') == 'check-all') {
+      $(this).parent().find('input[type="checkbox"]').prop('checked',  $(this).is(':checked'));      
+    } else {
+      $(this).parent().find('[data-js="check-all"]').prop('checked', false);
+    }    
+    filters();
   });
 
   var mainSliderParams = {
