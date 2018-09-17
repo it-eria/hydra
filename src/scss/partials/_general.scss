@@ -9,7 +9,7 @@ html {
   background-color: $c-dark;
 }
 body {
-  max-width: 375px;
+  max-width: 700px;
   margin: 0 auto;
   overflow-x: hidden;
 }
@@ -358,6 +358,22 @@ i.quotes {
         border: 1px solid $c-dark;
         transition: all .3s ease-in-out;
       }
+    }
+  }
+}
+
+.about-us {
+  h2 {
+    font-family: $f-bold;
+    font-size: 30px;
+    color: $c-dark;
+  }
+  p {
+    font-size: 17px;
+    line-height: 17px;
+    font-family: $f-regular;
+    & + p {
+      margin-top: 20px;
     }
   }
 }

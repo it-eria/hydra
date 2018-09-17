@@ -3,13 +3,13 @@
     <div class="row">
       <div class="col-12">
         {{#articles}}
-        <article class="article-small" data-aos="fade-up">
+        <article class="article-small" data-aos="fade-up" data-aos-offset="10">
+          <div class="title text-center mb-2">
+            <a href="#">{{article-title}}</a>
+          </div>
           <a href="#" class="thumbnail">
             <img src="{{{image}}}" alt="thumbnail" class="img-fluid">
           </a>
-          <div class="title text-center mt-2">
-            <a href="#">{{article-title}}</a>
-          </div>
           <div class="text-center mt-1">
             <p>{{article-short-desc}}</p>
           </div>

@@ -11,6 +11,38 @@
     &:first-of-type {
       margin-top: 30px;
     }
+    &--filter {
+      position: relative;
+      .panel__body {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,.8);
+        border-bottom: none;
+        border-top: 2px solid #dadada;
+      }
+      .f-filter {
+        fieldset {
+          border-color: rgba(#fff, .8);
+          border-width: 1px;
+          color: rgba(#fff, .8);
+          legend {
+            background-color: rgba(#fff, .9);
+            border-radius: 8px;
+            color: rgba(0,0,0,.8);
+          }
+          label:before {
+            border-color: rgba(#fff, .8);
+          }
+          input[type="checkbox"]:checked {
+            & + label:before {
+              background-color: rgba(#fff, .8);
+            }
+          }
+        }
+      }
+    }
     &__title {
       position: relative;
       padding: 15px 35px 15px 15px;
