@@ -76,12 +76,14 @@
         display: block;
         width: 30px;
         height: 30px;
+        background-color: #706E6F;
+        border-radius: 50%;
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        background-size: contain;
+        background-size: auto 60%;
         transition: all .3s ease-in-out;
         &:hover {
-          background-color: rgba(#5471d9, .3);
+          background-color: darken(#706E6F, 5%);
         }
         &.fb {
           background-image: url('../img/facebook.svg');
