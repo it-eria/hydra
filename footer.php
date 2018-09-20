@@ -9,7 +9,7 @@
                     <nav class="footer__nav">
                         <?php
                         wp_nav_menu( array(
-                            'theme_location'  => '',
+                            'theme_location'  => 'primary',
                             'menu'            => '',
                             'container'       => '',
                             'container_class' => '',
@@ -47,11 +47,26 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <ul class="service-nav">
-                        <li><a href="<?php the_field('privacy_policy_url', 'option'); ?>">Privacy Policy</a></li>
-                        <li><a href="<?php the_field('terms_of_use_url', 'option'); ?>">Terms of Use</a></li>
-                        <li><a href="<?php the_field('sitemap_url', 'option'); ?>">Sitemap</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location'  => 'footer_menu',
+                        'menu'            => '',
+                        'container'       => '',
+                        'container_class' => '',
+                        'container_id'    => '',
+                        'menu_class'      => '',
+                        'menu_id'         => '',
+                        'echo'            => true,
+                        'fallback_cb'     => 'wp_page_menu',
+                        'before'          => '',
+                        'after'           => '',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul class="service-nav">%3$s</ul>',
+                        'depth'           => 0,
+                        'walker'          => '',
+                    ) );
+                    ?>
                 </div>
             </div>
         </div>

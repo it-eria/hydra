@@ -3,6 +3,9 @@ register_nav_menus(array(
     'primary' => __('Primary Menu', 'custom')
 ));
 
+register_nav_menus(array(
+    'footer_menu' => __('Footer Menu', 'custom')
+));
 function custom_widgets_init()
 {
     register_sidebar(array(

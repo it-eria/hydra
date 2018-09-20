@@ -383,3 +383,16 @@ i.quotes {
     height: 80vh;
   }
 }
+
+
+.article-content {
+  img {
+    &:nth-child(odd) {
+      float: left;
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+  }
+}

@@ -12,8 +12,8 @@
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
 </head>
-<body>
-<header class="header" data-js="header">
+<body style="background-color: <?php the_field('body_color_picker'); ?> !important" class="<?php if(!is_front_page()) {echo 'inner-page';}?>">
+<header class="header" style="background-color: <?php the_field('header_menu_color_picker'); ?> !important" data-js="header">
     <div class="container-fluid">
         <div class="row align-items-center">
             <!-- Logo -->
@@ -34,7 +34,7 @@
                 <nav class="main-nav" data-js="main-nav">
                     <?php
                     wp_nav_menu( array(
-                        'theme_location'  => '',
+                        'theme_location'  => 'primary',
                         'menu'            => '',
                         'container'       => '',
                         'container_class' => '',
