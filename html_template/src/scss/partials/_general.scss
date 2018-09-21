@@ -396,3 +396,29 @@ i.quotes {
 
   }
 }
+
+
+.img-fluid {
+  display: none;
+  &:first-child {
+    display: block;
+  }
+}
+
+.choose-list {
+  display: none;
+  &:first-child {
+    display: block;
+  }
+}
+
+.footer__nav {
+  ul {
+    li {
+      .sub-menu {
+        display: none;
+      }
+    }
+  }
+
+}

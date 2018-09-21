@@ -35,7 +35,7 @@
                             <div class="product-title">
                                 <h4><?php the_title(); ?></h4>
                             </div>
-                            <?php the_content(); ?>
+                            <?php the_excerpt(); ?>
                             <div class="learn-more-row">
                                 <a href="<?php the_permalink(); ?>"><?php _e('Learn more', 'custom'); ?></a>
                             </div>

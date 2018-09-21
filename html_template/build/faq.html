@@ -1,273 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Hydra</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Hydra</title>
 </head>
-<body class="inner-page">
-<header class="header" data-js="header">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <!-- Logo -->
-            <div class="col-6">
-                <a href="#" class="logo" data-js="logo">
-                    <img src="img/logo-white.png" alt="logo unactive" class="logo__visible">
-                    <img src="img/logo-gradient.png" alt="logo active">
-                </a>
-            </div>
-            <!-- Burger button -->
-            <div class="col-6 text-right">
-                <a href="#" class="btn btn--burger" data-js="btn--burger">
-                    <span></span>
-                </a>
-            </div>
-            <!-- Navigaton -->
-            <div class="col-12">
-                <nav class="main-nav" data-js="main-nav">
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#">Products</a>
-                            <ul>
-                                <li>
-                                    <a href="#">Sport</a>
-                                </li>
-                                <li>
-                                    <a href="#">Sparkling Sport</a>
-                                </li>
-                                <li>
-                                    <a href="#">Pure Coconut Water</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">FAQ</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+<body class="inner-page"><header class="header" data-js="header">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <!-- Logo -->
+      <div class="col-6">
+        <a href="#" class="logo" data-js="logo">
+          <img src="img/logo-white.png" alt="logo unactive" class="logo__visible">
+          <img src="img/logo-gradient.png" alt="logo active">
+        </a>
+      </div>
+      <!-- Burger button -->
+      <div class="col-6 text-right">
+        <a href="#" class="btn btn--burger" data-js="btn--burger">
+          <span></span>
+        </a>
+      </div>
+      <!-- Navigaton -->
+      <div class="col-12">
+        <nav class="main-nav" data-js="main-nav">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Products</a>
+              <ul>
+                <li>
+                  <a href="#">Sport</a>
+                </li>
+                <li>
+                  <a href="#">Sparkling Sport</a>
+                </li>
+                <li>
+                  <a href="#">Pure Coconut Water</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">FAQ</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-</header>
-<section class="banner">
-    <img src="img/FAQ992.jpg" alt="banner" class="img-fluid">
-</section>
-<section class="b-faq py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- <h3>Still have questions</h3> -->
-                <div class="panel panel--filter mt-0">
-                    <div class="panel__title" data-js="panel__title">
-                        Still have questions
-                    </div>
-                    <div class="panel__body">
-                        <form class="f-filter">
-                            <fieldset>
-                                <legend>Categories</legend>
-                                <input type="checkbox" class="category" id="cat-all" data-js="check-all">
-                                <label for="cat-all">All</label>
-                                <input type="checkbox" class="category" id="cat-1">
-                                <label for="cat-1">Category 1</label>
-                                <input type="checkbox" class="category" id="cat-2">
-                                <label for="cat-2">Category 2</label>
-                                <input type="checkbox" class="category" id="cat-3">
-                                <label for="cat-3">Category 3</label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Products</legend>
-                                <input type="checkbox" class="product" id="prod-all" data-js="check-all">
-                                <label for="prod-all">All</label>
-                                <input type="checkbox" class="product" id="prod-1">
-                                <label for="prod-1">Product 1</label>
-                                <input type="checkbox" class="product" id="prod-2">
-                                <label for="prod-2">Product 2</label>
-                                <input type="checkbox" class="product" id="prod-3">
-                                <label for="prod-3">Product 3</label>
-                            </fieldset>
-                        </form>
-                    </div>
+  </div>
+</header><section class="banner">
+  <img src="img/FAQ992.jpg" alt="banner" class="img-fluid">
+</section><section class="b-faq py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- <h3>Still have questions</h3> -->
+        <div class="panel panel--filter mt-0">
+          <div class="panel__title" data-js="panel__title">
+            Still have questions
+          </div>
+          <div class="panel__body">
+            <form class="f-filter">
+              <fieldset>
+                <legend>Categories</legend>
+                <input type="checkbox" class="category" id="cat-all" data-js="check-all">
+                <label for="cat-all">All</label>
+                <input type="checkbox" class="category" id="cat-1">
+                <label for="cat-1">Category 1</label>
+                <input type="checkbox" class="category" id="cat-2">
+                <label for="cat-2">Category 2</label>
+                <input type="checkbox" class="category" id="cat-3">
+                <label for="cat-3">Category 3</label>
+              </fieldset>
+              <fieldset>
+                <legend>Products</legend>
+                <input type="checkbox" class="product" id="prod-all" data-js="check-all">
+                <label for="prod-all">All</label>
+                <input type="checkbox" class="product" id="prod-1">
+                <label for="prod-1">Product 1</label>
+                <input type="checkbox" class="product" id="prod-2">
+                <label for="prod-2">Product 2</label>
+                <input type="checkbox" class="product" id="prod-3">
+                <label for="prod-3">Product 3</label>
+              </fieldset>
+            </form>
+          </div>
 
-                </div>
-                <div class="filter-results">
-                    <!-- Category 1 -->
-                    <div class="category-group" data-filter-target="cat-1">
-                        <h2>Category 1</h2>
-                        <div class="panel" data-filter-target="prod-1">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 1 at Category 1?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-2">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 2 at Category 1?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-3">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 3 at Category 1?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Category 1 -->
-                    <!-- Category 2 -->
-                    <div class="category-group" data-filter-target="cat-2">
-                        <h2>Category 2</h2>
-                        <div class="panel" data-filter-target="prod-1">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 1 at Category 2?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-2">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 2 at Category 2?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-3">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 3 at Category 2?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Category 2 -->
-                    <!-- Category 3 -->
-                    <div class="category-group" data-filter-target="cat-3">
-                        <h2>Category 3</h2>
-                        <div class="panel" data-filter-target="prod-1">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 1 at Category 3?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-2">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 2 at Category 3?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                        <div class="panel" data-filter-target="prod-3">
-                            <div class="panel__title" data-js="panel__title">
-                                Question about Product 3 at Category 3?
-                            </div>
-                            <div class="panel__body">
-                                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos
-                                ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam
-                                itaque!
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Category 3 -->
-                </div>
-            </div>
         </div>
+        <div class="filter-results">
+          <!-- Category 1 -->
+          <div class="category-group" data-filter-target="cat-1">
+            <h2>Category 1</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 1 -->
+          <!-- Category 2 -->
+          <div class="category-group" data-filter-target="cat-2">
+            <h2>Category 2</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 2 -->
+          <!-- Category 3 -->
+          <div class="category-group" data-filter-target="cat-3">
+            <h2>Category 3</h2>
+            <div class="panel" data-filter-target="prod-1">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 1 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+          </div>
+          <!-- /Category 3 -->
+        </div>
+      </div>
     </div>
-</section>
-<footer class="footer" data-aos="fade-up">
-    <section data-aos="fade-right">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <div class="footer__title-nav">
-                        <h4>Navigation</h4>
-                    </div>
-                    <nav class="footer__nav">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+  </div>
+</section><footer class="footer" data-aos="fade-up">
+  <section data-aos="fade-right">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-11">
+          <div class="footer__title-nav">
+            <h4>Navigation</h4>
+          </div>
+          <nav class="footer__nav">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </nav>
         </div>
-    </section>
-    <section data-aos="fade-right">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <img src="img/logo-gradient.png" alt="logo" class="img-fluid">
-                    <div class="mt-4">
+      </div>
+    </div>
+  </section>
+  <section data-aos="fade-right">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-11">
+          <img src="img/logo-gradient.png" alt="logo" class="img-fluid">
+          <div class="mt-4">
             <span class="copyright">
               Copyright 2018. All rights reserved Hydra Coco
             </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <ul class="service-nav">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-</footer>
-<script src="js/vendors/jquery.min.js?ver=1.0"></script>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-11">
+          <ul class="service-nav">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer><script src="js/vendors/jquery.min.js?ver=1.0"></script>
 <script src="js/vendors/slick.min.js?ver=1.0"></script>
 <script src="js/vendors/aos.js?ver=1.0"></script>
 <script src="js/script.js?ver=1.0"></script>
