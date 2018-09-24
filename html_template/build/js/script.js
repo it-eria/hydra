@@ -1,6 +1,4 @@
 $(function () {
-
-
     $('.choose-elem').click(function () {
         var tid = $(this).data('choose-id-trigger');
         $('.choose-list').hide();
@@ -13,14 +11,11 @@ $(function () {
         $('[data-js="logo"] img').toggleClass('logo__visible');
     });
 
-
     $('[data-js="filter"]').on('click', function () {
-        // e.preventDefault();
         $(this).toggleClass('opened');
     });
 
     $('[data-js="filter"] ul li a').on('click', function () {
-        // e.preventDefault();
         $(this).parent().parent().parent().find('.current').text($(this).text());
     });
 
@@ -73,7 +68,6 @@ $(function () {
         filters();
     });
 
-
     var mainSliderParams = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -109,21 +103,6 @@ $(function () {
         }
     });
 
-
-    // $('.main-nav ul li').each(function() {
-    //     if($(this).hasClass('menu-item-has-children')) {
-    //         $(this).append('<span class="arr arr--down"></span>');
-    //     }
-    //
-    //
-    //     $('.menu-item-has-children').click( function() {
-    //         if($(this).find('.arr--down').length > 0) {
-    //             // e.preventDefault();
-    //             $(this).toggleClass('open');
-    //         }
-    //     });
-    // });
-
     $('.main-nav ul li').each(function () {
         if ($(this).hasClass('menu-item-has-children')) {
             $(this).append('<span class="arr arr--down"></span>');
@@ -132,7 +111,53 @@ $(function () {
             });
         }
     });
+
     AOS.init();
 });
 
+$(document).ready(function () {
 
+    var jobCount = $('#list .in').length;
+    $('.list-count').text(jobCount + ' results');
+
+
+    $("#search-text").keyup(function () {
+        //$(this).addClass('hidden');
+
+        var searchTerm = $("#search-text").val();
+        var listItem = $('#list').children('li');
+
+
+        var searchSplit = searchTerm.replace(/ /g, "'):containsi('");
+        $.extend($.expr[':'], {
+            'containsi': function (elem, i, match, array) {
+                return (elem.textContent || elem.innerText || '').toLowerCase()
+                    .indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+        });
+
+        $("#list li").not(":containsi('" + searchSplit + "')").each(function (e) {
+            $(this).addClass('hiding out').removeClass('in');
+            setTimeout(function () {
+                $('.out').addClass('hidden');
+            }, 300);
+        });
+
+        $("#list li:containsi('" + searchSplit + "')").each(function (e) {
+            $(this).removeClass('hidden out').addClass('in');
+            setTimeout(function () {
+                $('.in').removeClass('hiding');
+            }, 1);
+        });
+
+        var jobCount = $('#list .in').length;
+        $('.list-count').text(jobCount + ' results');
+        if (jobCount == '0') {
+            $('#list').addClass('empty');
+        }
+        else {
+            $('#list').removeClass('empty');
+        }
+    });
+
+});

@@ -4,7 +4,7 @@
             <div class="row justify-content-center">
                 <div class="col-11">
                     <div class="footer__title-nav">
-                        <h4>Navigation</h4>
+                        <h4><?php _e('Navigation', 'custom'); ?></h4>
                     </div>
                     <nav class="footer__nav">
                         <?php
@@ -36,8 +36,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <img src="<?php the_field('footer_logotype', 'option'); ?>"
-                         alt="logo" class="img-fluid">
+                    <a href="<?php echo get_site_url(); ?>"><img src="<?php the_field('footer_logotype', 'option'); ?>"
+                         alt="logo" class="img-fluid"></a>
                     <div class="mt-4">
             <span class="copyright">
               <?php the_field('copyright', 'option'); ?>
@@ -75,7 +75,7 @@
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/jquery.min.js?ver=1.0"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/script.js?ver=1.0"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/slick.min.js?ver=1.0"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/aos.js?ver=1.0"></script>
 <?php wp_footer(); ?>

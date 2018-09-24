@@ -79,3 +79,18 @@ function content($limit) {
     $content = str_replace(']]>', ']]&gt;', $content);
     return $content;
 }
+
+
+function filter_plugin_updates( $update ) {
+    global $DISABLE_UPDATE;
+    if( !is_array($DISABLE_UPDATE) || count($DISABLE_UPDATE) == 0 ){  return $update;  }
+    foreach( $update->response as $name => $val ){
+        foreach( $DISABLE_UPDATE as $plugin ){
+            if( stripos($name,$plugin) !== false ){
+                unset( $update->response[ $name ] );
+            }
+        }
+    }
+    return $update;
+}
+add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );

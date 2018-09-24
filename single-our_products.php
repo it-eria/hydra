@@ -105,150 +105,99 @@
                                 ?>
                             </div>
                         </div>
-<!--                        <span>-->
-<!--          <b>Ingredients:</b> CoconutWater, Less than 1% of Citric Acid, abscorbic acid (Vitamin C), Thiamin (Vitamin B1), Niacinamide (Vitamin B3 ), Pyridoxine hcl (Vitamin B6), Cyanocobalamin (Vitamin B12), Panthotenic acid (Vitamin B5)-->
-<!--        </span>-->
+                        <!--                        <span>-->
+                        <!--          <b>Ingredients:</b> CoconutWater, Less than 1% of Citric Acid, abscorbic acid (Vitamin C), Thiamin (Vitamin B1), Niacinamide (Vitamin B3 ), Pyridoxine hcl (Vitamin B6), Cyanocobalamin (Vitamin B12), Panthotenic acid (Vitamin B5)-->
+                        <!--        </span>-->
                     </div>
-
-
                     <div class="inf-window" id="store">
                         <h5>Store Locator:</h5>
                         <div class="content">
                             <a href="#" class="specific-product">Select Specific Products</a>
                             <form action="#">
-                                <input type="text" placeholder="City/Zip Code">
-                                <button type="submit">Find</button>
+                                <input type="text" id="search-text" placeholder="City/Zip Code" class="search-box">
+                                <!--                                <button type="submit">Find</button>-->
                             </form>
                             <div class="results">
                                 <div class="results__header">
                                     <div class="row">
-                                        <div class="col-4 pr-0">
-                                            18 results
+                                        <div class="col-4 pr-0 list-count">
+
                                         </div>
                                         <div class="col-4 text-center">
-                                            <span>1 - 5</span> <a href="#" class="next"></a>
+
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="mail"></i>
                                         </div>
                                     </div>
                                 </div>
+                                <?php if (have_rows('addresses')): ?>
                                 <div class="results__list">
-                                    <ul>
-                                        <li>
-                                            <div class="row align-items-center">
-                                                <div class="col-9">
-                                                    <h5>7-eleven</h5>
-                                                    <address>
-                                                        3398 N State Road
-                                                        Launderdale Lakes, FL 33319
-                                                    </address>
-                                                    <span>1.7mi | 1 Products</span>
+                                    <ul id="list">
+                                        <?php while (have_rows('addresses')): the_row();
+                                            $address = get_sub_field('address');
+                                            $location_on_google = get_sub_field('location_on_google');
+                                            ?>
+                                            <li class="in">
+                                                <div class="row align-items-center">
+                                                    <?php if ($address): ?>
+                                                        <div class="col-9">
+<!--                                                            <h5>7-eleven</h5>-->
+                                                            <address>
+                                                                <?php echo $address; ?>
+                                                            </address>
+                                                            <!--                                                            <span>1.7mi | 1 Products</span>-->
+                                                        </div>
+                                                        <?php if ($location_on_google): ?>
+                                                            <div class="col-3 text-right">
+                                                                <a target="_blank"
+                                                                   href="<?php echo $location_on_google; ?>"
+                                                                   class="more"></a>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+
                                                 </div>
-                                                <div class="col-3 text-right">
-                                                    <a href="#" class="more"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row align-items-center">
-                                                <div class="col-9">
-                                                    <h5>7-eleven</h5>
-                                                    <address>
-                                                        640 North State Rd 7
-                                                        Plantation, FL 33317
-                                                    </address>
-                                                    <span>2.2mi | 1 Products</span>
-                                                </div>
-                                                <div class="col-3 text-right">
-                                                    <a href="#" class="more"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row align-items-center">
-                                                <div class="col-9">
-                                                    <h5>7-eleven</h5>
-                                                    <address>
-                                                        3398 N State Road
-                                                        Launderdale Lakes, FL 33319
-                                                    </address>
-                                                    <span>1.7mi | 1 Products</span>
-                                                </div>
-                                                <div class="col-3 text-right">
-                                                    <a href="#" class="more"></a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        <?php endwhile; ?>
+                                        <div class="empty-item">
+                                            <h2>There was nothing found on your request</h2>
+                                            <h2>Buy on <a href="#">Amazon</a>, or contact us <a
+                                                        href="mailto:info@hydracoco.com">info@hydracoco.com</a></h2>
+                                        </div>
                                     </ul>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="inf-window" id="faq">
-                        <h5>Frequently Asked Questions:</h5>
-                        <div class="content">
-                            <h3>Still have questions</h3>
-                            <div class="panel">
-                                <div class="panel__title" data-js="panel__title">
-                                    Does Vita Coco need to be refrigerated? How Long does Vita Coco last?
-                                </div>
-                                <div class="panel__body">
-                                    <p>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto
-                                        quibusdam
-                                        quaerat debitis consectetur, incidunt maiores qui exercitationem, perferendis
-                                        dolorem,
-                                        tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="panel">
-                                <div class="panel__title" data-js="panel__title">
-                                    When should I drink Vita Coco?
-                                </div>
-                                <div class="panel__body">
-                                    <p>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto
-                                        quibusdam
-                                        quaerat debitis consectetur, incidunt maiores qui exercitationem, perferendis
-                                        dolorem,
-                                        tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-                                    </p>
+                        <?php if (have_rows('faq_for_product')): ?>
+                            <h5><?php _e('Frequently Asked Questions:', 'custom'); ?></h5>
+                            <div class="content">
+                                <h3><?php _e('Still have questions', 'custom'); ?></h3>
+                                <?php while (have_rows('faq_for_product')): the_row();
+                                    $question = get_sub_field('question');
+                                    $answer = get_sub_field('answer');
+                                    ?>
+                                    <div class="panel">
+                                        <?php if ($question): ?>
+                                            <div class="panel__title" data-js="panel__title">
+                                                <?php echo $question; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if ($answer): ?>
+                                            <div class="panel__body">
+                                                <?php echo $answer; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endwhile; ?>
+                                <div class="text-center">
+                                    <a href="#" class="more"><?php _e('show more', 'custom'); ?></a>
                                 </div>
                             </div>
-                            <div class="panel">
-                                <div class="panel__title" data-js="panel__title">
-                                    How much Vita Coco should I drink?
-                                </div>
-                                <div class="panel__body">
-                                    <p>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto
-                                        quibusdam
-                                        quaerat debitis consectetur, incidunt maiores qui exercitationem, perferendis
-                                        dolorem,
-                                        tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="panel">
-                                <div class="panel__title" data-js="panel__title">
-                                    Is it safe to drink Vita Coco while pregnant?
-                                </div>
-                                <div class="panel__body">
-                                    <p>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo architecto
-                                        quibusdam
-                                        quaerat debitis consectetur, incidunt maiores qui exercitationem, perferendis
-                                        dolorem,
-                                        tenetur quia dolor nam beatae dicta? Eveniet error iure dolor!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <a href="#" class="more">show more</a>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="product-page-nav" data-js="product-page-nav">
@@ -258,22 +207,22 @@
                                 <ul>
                                     <li>
                                         <a href="#" data-target="product-details">
-                                            Product Details
+                                            <?php _e('Product Details', 'custom'); ?>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" data-target="nutrion">
-                                            Nutrition
+                                            <?php _e('Nutrition', 'custom'); ?>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" data-target="store">
-                                            Store Locator
+                                            <?php _e('Store Locator', 'custom'); ?>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" data-target="faq">
-                                            FAQ
+                                            <?php _e('FAQ', 'custom'); ?>
                                         </a>
                                     </li>
                                 </ul>

@@ -8,6 +8,7 @@
           href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/slick.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/style.css">
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
@@ -18,9 +19,9 @@
         <div class="row align-items-center">
             <!-- Logo -->
             <div class="col-6">
-                <a href="#" class="logo" data-js="logo">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/img/logo-white.png" alt="logo unactive" class="logo__visible">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/img/logo-gradient.png" alt="logo active">
+                <a href="<?php echo get_site_url(); ?>" class="logo" data-js="logo">
+                    <img src="<?php the_field('logotype_unactive', 'option'); ?>" alt="logo unactive" class="logo__visible">
+                    <img src="<?php the_field('logotype_active', 'option'); ?>" alt="logo active">
                 </a>
             </div>
             <!-- Burger button -->
