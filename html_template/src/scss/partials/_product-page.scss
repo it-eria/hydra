@@ -4,6 +4,7 @@
     transform: translate(0, -75%);
     z-index: 300;
     li {
+
       a {
         display: block;
         font-family: $f-regular;
@@ -406,6 +407,7 @@
                 border-top: 1px solid rgba($c-dark, .2);
                 padding: 20px 15px;
                 color: $c-dark;
+                display: none;
                 h5 {
                   font-size: 18px;
                   font-family: $f-bold;
@@ -739,4 +741,13 @@
 
 .cooked-nutrition-label {
   border: none !important;
+}
+
+.in {
+  display: block !important;
+}
+
+.show-res {
+  visibility: visible !important;
+  opacity: 1 !important;
 }

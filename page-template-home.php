@@ -96,6 +96,7 @@
         <a href="<?php the_permalink(13); ?>" class="view-all"><?php _e('View All', 'custom'); ?></a>
     </div>
 </section>
+<?php if( get_field('showhide_all_block', 58) == 'show' ): ?>
 <section class="reviews" data-aos="fade-up">
     <div class="text-right mb-5">
         <div class="section-title section-title--big" data-aos="fade-right" data-aos-delay="300">
@@ -130,11 +131,12 @@
         </div>
         <div class="row mt-4" data-aos="fade-right">
             <div class="col-12 text-center">
-                <a href="#" class="more-testimonials"><?php _e('More Testimonials', 'custom'); ?></a>
+                <a href="<?php the_field('more_testimonials_link', 58); ?>" class="more-testimonials"><?php _e('More Testimonials', 'custom'); ?></a>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 <section class="recipes" data-aos="fade-up">
     <?php
     $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes', 'post_status' => 'publish', 'posts_per_page' => 3));
@@ -163,7 +165,7 @@
             <?php endwhile; ?>
         </div>
         <div class="view-all-row text-right px-3 mt-2" data-aos="fade-right" data-aos-delay="300">
-            <a href="#" class="view-all"><?php _e('View All', 'custom'); ?></a>
+            <a href="/recipes" class="view-all"><?php _e('View All', 'custom'); ?></a>
         </div>
         <div class="socials-wrapper mt-3 ml-auto" data-aos="fade-right">
 
@@ -186,6 +188,7 @@
                 </div>
             <?php endif; ?>
         </div>
+
     <?php endif;
     wp_reset_query(); ?>
 </section>

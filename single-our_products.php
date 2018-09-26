@@ -138,7 +138,7 @@
                                             $address = get_sub_field('address');
                                             $location_on_google = get_sub_field('location_on_google');
                                             ?>
-                                            <li class="in">
+                                            <li class="hiding out hidden">
                                                 <div class="row align-items-center">
                                                     <?php if ($address): ?>
                                                         <div class="col-9">
@@ -160,10 +160,9 @@
                                                 </div>
                                             </li>
                                         <?php endwhile; ?>
-                                        <div class="empty-item">
-                                            <h2>There was nothing found on your request</h2>
-                                            <h2>Buy on <a href="#">Amazon</a>, or contact us <a
-                                                        href="mailto:info@hydracoco.com">info@hydracoco.com</a></h2>
+                                        <div class="empty-item show-res">
+                                            <?php the_field('locator_content', 'option'); ?>
+                                            
                                         </div>
                                     </ul>
                                     <?php endif; ?>

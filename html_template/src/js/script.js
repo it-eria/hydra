@@ -115,6 +115,8 @@ $(function () {
     AOS.init();
 });
 
+
+
 $(document).ready(function () {
 
     var jobCount = $('#list .in').length;
@@ -145,8 +147,10 @@ $(document).ready(function () {
 
         $("#list li:containsi('" + searchSplit + "')").each(function (e) {
             $(this).removeClass('hidden out').addClass('in');
+            $('.empty-item').removeClass('show-res');
             setTimeout(function () {
                 $('.in').removeClass('hiding');
+
             }, 1);
         });
 
@@ -154,10 +158,20 @@ $(document).ready(function () {
         $('.list-count').text(jobCount + ' results');
         if (jobCount == '0') {
             $('#list').addClass('empty');
+
+
+
         }
         else {
             $('#list').removeClass('empty');
         }
+
+
+
+
     });
+
+
+
 
 });
