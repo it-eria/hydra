@@ -27,7 +27,6 @@
                 </div>
             <?php endwhile; ?>
         </div>
-
     <?php endif;
     wp_reset_query(); ?>
 </section>

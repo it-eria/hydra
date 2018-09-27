@@ -58,7 +58,6 @@ $(function () {
     }
 
     filters();
-
     $('.f-filter input[type="checkbox"]').on('change', function () {
         if ($(this).attr('data-js') == 'check-all') {
             $(this).parent().find('input[type="checkbox"]').prop('checked', $(this).is(':checked'));
@@ -115,21 +114,13 @@ $(function () {
     AOS.init();
 });
 
-
-
 $(document).ready(function () {
-
     var jobCount = $('#list .in').length;
     $('.list-count').text(jobCount + ' results');
-
-
     $("#search-text").keyup(function () {
         //$(this).addClass('hidden');
-
         var searchTerm = $("#search-text").val();
         var listItem = $('#list').children('li');
-
-
         var searchSplit = searchTerm.replace(/ /g, "'):containsi('");
         $.extend($.expr[':'], {
             'containsi': function (elem, i, match, array) {
@@ -158,20 +149,17 @@ $(document).ready(function () {
         $('.list-count').text(jobCount + ' results');
         if (jobCount == '0') {
             $('#list').addClass('empty');
-
-
-
         }
         else {
             $('#list').removeClass('empty');
         }
-
-
-
-
     });
-
-
-
-
 });
+
+$('.filter-taste').click( function(){
+    $('.ml-list').hide();
+    var attribute = $(this).attr('data-product-type');
+    $('.ml-list[data-priduct-type="'+attribute+'"]').show();
+});
+$('.filter-taste').eq(1).trigger('click');
+

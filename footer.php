@@ -72,12 +72,21 @@
         </div>
     </section>
 </footer>
-
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/jquery.min.js?ver=1.0"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/script.js?ver=1.0"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/slick.min.js?ver=1.0"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/aos.js?ver=1.0"></script>
+<script>
+    (function ($) {
+        $(".choose-elem a").on('click', function (e) {
+            var $img = $(this);
+            var $url = $(this);
+            $('#product-img').attr("src", $img.data('product-img'));
+            $('#product-url').attr("href", $url.data('product-url'));
+        });
+    })(jQuery);
+</script>
 <?php wp_footer(); ?>
 </body>
 </html>

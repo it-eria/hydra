@@ -16,7 +16,8 @@
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="thumbnail">
-                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="thumbnail" class="img-fluid">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="thumbnail"
+                                     class="img-fluid">
                             </a>
                             <div class="text-center mt-1">
                                 <p><?php the_excerpt(); ?></p>
@@ -33,20 +34,14 @@
                                     </div>
                                 </div>
                                 <div class="col-5 text-right">
-                                    <a href="<?php the_permalink(); ?>" class="read-more"><?php _e('read more', 'custom'); ?></a>
+                                    <a href="<?php the_permalink(); ?>"
+                                       class="read-more"><?php _e('read more', 'custom'); ?></a>
                                 </div>
                             </div>
                         </article>
                     <?php endwhile; ?>
                 </div>
             </div>
-<!--            <div class="row">-->
-<!--                <div class="col-12">-->
-<!--                    <div class="view-all-row text-right px-3 mt-5" data-aos="fade-right">-->
-<!--                        <a href="#" class="view-all">View more</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     <?php endif;
     wp_reset_query(); ?>

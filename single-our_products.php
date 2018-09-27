@@ -3,67 +3,61 @@
     <?php if (have_posts()) :
         while (have_posts()) : the_post(); ?>
             <div class="container">
-                    <div class="row align-items-center mt-5">
+                <div class="row align-items-center mt-5">
 
-                        <div class="col-9 pr-0 position-relative z-index-200">
-                            <div class="d-flex flex-row align-items-center">
+                    <div class="col-9 pr-0 position-relative z-index-200">
+                        <div class="d-flex flex-row align-items-center">
 
-                                <?php while (have_rows('product_type')): the_row(); ?>
-                                    <ul data-priduct-type="type-<?php echo get_row_index(); ?>" class="ml-list position-absolute">
-                                        <?php while (have_rows('variables_product')): the_row(); ?>
-                                            <li class="choose-elem"><a data-product-img="<?php the_sub_field('variable_product_image');  ?>" data-product-url="<?php the_sub_field('variable_product_url');  ?>" href="#"><?php the_sub_field('variable_product_capacity');  ?>ML</a></li>
-                                        <?php endwhile; ?>
-                                    </ul>
-                                <?php endwhile; ?>
-                                    <div class="product-thumbnail w-100 position-relative">
-                                        <img id="product-img" class="img-fluid" src="" alt="sport">
-                                    </div>
+                            <?php while (have_rows('product_type')): the_row(); ?>
+                                <ul data-priduct-type="type-<?php echo get_row_index(); ?>"
+                                    class="ml-list position-absolute">
+                                    <?php while (have_rows('variables_product')): the_row(); ?>
+                                        <li class="choose-elem"><a
+                                                    data-product-img="<?php the_sub_field('variable_product_image'); ?>"
+                                                    data-product-url="<?php the_sub_field('variable_product_url'); ?>"
+                                                    href="#"><?php the_sub_field('variable_product_capacity'); ?>ML</a>
+                                        </li>
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endwhile; ?>
+                            <?php
+                                $taste_filter = get_field('product_type');
+                                $iha = end($taste_filter)["variables_product"];
+                                $param = end($iha);
+                            ?>
+
+                            <div class="product-thumbnail w-100 position-relative">
+                                <img id="product-img" class="img-fluid" src="<?php echo $param["variable_product_image"]; ?>" alt="sport">
                             </div>
                         </div>
-
-                        <div class="col-3 px-0 position-relative z-index-100">
-                            <a id="product-url" class="buy" href="">
-                                <span>buy<small>online<br>now</small></span>
-                            </a>
-                        </div>
                     </div>
-
-
+                    <div class="col-3 px-0 position-relative z-index-100">
+                       <a id="product-url" class="buy" href="<?php echo $param["variable_product_url"]; ?>">
+                            <span>buy<small>online<br>now</small></span>
+                        </a>
+                    </div>
+                </div>
                 <div class="row mt-4">
                     <div class="col-12 text-left">
                         <div class="label-for-filter">
-                            <h5>Available Flavors:</h5>
+                            <h5><?php _e('Available Flavors:', 'custom'); ?></h5>
                         </div>
                         <div class="filter" data-js="filter">
                             <ul>
                                 <?php
-                                    while (have_rows('product_type')): the_row();
-                                        echo '<li><a data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>';
-                                    endwhile;
-                                ?>
+                                while (have_rows('product_type')): the_row(); ?>
+                                    <?php echo '<li><a class="filter-taste" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
+                                <?php endwhile; ?>
                             </ul>
-                            <span class="current"></span>
+                            <?php
+                                $taste_filter = get_field('product_type');
+                                $last_row = end($taste_filter);
+                            ?>
+                            <span class="current"><?php echo $last_row['product_type_name']; ?></span>
                             <i class="arrow"></i>
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    (function ($) {
-                        $(".choose-elem a").on('click', function (e) {
-                            var $img = $(this);
-                            var $url = $(this);
-                            $('#product-img').attr("src", $img.data('product-img'));
-                            $('#product-url').attr("url", $url.data('product-url'));
-                        });
-
-                    })(jQuery);
-                </script>
-
-
-
-
-
                 <div class="row mt-4">
                     <div class="col-12 product-type">
                         <h3><?php the_title(); ?></h3>
@@ -83,7 +77,6 @@
                         </div>
                     </div>
                     <div class="inf-window text-center" id="nutrion">
-
                         <div class="content">
                             <div class="nutrition-table clearfix">
                                 <?php
@@ -92,9 +85,6 @@
                                 ?>
                             </div>
                         </div>
-                        <!--                        <span>-->
-                        <!--          <b>Ingredients:</b> CoconutWater, Less than 1% of Citric Acid, abscorbic acid (Vitamin C), Thiamin (Vitamin B1), Niacinamide (Vitamin B3 ), Pyridoxine hcl (Vitamin B6), Cyanocobalamin (Vitamin B12), Panthotenic acid (Vitamin B5)-->
-                        <!--        </span>-->
                     </div>
                     <div class="inf-window" id="store">
                         <h5>Store Locator:</h5>
@@ -102,16 +92,13 @@
                             <a href="#" class="specific-product">Select Specific Products</a>
                             <form action="#">
                                 <input type="text" id="search-text" placeholder="City/Zip Code" class="search-box">
-                                <!--                                <button type="submit">Find</button>-->
                             </form>
                             <div class="results">
                                 <div class="results__header">
                                     <div class="row">
                                         <div class="col-4 pr-0 list-count">
-
                                         </div>
                                         <div class="col-4 text-center">
-
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="mail"></i>
@@ -129,11 +116,9 @@
                                                 <div class="row align-items-center">
                                                     <?php if ($address): ?>
                                                         <div class="col-9">
-<!--                                                            <h5>7-eleven</h5>-->
                                                             <address>
                                                                 <?php echo $address; ?>
                                                             </address>
-                                                            <!--                                                            <span>1.7mi | 1 Products</span>-->
                                                         </div>
                                                         <?php if ($location_on_google): ?>
                                                             <div class="col-3 text-right">
@@ -143,13 +128,12 @@
                                                             </div>
                                                         <?php endif; ?>
                                                     <?php endif; ?>
-
                                                 </div>
                                             </li>
                                         <?php endwhile; ?>
                                         <div class="empty-item show-res">
                                             <?php the_field('locator_content', 'option'); ?>
-                                            
+
                                         </div>
                                     </ul>
                                     <?php endif; ?>
@@ -179,9 +163,7 @@
                                         <?php endif; ?>
                                     </div>
                                 <?php endwhile; ?>
-                                <div class="text-center">
-                                    <a href="#" class="more"><?php _e('show more', 'custom'); ?></a>
-                                </div>
+
                             </div>
                         <?php endif; ?>
                     </div>

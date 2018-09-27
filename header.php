@@ -17,20 +17,17 @@
 <header class="header" style="background-color: <?php the_field('header_menu_color_picker'); ?> !important" data-js="header">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <!-- Logo -->
             <div class="col-6">
                 <a href="<?php echo get_site_url(); ?>" class="logo" data-js="logo">
                     <img src="<?php the_field('logotype_unactive', 'option'); ?>" alt="logo unactive" class="logo__visible">
                     <img src="<?php the_field('logotype_active', 'option'); ?>" alt="logo active">
                 </a>
             </div>
-            <!-- Burger button -->
             <div class="col-6 text-right">
                 <a href="#" class="btn btn--burger" data-js="btn--burger">
                     <span></span>
                 </a>
             </div>
-            <!-- Navigaton -->
             <div class="col-12">
                 <nav class="main-nav" data-js="main-nav">
                     <?php
@@ -58,5 +55,3 @@
         </div>
     </div>
 </header>
-
-
