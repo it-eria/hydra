@@ -3,55 +3,32 @@
     <?php if (have_posts()) :
         while (have_posts()) : the_post(); ?>
             <div class="container">
-                <?php if (have_rows('variable_product')): ?>
                     <div class="row align-items-center mt-5">
 
                         <div class="col-9 pr-0 position-relative z-index-200">
                             <div class="d-flex flex-row align-items-center">
 
-                                <ul class="ml-list position-absolute">
-                                    <?php while (have_rows('variable_product')): the_row();
-                                        $capacity = get_sub_field('capacity');
-                                        $image = get_sub_field('image');
-                                        $url_for_product = get_sub_field('url_for_product'); ?>
-                                        <?php if ($capacity): ?>
-                                        <li class="choose-elem"
-                                            data-choose-id-trigger="<?php echo get_row_index(); ?>"><a
-                                                    href="#"><?php echo $capacity; ?>ML</a></li><?php endif; ?>
-                                    <?php endwhile; ?>
-                                </ul>
-
-                                <?php if ($image): ?>
-                                    <div class="product-thumbnail w-100 position-relative">
-                                        <?php while (have_rows('variable_product')): the_row();
-                                            $capacity = get_sub_field('capacity');
-                                            $image = get_sub_field('image');
-                                            $url_for_product = get_sub_field('url_for_product'); ?>
-                                            <img class="choose-list img-fluid"
-                                                 data-choose-id="<?php echo get_row_index(); ?>"
-                                                 src="<?php echo $image; ?>" alt="sport">
+                                <?php while (have_rows('product_type')): the_row(); ?>
+                                    <ul data-priduct-type="type-<?php echo get_row_index(); ?>" class="ml-list position-absolute">
+                                        <?php while (have_rows('variables_product')): the_row(); ?>
+                                            <li class="choose-elem"><a data-product-img="<?php the_sub_field('variable_product_image');  ?>" data-product-url="<?php the_sub_field('variable_product_url');  ?>" href="#"><?php the_sub_field('variable_product_capacity');  ?>ML</a></li>
                                         <?php endwhile; ?>
+                                    </ul>
+                                <?php endwhile; ?>
+                                    <div class="product-thumbnail w-100 position-relative">
+                                        <img id="product-img" class="img-fluid" src="" alt="sport">
                                     </div>
-                                <?php endif; ?>
                             </div>
                         </div>
-                        <?php if ($url_for_product): ?>
-                            <div class="col-3 px-0 position-relative z-index-100">
-                                <?php while (have_rows('variable_product')): the_row();
-                                    $capacity = get_sub_field('capacity');
-                                    $image = get_sub_field('image');
-                                    $url_for_product = get_sub_field('url_for_product'); ?>
-                                    <a class="choose-list buy" data-choose-id="<?php echo get_row_index(); ?>"
-                                       href="<?php echo $url_for_product; ?>">
-                                  <span>
-                                    buy<small>online<br>now</small>
-                                  </span>
-                                    </a>
-                                <?php endwhile; ?>
-                            </div>
-                        <?php endif; ?>
+
+                        <div class="col-3 px-0 position-relative z-index-100">
+                            <a id="product-url" class="buy" href="">
+                                <span>buy<small>online<br>now</small></span>
+                            </a>
+                        </div>
                     </div>
-                <?php endif; ?>
+
+
                 <div class="row mt-4">
                     <div class="col-12 text-left">
                         <div class="label-for-filter">
@@ -60,23 +37,33 @@
                         <div class="filter" data-js="filter">
                             <ul>
                                 <?php
-                                $args = array(
-                                    'post_type' => 'our_products'
-                                );
-                                $loop = new WP_Query($args);
-                                if ($loop->have_posts()) {
-                                    while ($loop->have_posts()) : $loop->the_post();
-                                        echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                                    while (have_rows('product_type')): the_row();
+                                        echo '<li><a data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>';
                                     endwhile;
-                                    wp_reset_query();
-                                }
                                 ?>
                             </ul>
-                            <span class="current">Original</span>
+                            <span class="current"></span>
                             <i class="arrow"></i>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    (function ($) {
+                        $(".choose-elem a").on('click', function (e) {
+                            var $img = $(this);
+                            var $url = $(this);
+                            $('#product-img').attr("src", $img.data('product-img'));
+                            $('#product-url').attr("url", $url.data('product-url'));
+                        });
+
+                    })(jQuery);
+                </script>
+
+
+
+
+
                 <div class="row mt-4">
                     <div class="col-12 product-type">
                         <h3><?php the_title(); ?></h3>
