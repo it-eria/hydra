@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/jpeg" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/img/favicon.jpg" />
     <link rel="stylesheet"
           href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/slick.css">
@@ -13,7 +14,7 @@
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
 </head>
-<body style="background-color: <?php the_field('body_color_picker'); ?> !important" class="<?php if(!is_front_page()) {echo 'inner-page';}?>">
+<body style="background-color:  !important" class="<?php if(!is_front_page()) {echo 'inner-page';}?>">
 <header class="header" style="background-color: <?php the_field('header_menu_color_picker'); ?> !important" data-js="header">
     <div class="container-fluid">
         <div class="row align-items-center">

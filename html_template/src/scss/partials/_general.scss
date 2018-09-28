@@ -548,3 +548,8 @@ body .cooked-nutrition-label dl.cooked-nut-bottom dt {
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
+
+.active-item {
+  text-decoration: none;
+  background-color: #dfdfdf !important;
+}

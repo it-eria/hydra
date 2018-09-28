@@ -87,6 +87,7 @@
         });
     })(jQuery);
 </script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bae0dde4086b7ab"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

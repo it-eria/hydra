@@ -4,10 +4,8 @@
         while (have_posts()) : the_post(); ?>
             <div class="container">
                 <div class="row align-items-center mt-5">
-
                     <div class="col-9 pr-0 position-relative z-index-200">
                         <div class="d-flex flex-row align-items-center">
-
                             <?php while (have_rows('product_type')): the_row(); ?>
                                 <ul data-priduct-type="type-<?php echo get_row_index(); ?>"
                                     class="ml-list position-absolute">
@@ -15,7 +13,7 @@
                                         <li class="choose-elem"><a
                                                     data-product-img="<?php the_sub_field('variable_product_image'); ?>"
                                                     data-product-url="<?php the_sub_field('variable_product_url'); ?>"
-                                                    href="#"><?php the_sub_field('variable_product_capacity'); ?>ML</a>
+                                                    href="#"><?php the_sub_field('variable_product_capacity'); ?></a>
                                         </li>
                                     <?php endwhile; ?>
                                 </ul>
@@ -25,7 +23,6 @@
                                 $iha = end($taste_filter)["variables_product"];
                                 $param = end($iha);
                             ?>
-
                             <div class="product-thumbnail w-100 position-relative">
                                 <img id="product-img" class="img-fluid" src="<?php echo $param["variable_product_image"]; ?>" alt="sport">
                             </div>
@@ -46,7 +43,7 @@
                             <ul>
                                 <?php
                                 while (have_rows('product_type')): the_row(); ?>
-                                    <?php echo '<li><a class="filter-taste" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
+                                    <?php echo '<li><a class="filter-taste" data-color="' . get_sub_field("color_body") . '" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
                                 <?php endwhile; ?>
                             </ul>
                             <?php
@@ -163,7 +160,6 @@
                                         <?php endif; ?>
                                     </div>
                                 <?php endwhile; ?>
-
                             </div>
                         <?php endif; ?>
                     </div>
