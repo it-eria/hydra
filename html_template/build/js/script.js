@@ -58,6 +58,7 @@ $(function () {
     }
 
     filters();
+
     $('.f-filter input[type="checkbox"]').on('change', function () {
         if ($(this).attr('data-js') == 'check-all') {
             $(this).parent().find('input[type="checkbox"]').prop('checked', $(this).is(':checked'));
@@ -114,6 +115,8 @@ $(function () {
     AOS.init();
 });
 
+
+
 $(document).ready(function () {
     var jobCount = $('#list .in').length;
     $('.list-count').text(jobCount + ' results');
@@ -121,6 +124,7 @@ $(document).ready(function () {
         //$(this).addClass('hidden');
         var searchTerm = $("#search-text").val();
         var listItem = $('#list').children('li');
+
         var searchSplit = searchTerm.replace(/ /g, "'):containsi('");
         $.extend($.expr[':'], {
             'containsi': function (elem, i, match, array) {
@@ -160,7 +164,7 @@ $(document).ready(function () {
 $('.filter-taste').click( function(){
     var colorProduct = $(this).attr('data-color');
     $('body').css({
-       "background-color": colorProduct
+        "background-color": colorProduct
     });
 
     $('.header').css({
@@ -187,3 +191,4 @@ $('.choose-elem a').on('click', function(){
     $('.choose-elem a').removeClass('active-item');
     $(this).addClass('active-item');
 });
+
