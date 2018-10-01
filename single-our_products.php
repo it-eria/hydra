@@ -149,29 +149,38 @@
                             </div>
                         </div>
                         <div class="inf-window" id="faq">
-                            <?php if (have_rows('faq_for_product')): ?>
-                                <h5><?php _e('Frequently Asked Questions:', 'custom'); ?></h5>
+                            <?php
+                            $wp_product_faq = new WP_Query(array(
+                                'post_type' => 'faq_post_type',
+                                'posts_per_page' => -1,
+                                'meta_query' => array(
+                                    'relation' => 'AND',
+                                    array(
+                                        'key' => 'select_product',
+                                        'value' => get_the_ID(),
+                                        'compare' => '=',
+                                    )
+                                ),
+                            )); ?>
+                            <?php if ($wp_product_faq->have_posts()) : ?>
+                                <h5>
+                                    <?php _e('Frequently Asked Questions:', 'custom'); ?></h5>
                                 <div class="content">
-                                    <h3><?php _e('Still have questions', 'custom'); ?></h3>
-                                    <?php while (have_rows('faq_for_product')): the_row();
-                                        $question = get_sub_field('question');
-                                        $answer = get_sub_field('answer');
-                                        ?>
+                                    <h3>
+                                        <?php _e('Still have questions', 'custom'); ?></h3>
+                                    <?php while ($wp_product_faq->have_posts()) : $wp_product_faq->the_post(); ?>
                                         <div class="panel">
-                                            <?php if ($question): ?>
-                                                <div class="panel__title" data-js="panel__title">
-                                                    <?php echo $question; ?>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if ($answer): ?>
-                                                <div class="panel__body">
-                                                    <?php echo $answer; ?>
-                                                </div>
-                                            <?php endif; ?>
+                                            <div class="panel__title" data-js="panel__title">
+                                                <?php the_title(); ?>
+                                            </div>
+                                            <div class="panel__body">
+                                                <?php the_content(); ?>
+                                            </div>
                                         </div>
                                     <?php endwhile; ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif;
+                            wp_reset_query(); ?>
                         </div>
                     </div>
                     <div class="product-page-nav" data-js="product-page-nav">

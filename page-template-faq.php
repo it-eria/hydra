@@ -29,16 +29,20 @@
                                 </fieldset>
                                 <fieldset>
                                     <?php
-                                    $terms = get_terms('product_faq', $args = array('hide_empty' => false));
-                                    if (!empty($terms) && !is_wp_error($terms)) {
+                                    $cpt_query = new WP_Query(array(
+                                        'post_type' => 'our_products',
+                                        'posts_per_page' => -1
+                                    ));
+                                    if ($cpt_query->have_posts()) :
                                         echo '<legend>Products</legend>';
                                         echo '<input type="checkbox" class="product" id="prod-all" data-js="check-all">';
                                         echo '<label for="prod-all">All</label>';
-                                        foreach ($terms as $term) {
-                                            echo '<input type="checkbox" class="product" id="' . $term->slug . '">';
-                                            echo '<label for="' . $term->slug . '">' . $term->name . '</label>';
-                                        }
-                                    }
+                                        while ($cpt_query->have_posts()) : $cpt_query->the_post();
+                                            echo '<input type="checkbox" class="product" id="' . basename(get_permalink()) . '">';
+                                            echo '<label for="' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
+                                        endwhile;
+                                    endif;
+                                    wp_reset_query();
                                     ?>
                                 </fieldset>
                             </form>
@@ -46,18 +50,25 @@
                     </div>
                     <div class="filter-results">
                         <?php
-                        $cpt_query = new WP_Query(array('post_type' => 'faq_post_type', 'taxonomy' => 'categories_faq', 'posts_per_page' => -1));
+                        $cpt_query = new WP_Query(array(
+                            'post_type' => 'faq_post_type',
+                            'taxonomy' => 'categories_faq',
+                            'posts_per_page' => -1
+                        ));
                         if ($cpt_query->have_posts()) : while ($cpt_query->have_posts()) : $cpt_query->the_post(); ?>
                             <?php $categories_faq_term_list = wp_get_post_terms($post->ID, 'categories_faq', array("fields" => "all")); ?>
                             <div class="category-group"
                                  data-filter-target="<?php echo $categories_faq_term_list[0]->slug; ?>">
                                 <h2><?php the_title(); ?></h2>
                                 <?php
-                                $cptt_query = new WP_Query(array('post_type' => 'faq_post_type', 'taxonomy' => 'product_faq', 'posts_per_page' => -1));
+                                $cptt_query = new WP_Query(array(
+                                    'post_type' => 'faq_post_type',
+                                    'posts_per_page' => -1
+                                ));
                                 if ($cptt_query->have_posts()) : while ($cptt_query->have_posts()) : $cptt_query->the_post(); ?>
-                                    <?php $product_faq_term_list = wp_get_post_terms($post->ID, 'product_faq', array("fields" => "all")); ?>
+                                    <?php $element_id = get_field('select_product'); ?>
                                     <div class="panel"
-                                         data-filter-target="<?php echo $product_faq_term_list[0]->slug; ?>">
+                                         data-filter-target="<?php echo basename(get_permalink($element_id)); ?>">
                                         <div class="panel__title" data-js="panel__title">
                                             <?php the_title(); ?>
                                         </div>
