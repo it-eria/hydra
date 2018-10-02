@@ -140,7 +140,7 @@
 <?php endif; ?>
 <section class="recipes" data-aos="fade-up">
     <?php
-    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes', 'post_status' => 'publish', 'posts_per_page' => 3));
+    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes_page', 'post_status' => 'publish', 'posts_per_page' => 3));
     if ($wpb_all_recipes->have_posts()) : ?>
         <div class="mb-4">
             <div class="section-title section-title--big" data-aos="fade-right" data-aos-delay="300">

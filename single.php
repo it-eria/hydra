@@ -16,15 +16,15 @@
                                 <div class="article-content clearfix">
                                     <?php the_content(); ?>
                                 </div>
-                                <div class="share-wrapper mt-5">
-                                    <h6>Share this article:</h6>
+<!--                                <div class="share-wrapper mt-5">-->
+<!--                                    <h6>Share this article:</h6>-->
 <!--                                    <ul class="socials-list">-->
 <!--                                        <li><a href="#" class="fb"></a></li>-->
 <!--                                        <li><a href="#" class="inst"></a></li>-->
 <!--                                        <li><a href="#" class="pt"></a></li>-->
 <!--                                    </ul>-->
-                                    <div class="addthis_inline_share_toolbox_r93x"></div>
-                                </div>
+<!--                                    <div class="addthis_inline_share_toolbox_r93x"></div>-->
+<!--                                </div>-->
                             </article>
                         <?php endwhile; ?>
                     </div>

@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 <section style="padding-top: 100px;" class="recipes" data-aos="fade-up">
     <?php
-    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes', 'post_status' => 'publish', 'posts_per_page' => 3));
+    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes_page', 'post_status' => 'publish', 'posts_per_page' => -1));
     if ($wpb_all_recipes->have_posts()) : ?>
         <div class="mb-4">
             <div class="section-title section-title--big" data-aos="fade-right" data-aos-delay="300">
@@ -11,7 +11,7 @@
         </div>
         <div class="container">
             <?php while ($wpb_all_recipes->have_posts()) : $wpb_all_recipes->the_post(); ?>
-                <div class="row justify-content-center recipe-teaser" data-aos="fade-up" data-aos-delay="600">
+                <div class="row justify-content-center recipe-teaser-single" data-aos="fade-up" data-aos-delay="600">
                     <div class="col-12">
                         <div class="d-flex">
                             <div class="teaser-desc">

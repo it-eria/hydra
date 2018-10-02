@@ -85,3 +85,11 @@
     }
   }
 }
+
+@media screen and (max-width: 375px) {
+  .main-slider__slide img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+}

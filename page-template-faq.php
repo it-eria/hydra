@@ -55,8 +55,8 @@
                             'taxonomy' => 'categories_faq',
                             'posts_per_page' => -1
                         ));
-                        if ($cpt_query->have_posts()) : while ($cpt_query->have_posts()) : $cpt_query->the_post(); ?>
-                            <?php $categories_faq_term_list = wp_get_post_terms($post->ID, 'categories_faq', array("fields" => "all")); ?>
+                        if ($cpt_query->have_posts()) : while ($cpt_query->have_posts()) : $cpt_query->the_post();
+                        $categories_faq_term_list = wp_get_post_terms($post->ID, 'categories_faq', array("fields" => "all")); ?>
                             <div class="category-group"
                                  data-filter-target="<?php echo $categories_faq_term_list[0]->slug; ?>">
                                 <h2><?php the_title(); ?></h2>
@@ -76,8 +76,8 @@
                                             <?php the_content(); ?>
                                         </div>
                                     </div>
-                                <?php endwhile; ?>
-                                <?php endif; ?>
+                                <?php endwhile;
+                                endif; ?>
                             </div>
                         <?php endwhile; endif;
                         wp_reset_postdata(); ?>

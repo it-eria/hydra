@@ -93,6 +93,42 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="inf-window" id="recipes">
+                            <div class="content">
+                                <?php
+                                $wp_product_recipes = new WP_Query(array(
+                                    'post_type' => 'recipes_page',
+                                    'posts_per_page' => -1,
+                                    'meta_query' => array(
+                                        'relation' => 'AND',
+                                        array(
+                                            'key' => 'select_product_recipes',
+                                            'value' => get_the_ID(),
+                                            'compare' => '=',
+                                        )
+                                    )
+                                )); ?>
+                                <?php if ($wp_product_recipes->have_posts()) : ?>
+                                    <h5><?php _e('Recipes', 'custom'); ?></h5>
+                                        <?php while ($wp_product_recipes->have_posts()) : $wp_product_recipes->the_post(); ?>
+                                            <div class="panel">
+                                                <div class="panel__title" data-js="panel__title">
+                                                    <?php the_title(); ?>
+                                                </div>
+
+                                                <div class="panel__body">
+                                                    <div class="recipes-main-img">
+                                                        <img src="<?php the_post_thumbnail_url('full');?>" alt="img" />
+                                                    </div>
+                                                    <?php the_content(); ?>
+                                                </div>
+                                            </div>
+                                        <?php endwhile; ?>
+
+                                <?php endif;
+                                wp_reset_query(); ?>
+                            </div>
+                        </div>
                         <div class="inf-window" id="store">
                             <h5>Store Locator:</h5>
                             <div class="content">
@@ -196,6 +232,12 @@
                                         <li>
                                             <a href="#" data-target="nutrion">
                                                 <?php _e('Nutrition', 'custom'); ?>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#" data-target="recipes">
+                                                <?php _e('Recipes', 'custom'); ?>
                                             </a>
                                         </li>
                                         <li>

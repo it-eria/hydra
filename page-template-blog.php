@@ -24,14 +24,14 @@
                             </div>
                             <div class="row mt-3 align-items-end">
                                 <div class="col-7">
-                                    <div class="share-wrapper mt-1">
-                                        <h6><?php _e('Share:', 'custom'); ?></h6>
-                                        <ul class="socials-list">
-                                            <li><a href="#" class="fb"></a></li>
-                                            <li><a href="#" class="inst"></a></li>
-                                            <li><a href="#" class="pt"></a></li>
-                                        </ul>
-                                    </div>
+<!--                                    <div class="share-wrapper mt-1">-->
+<!--                                        <h6>--><?php //_e('Share:', 'custom'); ?><!--</h6>-->
+<!--                                        <ul class="socials-list">-->
+<!--                                            <li><a href="#" class="fb"></a></li>-->
+<!--                                            <li><a href="#" class="inst"></a></li>-->
+<!--                                            <li><a href="#" class="pt"></a></li>-->
+<!--                                        </ul>-->
+<!--                                    </div>-->
                                 </div>
                                 <div class="col-5 text-right">
                                     <a href="<?php the_permalink(); ?>"

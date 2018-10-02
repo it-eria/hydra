@@ -36,6 +36,34 @@
       }
     }
   }
+  .recipe-teaser-single {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 45px;
+      right: 0;
+      background-color: #4a9798;
+    }
+    //&:nth-child(even) {
+    //  background-color: transparent;
+    //  left: -15px;
+    //  &:before {
+    //    display: none;
+    //  }
+    //  .teaser-desc {
+    //    order: 2;
+    //  }
+    //  .teaser-thumbnail {
+    //    order: 1;
+    //  }
+    //}
+  }
   .teaser-desc {
     display: flex;
     flex-flow: row wrap;
