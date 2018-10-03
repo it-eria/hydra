@@ -37,6 +37,7 @@ $(function () {
 
     $('[data-js="panel__title"]').on('click', function (e) {
         e.preventDefault();
+        $(this).parent().removeClass('active');
         $(this).parent().toggleClass('active').find('.panel__body').eq(0).slideToggle(300);
     });
 
@@ -45,10 +46,10 @@ $(function () {
     $('[data-js="check-all"]').each(function (index) {
         if ($(this).is(':checked')) $(this).parent().find('input[type="checkbox"]').prop('checked', true);
     });
-    // $('*[data-filter-target]').fadeIn(300);
+    $('*[data-filter-target]').fadeIn(300);
     function filters() {
         var filters = [];
-        $('*[data-filter-target]').fadeOut(300);
+        // $('*[data-filter-target]').fadeOut(300);
         $('.f-filter input[type="checkbox"]:checked').each(function (index) {
             filters.push($(this).attr('id'));
         });
@@ -56,46 +57,26 @@ $(function () {
             $('[data-filter-target="' + filters[i] + '"]').fadeIn(300);
         }
     }
-    filters();
 
-    $('.f-filter input[type="checkbox"]').on('change', function () {
-        $('*[data-filter-target]').fadeOut(300);
-        if ($(this).attr('data-js') == 'check-all') {
-            $(this).parent().find('input[type="checkbox"]').prop('checked', $(this).is(':checked'));
-        } else {
-            $(this).parent().find('[data-js="check-all"]').prop('checked', false);
-        }
-        filters();
-    });
 
-    // RECIPES
-    $('*[data-filter-recipes]').fadeIn(300);
-    function filters_recipes() {
-        var filters_recipes = [];
-        // $('*[data-filter-target]').fadeOut(300);
-        $('.recipes-filter input[type="checkbox"]:checked').each(function (index) {
-            filters_recipes.push($(this).attr('id'));
+    function isUnchecked() {
+        var unchecked = true;
+        $('*[data-js="checkbox-item"]').each(function() {
+            var current = $(this);
+            if(current.is(':checked')) unchecked = false;
         });
-        for (var i = 0; i < filters_recipes.length; i++) {
-            $('[data-filter-recipes="' + filters_recipes[i] + '"]').fadeIn(300);
+        if(unchecked) {
+            $('*[data-js="check-all"]').prop('checked', true);
+            $('*[data-filter-target]').fadeIn(300);
+        } else {
+            $('*[data-js="check-all"]').prop('checked', false);
+            filters();
         }
     }
-    filters_recipes();
-
-    $('.recipes-filter input[type="checkbox"]').on('change', function () {
-        $('*[data-filter-recipes]').fadeOut(300);
-        if ($(this).attr('data-js') == 'check-all') {
-            $(this).parent().find('input[type="checkbox"]').prop('checked', $(this).is(':checked'));
-        } else {
-            $(this).parent().find('[data-js="check-all"]').prop('checked', false);
-        }
-        filters_recipes();
+    $('.f-filter input[type="checkbox"]').on('change', function() {
+        $('*[data-filter-target]').fadeOut(300);
+        isUnchecked();
     });
-
-
-
-
-
 
     var mainSliderParams = {
         slidesToShow: 1,
@@ -220,4 +201,3 @@ $('.choose-elem a').on('click', function(){
     $('.choose-elem a').removeClass('active-item');
     $(this).addClass('active-item');
 });
-

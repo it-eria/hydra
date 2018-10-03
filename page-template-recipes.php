@@ -7,12 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="panel panel--filter mt-0">
+                <div class="panel panel--filter mt-0 active">
                     <div class="panel__title" data-js="panel__title">
                         Recipes filter
                     </div>
                     <div class="panel__body">
-                        <form class="f-filter recipes-filter">
+                        <form class="f-filter">
                             <fieldset>
                                 <?php
                                 $cpt_query = new WP_Query(array(
@@ -24,7 +24,7 @@
                                     echo '<input type="checkbox" class="product" id="prod-all" data-js="check-all">';
                                     echo '<label for="prod-all">All</label>';
                                     while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                                        echo '<input type="checkbox" class="product" id="' . basename(get_permalink()) . '">';
+                                        echo '<input type="checkbox" data-js="checkbox-item" class="product" id="' . basename(get_permalink()) . '">';
                                         echo '<label for="' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
                                     endwhile;
                                 endif;
@@ -45,7 +45,7 @@
                             if ($cptt_query->have_posts()) : while ($cptt_query->have_posts()) : $cptt_query->the_post(); ?>
                                 <?php $element_id = get_field('select_product_recipes'); ?>
                                 <div class="row mt-5 mb-5 justify-content-center recipe-teaser-single"
-                                     data-aos="fade-up" data-aos-delay="600" data-showing="show-style" data-filter-recipes="<?php echo basename(get_permalink($element_id)); ?>">
+                                     data-aos="fade-up" data-aos-delay="600" data-filter-target="<?php echo basename(get_permalink($element_id)); ?>">
                                     <div class="col-12">
                                         <div class="d-flex">
                                             <div class="teaser-desc">
