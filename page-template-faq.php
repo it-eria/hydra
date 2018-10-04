@@ -50,37 +50,44 @@
                     </div>
                     <div class="filter-results">
                         <?php
-                        $cpt_query = new WP_Query(array(
-                            'post_type' => 'faq_post_type',
-                            'taxonomy' => 'categories_faq',
-                            'posts_per_page' => -1
-                        ));
-                        if ($cpt_query->have_posts()) : while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                        $categories_faq_term_list = wp_get_post_terms($post->ID, 'categories_faq', array("fields" => "all")); ?>
-                            <div class="category-group"
-                                 data-filter-target="<?php echo $categories_faq_term_list[0]->slug; ?>">
-                                <h2><?php the_title(); ?></h2>
-                                <?php
-                                $cptt_query = new WP_Query(array(
-                                    'post_type' => 'faq_post_type',
-                                    'posts_per_page' => -1
-                                ));
-                                if ($cptt_query->have_posts()) : while ($cptt_query->have_posts()) : $cptt_query->the_post(); ?>
-                                    <?php $element_id = get_field('select_product'); ?>
-                                    <div class="panel"
-                                         data-filter-target="<?php echo basename(get_permalink($element_id)); ?>">
-                                        <div class="panel__title" data-js="panel__title">
-                                            <?php the_title(); ?>
+                        $terms = get_terms('categories_faq', $args = array('hide_empty' => false));
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            foreach ($terms as $term) { ?>
+                                <div class="category-group"
+                                     data-filter-target="<?php echo $term->slug; ?>">
+                                    <h2><?php echo $term->name; ?></h2>
+                                    <?php
+                                    $faq_query = new WP_Query(array(
+                                        'post_type' => 'faq_post_type',
+                                        'posts_per_page' => -1,
+                                        'tax_query' => array(
+                                            array(
+                                                'taxonomy' => 'categories_faq',
+                                                'field' => 'slug',
+                                                'terms' => $term->slug
+                                            )
+                                        ),
+                                    ));
+                                    while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
+                                        <?php
+                                        $product_id = get_field('select_product');
+                                        $product = get_post($product_id);
+                                        $slug = $product->post_name;
+                                        ?>
+                                        <div class="panel"
+                                             data-filter-target="<?php echo $slug; ?>">
+                                            <div class="panel__title" data-js="panel__title">
+                                                <?php the_title(); ?>
+                                            </div>
+                                            <div class="panel__body">
+                                                <?php the_content(); ?>
+                                            </div>
                                         </div>
-                                        <div class="panel__body">
-                                            <?php the_content(); ?>
-                                        </div>
-                                    </div>
-                                <?php endwhile;
-                                endif; ?>
-                            </div>
-                        <?php endwhile; endif;
-                        wp_reset_postdata(); ?>
+                                    <?php endwhile; ?>
+                                </div>
+                            <?php }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
