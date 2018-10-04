@@ -13,7 +13,7 @@
                         </div>
                         <div class="panel__body">
                             <form class="f-filter">
-                                <fieldset>
+                                <fieldset id="catCheck">
                                     <?php
                                     $terms = get_terms('categories_faq', $args = array('hide_empty' => false));
                                     if (!empty($terms) && !is_wp_error($terms)) {
@@ -21,13 +21,13 @@
                                         echo '<input type="checkbox" class="category" id="cat-all" data-js="check-all">';
                                         echo '<label for="cat-all">All</label>';
                                         foreach ($terms as $term) {
-                                            echo '<input type="checkbox" class="category" id="' . $term->slug . '">';
+                                            echo '<input data-js="checkbox-item" type="checkbox" class="category" id="' . $term->slug . '">';
                                             echo '<label for="' . $term->slug . '">' . $term->name . '</label>';
                                         }
                                     }
                                     ?>
                                 </fieldset>
-                                <fieldset>
+                                <fieldset id="prodCheck">
                                     <?php
                                     $cpt_query = new WP_Query(array(
                                         'post_type' => 'our_products',
@@ -38,7 +38,7 @@
                                         echo '<input type="checkbox" class="product" id="prod-all" data-js="check-all">';
                                         echo '<label for="prod-all">All</label>';
                                         while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                                            echo '<input type="checkbox" class="product" id="' . basename(get_permalink()) . '">';
+                                            echo '<input data-js="checkbox-item" type="checkbox" class="product" id="' . basename(get_permalink()) . '">';
                                             echo '<label for="' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
                                         endwhile;
                                     endif;
