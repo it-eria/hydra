@@ -46,10 +46,10 @@ $(function () {
     $('[data-js="check-all"]').each(function (index) {
         if ($(this).is(':checked')) $(this).parent().find('input[type="checkbox"]').prop('checked', true);
     });
-    // $('*[data-filter-target]').fadeIn(300);
+    $('*[data-filter-target]').fadeIn(300);
     function filters() {
         var filters = [];
-        $('*[data-filter-target]').fadeOut(300);
+        // $('*[data-filter-target]').fadeOut(300);
         $('.f-filter input[type="checkbox"]:checked').each(function (index) {
             filters.push($(this).attr('id'));
         });
@@ -71,24 +71,24 @@ $(function () {
     });
 
 
-    // function isUnchecked() {
-    //     var unchecked = true;
-    //     $('*[data-js="checkbox-item"]').each(function() {
-    //         var current = $(this);
-    //         if(current.is(':checked')) unchecked = false;
-    //     });
-    //     if(unchecked) {
-    //         $('*[data-js="check-all"]').prop('checked', true);
-    //         $('*[data-filter-target]').fadeIn(300);
-    //     } else {
-    //         $('*[data-js="check-all"]').prop('checked', false);
-    //         filters();
-    //     }
-    // }
-    // $('.f-filter input[type="checkbox"]').on('change', function() {
-    //     $('*[data-filter-target]').fadeOut(300);
-    //     isUnchecked();
-    // });
+    function isUnchecked() {
+        var unchecked = true;
+        $('*[data-js="checkbox-item"]').each(function() {
+            var current = $(this);
+            if(current.is(':checked')) unchecked = false;
+        });
+        if(unchecked) {
+            $('*[data-js="check-all"]').prop('checked', true);
+            $('*[data-filter-target]').fadeIn(300);
+        } else {
+            $('*[data-js="check-all"]').prop('checked', false);
+            filters();
+        }
+    }
+    $('.f-filter input[type="checkbox"]').on('change', function() {
+        $('*[data-filter-target]').fadeOut(300);
+        isUnchecked();
+    });
 
     var mainSliderParams = {
         slidesToShow: 1,
