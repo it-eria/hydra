@@ -13,6 +13,8 @@
                                             <li class="choose-elem"><a
                                                         data-product-img="<?php the_sub_field('variable_product_image'); ?>"
                                                         data-product-url="<?php the_sub_field('variable_product_url'); ?>"
+                                                        data-product-photo-nutrition="<?php the_sub_field('nutrition_photo'); ?>"
+                                                        data-product-content-nutrition="<?php the_sub_field('nutrition_content'); ?>"
                                                         href="#"><?php the_sub_field('variable_product_capacity'); ?></a>
                                             </li>
                                         <?php endwhile; ?>
@@ -44,6 +46,7 @@
                                 <ul>
                                     <?php
                                     while (have_rows('product_type')): the_row(); ?>
+
                                         <?php echo '<li><a class="filter-taste" data-color="' . get_sub_field("color_body") . '" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
                                     <?php endwhile; ?>
                                 </ul>
@@ -77,14 +80,16 @@
                         <div class="inf-window text-center" id="nutrion">
                             <div class="content">
                                 <div class="nutrition-table clearfix">
-                                    <?php while (have_rows('product_type')): the_row(); ?>
-                                        <div class="recipes_container" style="display: none;">
-                                            <p>
-                                                <?php the_sub_field('nutrition_content'); ?>
-                                            </p>
-                                            <img src="<?php the_sub_field('nutrition_photo'); ?>" alt="img"/>
-                                        </div>
-                                    <?php endwhile; ?>
+                                    <div class="recipes_container">
+                                        <?php
+                                        $taste_filters = get_field('product_type');
+                                        $ihas = end($taste_filters)["variables_product"];
+                                        $params = end($ihas);
+                                        ?>
+                                        <div id="product-content-nutrition"><?php echo $params['nutrition_content']; ?></div>
+                                        <img id="product-photo-nutrition"
+                                             src="<?php echo $params['nutrition_photo']; ?>" alt="img"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,20 +110,20 @@
                                 )); ?>
                                 <?php if ($wp_product_recipes->have_posts()) : ?>
                                     <h5><?php _e('Recipes', 'custom'); ?></h5>
-                                        <?php while ($wp_product_recipes->have_posts()) : $wp_product_recipes->the_post(); ?>
-                                            <div class="panel">
-                                                <div class="panel__title" data-js="panel__title">
-                                                    <?php the_title(); ?>
-                                                </div>
-
-                                                <div class="panel__body">
-                                                    <div class="recipes-main-img">
-                                                        <img src="<?php the_post_thumbnail_url('full');?>" alt="img" />
-                                                    </div>
-                                                    <?php the_content(); ?>
-                                                </div>
+                                    <?php while ($wp_product_recipes->have_posts()) : $wp_product_recipes->the_post(); ?>
+                                        <div class="panel">
+                                            <div class="panel__title" data-js="panel__title">
+                                                <?php the_title(); ?>
                                             </div>
-                                        <?php endwhile; ?>
+
+                                            <div class="panel__body">
+                                                <div class="recipes-main-img">
+                                                    <img src="<?php the_post_thumbnail_url('large'); ?>" alt="img"/>
+                                                </div>
+                                                <?php the_content(); ?>
+                                            </div>
+                                        </div>
+                                    <?php endwhile; ?>
 
                                 <?php endif;
                                 wp_reset_query(); ?>

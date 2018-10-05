@@ -81,8 +81,12 @@
         $(".choose-elem a").on('click', function (e) {
             var $img = $(this);
             var $url = $(this);
+            var $photo = $(this);
+            var $content = $(this);
             $('#product-img').attr("src", $img.data('product-img'));
             $('#product-url').attr("href", $url.data('product-url'));
+            $('#product-photo-nutrition').attr("src", $photo.data('product-photo-nutrition'));
+            $('#product-content-nutrition').html( $content.data('product-content-nutrition'));
         });
     })(jQuery);
 </script>

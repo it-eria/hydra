@@ -188,6 +188,8 @@
         $('.ml-list[data-priduct-type="' + attribute + '"]').show();
         $('.ml-list[data-priduct-type="' + attribute + '"] li:first-child a').trigger('click');
 
+
+
     });
 
     $('body').css({
