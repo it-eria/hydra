@@ -18,8 +18,6 @@
                                     $terms = get_terms('categories_faq', $args = array('hide_empty' => false));
                                     if (!empty($terms) && !is_wp_error($terms)) {
                                         echo '<legend>Categories</legend>';
-                                        echo '<input type="checkbox" class="category" id="cat-all" data-js="check-all">';
-                                        echo '<label for="cat-all">All</label>';
                                         foreach ($terms as $term) {
                                             echo '<input data-js="checkbox-item" type="checkbox" class="category" id="' . $term->slug . '">';
                                             echo '<label for="' . $term->slug . '">' . $term->name . '</label>';
@@ -35,8 +33,6 @@
                                     ));
                                     if ($cpt_query->have_posts()) :
                                         echo '<legend>Products</legend>';
-                                        echo '<input type="checkbox" class="product" id="prod-all" data-js="check-all">';
-                                        echo '<label for="prod-all">All</label>';
                                         while ($cpt_query->have_posts()) : $cpt_query->the_post();
                                             echo '<input data-js="checkbox-item" type="checkbox" class="product" id="' . basename(get_permalink()) . '">';
                                             echo '<label for="' . basename(get_permalink()) . '">' . get_the_title() . '</label>';

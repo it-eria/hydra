@@ -1,5 +1,5 @@
-<footer class="footer" data-aos="fade-up">
-    <section data-aos="fade-right">
+<footer class="footer">
+    <section>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
@@ -32,7 +32,7 @@
             </div>
         </div>
     </section>
-    <section data-aos="fade-right">
+    <section>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
@@ -72,7 +72,6 @@
         </div>
     </section>
 </footer>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/jquery.min.js?ver=1.0"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/script.js?ver=1.0"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/js/vendors/slick.min.js?ver=1.0"></script>

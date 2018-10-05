@@ -77,19 +77,14 @@
                         <div class="inf-window text-center" id="nutrion">
                             <div class="content">
                                 <div class="nutrition-table clearfix">
-                                    <?php
-                                    $formPerso = get_field('place_for_recipe_shortcode');
-                                    echo do_shortcode($formPerso); ?>
-                                    <?php if (have_rows('nutririon_recipes')):
-                                        while (have_rows('nutririon_recipes')): the_row(); ?>
-                                            <div class="recipes_container">
-                                                <p>
-                                                    <?php the_sub_field('nutrition_title'); ?>
-                                                </p>
-                                                <img src="<?php the_sub_field('nutrition_image'); ?>" alt="img"/>
-                                            </div>
-                                        <?php endwhile;
-                                    endif; ?>
+                                    <?php while (have_rows('product_type')): the_row(); ?>
+                                        <div class="recipes_container" style="display: none;">
+                                            <p>
+                                                <?php the_sub_field('nutrition_content'); ?>
+                                            </p>
+                                            <img src="<?php the_sub_field('nutrition_photo'); ?>" alt="img"/>
+                                        </div>
+                                    <?php endwhile; ?>
                                 </div>
                             </div>
                         </div>
