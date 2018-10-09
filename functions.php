@@ -94,3 +94,17 @@ function filter_plugin_updates( $update ) {
     return $update;
 }
 add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
+
+
+
+
+
+
+
+add_filter( 'tiny_mce_before_init', function( $settings ){
+
+    $settings['block_formats'] = 'Paragraph=p;Heading=h2;Subheading=h3';
+
+    return $settings;
+
+} );

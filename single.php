@@ -5,6 +5,8 @@
                 <div class="row">
                     <div class="col-12">
                         <?php while (have_posts()) : the_post(); ?>
+
+
                             <article class="article">
                                 <div class="text-center mb-3">
                                     <h2><?php the_title(); ?></h2>

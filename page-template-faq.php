@@ -41,6 +41,20 @@
                                     wp_reset_query();
                                     ?>
                                 </fieldset>
+
+                                <fieldset id="flavourCheck">
+                                    <?php
+                                    $terms_flavour = get_terms('faq_flavours', $args = array('hide_empty' => false));
+                                    if (!empty($terms_flavour) && !is_wp_error($terms_flavour)) {
+                                        echo '<legend>Flavours</legend>';
+                                        foreach ($terms_flavour as $term_flavour) {
+                                            echo '<input data-js="checkbox-item" type="checkbox" class="category" id="' . $term_flavour->slug . '">';
+                                            echo '<label for="' . $term_flavour->slug . '">' . $term_flavour->name . '</label>';
+                                        }
+                                    }
+                                    ?>
+                                </fieldset>
+
                             </form>
                         </div>
                     </div>
@@ -62,7 +76,7 @@
                                                 'field' => 'slug',
                                                 'terms' => $term->slug
                                             )
-                                        ),
+                                        )
                                     ));
                                     while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
                                         <?php

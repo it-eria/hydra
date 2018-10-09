@@ -10,12 +10,15 @@
                                     <ul data-priduct-type="type-<?php echo get_row_index(); ?>"
                                         class="ml-list position-absolute">
                                         <?php while (have_rows('variables_product')): the_row(); ?>
-                                            <li class="choose-elem"><a
+                                            <li class="choose-elem" id="id-<?php echo get_row_index(); ?>"><a
                                                         data-product-img="<?php the_sub_field('variable_product_image'); ?>"
                                                         data-product-url="<?php the_sub_field('variable_product_url'); ?>"
                                                         data-product-photo-nutrition="<?php the_sub_field('nutrition_photo'); ?>"
-                                                        data-product-content-nutrition="<?php the_sub_field('nutrition_content'); ?>"
-                                                        href="#"><?php the_sub_field('variable_product_capacity'); ?></a>
+                                                        href="#"><?php the_sub_field('variable_product_capacity'); ?>
+                                                    <div style="display: none" class="data-product-content-nutrition">
+                                                        <?php echo get_sub_field("nutrition_content"); ?>
+                                                    </div>
+                                                </a>
                                             </li>
                                         <?php endwhile; ?>
                                     </ul>
@@ -215,8 +218,7 @@
                                         </div>
                                     <?php endwhile; ?>
                                 </div>
-                            <?php endif;
-                            wp_reset_query(); ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="product-page-nav" data-js="product-page-nav">

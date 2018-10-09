@@ -53,20 +53,22 @@
         function filters() {
             var catFilters = [];
             var prodFilters = [];
+
             $('.f-filter fieldset input[type="checkbox"]:checked').each(function (index) {
                 var id = $(this).parent().attr('id');
-                (id === "catCheck") ? catFilters.push($(this).attr('id')) : prodFilters.push($(this).attr('id'));
+                (id === "catCheck") ? catFilters.push($(this).attr('id')) : prodFilters.push($(this).attr('id')) ;
+
             });
             // console.log(catFilters);
             // console.log(prodFilters);
-            if (catFilters.length > 0) {
+            if (catFilters.length) {
                 for (var i = 0; i < catFilters.length; i++) {
                     $('.category-group[data-filter-target="' + catFilters[i] + '"]').fadeIn(300);
                 }
             } else if (catFilters.length == 0) {
                 $('.category-group').fadeIn(300);
             }
-            if (prodFilters.length > 0) {
+            if (prodFilters.length) {
                 for (var i = 0; i < prodFilters.length; i++) {
                     $('.panel[data-filter-target="' + prodFilters[i] + '"]').fadeIn(300);
                 }
