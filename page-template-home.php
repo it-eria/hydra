@@ -29,7 +29,7 @@
                 <?php while ($wpb_all_query->have_posts()) : $wpb_all_query->the_post(); ?>
                     <div class="our-products__slider__slide">
                         <div class="product-thumbnail">
-                            <?php echo get_the_post_thumbnail(get_the_ID(), 'full'); ?>
+                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
                         </div>
                         <div class="product-desc">
                             <div class="product-title">

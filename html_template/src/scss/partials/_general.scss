@@ -393,7 +393,6 @@ i.quotes {
       margin-top: 10px;
       margin-bottom: 10px;
     }
-
   }
 }
 
@@ -420,7 +419,6 @@ i.quotes {
       }
     }
   }
-
 }
 
 
@@ -472,21 +470,11 @@ i.quotes {
 }
 
 .results__list li {
-  //float:left;
-  //clear:left;
-  //width:100%;
-  //margin:0.2em 0;
-  //padding:0.5em 0.8em;
-  //list-style:none;
-  //cursor:pointer;
-  //color:#333;
-  //position:relative;
-  //z-index:2;
+
 }
 
 .results__list li:hover {
-  //background-color:#f9f9f9;
-  //border-color:#00BDE8;
+
 }
 
 .empty-item {
@@ -563,10 +551,8 @@ body .cooked-nutrition-label dl.cooked-nut-bottom dt {
 
   img {
     width: 100%;
-
   }
 }
-
 
 .recipes-main-img {
   img {
@@ -576,13 +562,6 @@ body .cooked-nutrition-label dl.cooked-nut-bottom dt {
   }
 }
 
-//#prod-all, #prod-all + label, #cat-all, #cat-all + label {
-//  width: 0;
-//  padding: 0;
-//  margin: 0;
-//  visibility: hidden;
-//}
-
 .teaser-thumbnail-page {
   a {
     img {
@@ -590,8 +569,6 @@ body .cooked-nutrition-label dl.cooked-nut-bottom dt {
       max-height: 300px;
       min-height: 200px;
       object-fit: cover;
-
     }
   }
-
 }

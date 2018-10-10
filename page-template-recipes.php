@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="panel panel--filter mt-0 active">
+                <div class="panel panel--filter mt-0">
                     <div class="panel__title" data-js="panel__title">
                         Recipes filter
                     </div>

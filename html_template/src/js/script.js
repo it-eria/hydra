@@ -1,5 +1,4 @@
 (function ($) {
-
     $(function () {
         $('.choose-elem').click(function () {
             var tid = $(this).data('choose-id-trigger');
@@ -131,7 +130,6 @@
         AOS.init();
     });
 
-
     $(document).ready(function () {
         var jobCount = $('#list .in').length;
         $('.list-count').text(jobCount + ' results');
@@ -175,7 +173,6 @@
         });
     });
 
-
     $('.filter-taste').click(function () {
         var colorProduct = $(this).attr('data-color');
         $('body').css({
@@ -189,9 +186,6 @@
         var attribute = $(this).attr('data-product-type');
         $('.ml-list[data-priduct-type="' + attribute + '"]').show();
         $('.ml-list[data-priduct-type="' + attribute + '"] li:first-child a').trigger('click');
-
-
-
     });
 
     $('body').css({
@@ -201,12 +195,10 @@
         "background-color": $('.filter ul li:last-child a').attr('data-color')
     });
 
-
     $('.choose-elem:last-child a').addClass('active-item');
 
     $('.choose-elem a').on('click', function () {
         $('.choose-elem a').removeClass('active-item');
         $(this).addClass('active-item');
     });
-
 })(jQuery);

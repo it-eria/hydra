@@ -49,7 +49,6 @@
                                 <ul>
                                     <?php
                                     while (have_rows('product_type')): the_row(); ?>
-
                                         <?php echo '<li><a class="filter-taste" data-color="' . get_sub_field("color_body") . '" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
                                     <?php endwhile; ?>
                                 </ul>
@@ -110,25 +109,28 @@
                                             'compare' => '=',
                                         )
                                     )
-                                )); ?>
-                                <?php if ($wp_product_recipes->have_posts()) : ?>
+                                ));
+                                if ($wp_product_recipes->have_posts()) : ?>
                                     <h5><?php _e('Recipes', 'custom'); ?></h5>
                                     <?php while ($wp_product_recipes->have_posts()) : $wp_product_recipes->the_post(); ?>
-                                        <div class="panel">
-                                            <div class="panel__title" data-js="panel__title">
-                                                <?php the_title(); ?>
-                                            </div>
-
-                                            <div class="panel__body">
-                                                <div class="recipes-main-img">
-                                                    <img src="<?php the_post_thumbnail_url('large'); ?>" alt="img"/>
+                                        <div class="row mt-1 mb-1 justify-content-center panel"
+                                             data-aos="fade-up" data-aos-delay="600">
+                                            <div class="col-12">
+                                                <div>
+                                                    <div class="teaser-desc position-absolute bg-transparent mw-100 p-4">
+                                                        <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
+                                                    </div>
+                                                    <div class="teaser-thumbnail-page mw-100"
+                                                         data-js="recipe-teaser-thumbnail ">
+                                                        <a href="<?php the_permalink(); ?>"><img
+                                                                    src="<?php the_post_thumbnail_url('large'); ?>"
+                                                                    alt="img"/> </a>
+                                                    </div>
                                                 </div>
-                                                <?php the_content(); ?>
                                             </div>
                                         </div>
-                                    <?php endwhile; ?>
-
-                                <?php endif;
+                                    <?php endwhile;
+                                endif;
                                 wp_reset_query(); ?>
                             </div>
                         </div>
@@ -236,7 +238,6 @@
                                                 <?php _e('Nutrition', 'custom'); ?>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="#" data-target="recipes">
                                                 <?php _e('Recipes', 'custom'); ?>
