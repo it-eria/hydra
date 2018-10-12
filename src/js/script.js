@@ -53,14 +53,14 @@ $(function() {
   });
 
   function filters() {
-    var filters = [];
-    $('*[data-filter-target]').fadeOut(300);
-    $('.f-filter input[type="checkbox"]:checked').each(function(index) {
-      filters.push($(this).attr('id'));
-    });
-    for(var i=0; i < filters.length; i++) {
-      $('[data-filter-target="'+filters[i]+'"]').fadeIn(300);
-    }
+    // var filters = [];
+    // $('*[data-filter-target]').fadeOut(300);
+    // $('.f-filter input[type="checkbox"]:checked').each(function(index) {
+    //   filters.push($(this).attr('id'));
+    // });
+    // for(var i=0; i < filters.length; i++) {
+    //   $('[data-filter-target="'+filters[i]+'"]').fadeIn(300);
+    // }
   }
 
   filters();

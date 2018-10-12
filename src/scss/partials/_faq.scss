@@ -27,6 +27,9 @@
           border-color: rgba(#fff, .8);
           border-width: 1px;
           color: rgba(#fff, .8);
+          &.flavors {
+            display: none;
+          }
           legend {
             background-color: rgba(#fff, .9);
             border-radius: 8px;
