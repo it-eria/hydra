@@ -52,27 +52,6 @@ $(function() {
     if($(this).is(':checked')) $(this).parent().find('input[type="checkbox"]').prop('checked', true);
   });
 
-  function filters() {
-    // var filters = [];
-    // $('*[data-filter-target]').fadeOut(300);
-    // $('.f-filter input[type="checkbox"]:checked').each(function(index) {
-    //   filters.push($(this).attr('id'));
-    // });
-    // for(var i=0; i < filters.length; i++) {
-    //   $('[data-filter-target="'+filters[i]+'"]').fadeIn(300);
-    // }
-  }
-
-  filters();
-
-  $('.f-filter input[type="checkbox"]').on('change', function() {
-    if($(this).attr('data-js') == 'check-all') {
-      $(this).parent().find('input[type="checkbox"]').prop('checked',  $(this).is(':checked'));      
-    } else {
-      $(this).parent().find('[data-js="check-all"]').prop('checked', false);
-    }    
-    filters();
-  });
 
   var mainSliderParams = {
     slidesToShow: 1,

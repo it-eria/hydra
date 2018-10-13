@@ -63,8 +63,7 @@
   </div>
 </header><section class="banner">
   <img src="img/FAQ992.jpg" alt="banner" class="img-fluid">
-</section><!-- New features -->
-<section class="b-faq py-5">
+</section><section class="b-faq py-5">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -74,7 +73,7 @@
           </div>
           <div class="panel__body">
             <form class="f-filter">
-              <fieldset>
+              <fieldset class="category">
                 <legend>Categories</legend>
                 <input type="checkbox" class="category" id="cat-1">
                 <label for="cat-1">Category 1</label>
@@ -83,7 +82,7 @@
                 <input type="checkbox" class="category" id="cat-3">
                 <label for="cat-3">Category 3</label>
               </fieldset>
-              <fieldset>
+              <fieldset class="products">
                 <legend>Products</legend>
                 <input type="checkbox" class="product" id="prod-1">
                 <label for="prod-1">Product 1</label>
@@ -95,23 +94,23 @@
               <fieldset class="flavors">
                 <legend>Flavors</legend>
                 <input type="checkbox" class="flavor" id="flavor-1" data-flavor-for-product="prod-1">
-                <label for="flavor-1">Flavor for product 1 - 1</label>
+                <label for="flavor-1">Flavor 1 for product 1</label>
                 <input type="checkbox" class="flavor" id="flavor-2" data-flavor-for-product="prod-1">
-                <label for="flavor-2">Flavor for product 1 - 2</label>
+                <label for="flavor-2">Flavor 2 for product 1</label>
                 <input type="checkbox" class="flavor" id="flavor-3" data-flavor-for-product="prod-1">
-                <label for="flavor-3">Flavor for product 1 - 3</label>
+                <label for="flavor-3">Flavor 3 for product 1</label>
                 <input type="checkbox" class="flavor" id="flavor-4" data-flavor-for-product="prod-2">
-                <label for="flavor-4">Flavor for product 2 - 1</label>
+                <label for="flavor-4">Flavor 1 for product 2</label>
                 <input type="checkbox" class="flavor" id="flavor-5" data-flavor-for-product="prod-2">
-                <label for="flavor-5">Flavor for product 2 - 2</label>
+                <label for="flavor-5">Flavor 2 for product 2</label>
                 <input type="checkbox" class="flavor" id="flavor-6" data-flavor-for-product="prod-2">
-                <label for="flavor-6">Flavor for product 2 - 3</label>
+                <label for="flavor-6">Flavor 3 for product 2</label>
                 <input type="checkbox" class="flavor" id="flavor-7" data-flavor-for-product="prod-3">
-                <label for="flavor-7">Flavor for product 3 - 1</label>
+                <label for="flavor-7">Flavor 1 for product 3</label>
                 <input type="checkbox" class="flavor" id="flavor-8" data-flavor-for-product="prod-3">
-                <label for="flavor-8">Flavor for product 3 - 2</label>
+                <label for="flavor-8">Flavor 2 for product 3</label>
                 <input type="checkbox" class="flavor" id="flavor-9" data-flavor-for-product="prod-3">
-                <label for="flavor-9">Flavor for product 3 - 3</label>
+                <label for="flavor-9">Flavor 3 for product 3</label>
               </fieldset>
             </form>
           </div>
@@ -121,88 +120,250 @@
           <!-- Category 1 -->
           <div class="category-group" data-filter-target="cat-1">
             <h2>Category 1</h2>
-            <div class="panel" data-filter-target="prod-1">
+            <!-- Product 1 -->
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-1">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 1 at Category 1?
+                Question about Product 1, Flavor 1 at Category 1?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-2">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-2">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 2 at Category 1?
+                Question about Product 1, Flavor 2 at Category 1?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-3">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-3">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 3 at Category 1?
+                Question about Product 1, Flavor 3 at Category 1?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
+            <!-- /Product 1 -->
+            <!-- Product 2 -->
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-4">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 1 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-5">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 2 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-6">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 3 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 2 -->
+            <!-- Product 3 -->
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-7">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 1 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-8">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 2 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-9">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 3 at Category 1?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 3 -->
           </div>
           <!-- /Category 1 -->
           <!-- Category 2 -->
           <div class="category-group" data-filter-target="cat-2">
             <h2>Category 2</h2>
-            <div class="panel" data-filter-target="prod-1">
+            <!-- Product 1 -->
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-1">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 1 at Category 2?
+                Question about Product 1, Flavor 1 at Category 2?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-2">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-2">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 2 at Category 2?
+                Question about Product 1, Flavor 2 at Category 2?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-3">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-3">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 3 at Category 2?
+                Question about Product 1, Flavor 3 at Category 2?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
+            <!-- /Product 1 -->
+            <!-- Product 2 -->
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-4">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 1 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-5">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 2 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-6">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 3 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 2 -->
+            <!-- Product 3 -->
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-7">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 1 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-8">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 2 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-9">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 3 at Category 2?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 3 -->
           </div>
           <!-- /Category 2 -->
           <!-- Category 3 -->
           <div class="category-group" data-filter-target="cat-3">
             <h2>Category 3</h2>
-            <div class="panel" data-filter-target="prod-1">
+            <!-- Product 1 -->
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-1">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 1 at Category 3?
+                Question about Product 1, Flavor 1 at Category 3?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-2">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-2">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 2 at Category 3?
+                Question about Product 1, Flavor 2 at Category 3?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
-            <div class="panel" data-filter-target="prod-3">
+            <div class="panel" data-filter-target="prod-1" data-flavor-target="flavor-3">
               <div class="panel__title" data-js="panel__title">
-                Question about Product 3 at Category 3?
+                Question about Product 1, Flavor 3 at Category 3?
               </div>
               <div class="panel__body">
                 Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
               </div>
             </div>
+            <!-- /Product 1 -->
+            <!-- Product 2 -->
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-4">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 1 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-5">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 2 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-2" data-flavor-target="flavor-6">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 2, Flavor 3 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 2 -->
+            <!-- Product 3 -->
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-7">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 1 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-8">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 2 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <div class="panel" data-filter-target="prod-3" data-flavor-target="flavor-9">
+              <div class="panel__title" data-js="panel__title">
+                Question about Product 3, Flavor 3 at Category 3?
+              </div>
+              <div class="panel__body">
+                Here will be awesome answer for a question below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facilis, quo hic necessitatibus perferendis quidem eos ratione, aut reiciendis veritatis suscipit est sequi in omnis ad aperiam excepturi nam itaque!
+              </div>
+            </div>
+            <!-- /Product 3 -->
           </div>
           <!-- /Category 3 -->
         </div>
@@ -252,9 +413,10 @@
       </div>
     </div>
   </section>
-</footer><script src="js/vendors/jquery.min.js?ver=1.0"></script>
-<script src="js/vendors/slick.min.js?ver=1.0"></script>
-<script src="js/vendors/aos.js?ver=1.0"></script>
-<script src="js/script.js?ver=1.0"></script>
+</footer><script src="js/vendors/jquery.min.js"></script>
+<script src="js/vendors/slick.min.js"></script>
+<script src="js/vendors/aos.js"></script>
+<script src="js/script.js"></script>
+<script src="js/filter.js"></script>
 </body>
 </html>
