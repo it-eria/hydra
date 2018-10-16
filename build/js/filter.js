@@ -46,9 +46,14 @@ $(function() {
           for(var j=0; j < flavorsFilters.length; j++) {
             $('.filter-results .panel[data-filter-target]').each(function() {
               var filterArr = $(this).attr('data-filter-target').split(',');
+              var flavorsArr = $(this).attr('data-flavor-target').split(',');
               for(var k=0; k < filterArr.length; k++) {
-                if(productsFilters[i] == filterArr[k] && $(this).attr('data-flavor-target') == flavorsFilters[j]) {
-                  $(this).fadeIn(300);
+                if(productsFilters[i] == filterArr[k]) {
+                  for(var m = 0; m < flavorsArr.length; m++) {
+                    if(flavorsArr[m] == flavorsFilters[j]) {
+                      $(this).fadeIn(300);
+                    }  
+                  }
                 }
               }
             });
