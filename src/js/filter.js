@@ -44,10 +44,24 @@ $(function() {
       for(var i=0; i < productsFilters.length; i++) {
         if(flavorsFilters.length > 0) {
           for(var j=0; j < flavorsFilters.length; j++) {
-            $('.filter-results .panel[data-filter-target="' + productsFilters[i] + '"][data-flavor-target="'+ flavorsFilters[j] +'"]').fadeIn(300);
+            $('.filter-results .panel[data-filter-target]').each(function() {
+              var filterArr = $(this).attr('data-filter-target').split(',');
+              for(var k=0; k < filterArr.length; k++) {
+                if(productsFilters[i] == filterArr[k] && $(this).attr('data-flavor-target') == flavorsFilters[j]) {
+                  $(this).fadeIn(300);
+                }
+              }
+            });
           }
         } else {
-          $('.filter-results .panel[data-filter-target="' + productsFilters[i] + '"]').fadeIn(300);
+          $('.filter-results .panel[data-filter-target]').each(function() {
+            var filterArr = $(this).attr('data-filter-target').split(',');
+            for(var k=0; k < filterArr.length; k++) {
+              if(productsFilters[i] == filterArr[k]) {
+                $(this).fadeIn(300);
+              }
+            }
+          });
         }        
       }
     } else {
