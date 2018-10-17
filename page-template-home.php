@@ -175,10 +175,10 @@
                     <a href="#" class="follow"><?php _e('Follow Us', 'custom'); ?></a>
                     <ul class="socials-list">
                         <?php while (have_rows('socials', 'option')): the_row();
-                            $facebook_url = get_sub_field('facebook_url', 'option');
-                            $instagram_url = get_sub_field('instagram_url', 'option');
-                            $youtube_url = get_sub_field('youtube_url', 'option');
-                            $pinterest_url = get_sub_field('pinterest_url', 'option');
+                            $facebook_url = get_sub_field('fb_social', 'option');
+                            $instagram_url = get_sub_field('instagram_social', 'option');
+                            $youtube_url = get_sub_field('youtube_social', 'option');
+                            $pinterest_url = get_sub_field('pin_social', 'option');
                             ?>
                             <li><a href="<?php echo $facebook_url; ?>" class="fb"></a></li>
                             <li><a href="<?php echo $instagram_url; ?>" class="inst"></a></li>

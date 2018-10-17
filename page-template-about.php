@@ -18,7 +18,7 @@
     </section>
     <section class="about-us pt-3 pb-5">
         <div class="container">
-            <div class="row">
+            <div class="row" style="background-color: <?php the_field('bg-color-picker-1'); ?>">
                 <div class="col-12 mb-4 text-center">
                     <h2><?php the_field('title_for'); ?></h2>
                 </div>
@@ -28,7 +28,8 @@
             </div>
 
             <?php if (have_rows('contact_us_emails', 'option')): ?>
-                <div class="row mt-5 justify-content-center">
+                <div class="row mt-5 justify-content-center"
+                     style="background-color: <?php the_field('bg-color-picker-2'); ?>">
                     <div class="col-12 text-center">
                         <h2><?php _e('Contact us'); ?></h2>
                     </div>
@@ -52,14 +53,27 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="row mt-5">
-                <div class="col-12 mb-4 text-center">
-                    <h2><?php the_field('title_why'); ?></h2>
-                </div>
-                <div class="col-12">
-                    <?php the_field('description_why'); ?>
-                </div>
-            </div>
+            <?php if (have_rows('content_about_repeater')): ?>
+                <?php while (have_rows('content_about_repeater')): the_row();
+                    $title = get_sub_field('title');
+                    $content = get_sub_field('content');
+                    $colorpicker = get_sub_field('colorpicker');
+                    ?>
+
+                <div class="row mt-5" style="background-color: <?php echo $colorpicker; ?>">
+                    <?php if ($title): ?>
+                        <div class="col-12 mb-4 text-center">
+                            <h2><?php echo $title; ?></h2>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($content): ?>
+                        <div class="col-12">
+                            <?php echo $content; ?>
+                        </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     </section>
 <?php get_footer(); ?>
