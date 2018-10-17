@@ -13,22 +13,49 @@
                     </div>
                     <div class="panel__body">
                         <form class="f-filter">
-                            <fieldset id="prodCheck">
+                            <fieldset class="products">
                                 <?php
                                 $cpt_query = new WP_Query(array(
                                     'post_type' => 'our_products',
                                     'posts_per_page' => -1
                                 ));
                                 if ($cpt_query->have_posts()) :
-                                    echo '<legend>Recipes</legend>';
-//                                    echo '<input type="checkbox" class="product" id="prod-all" data-js="check-all">';
-//                                    echo '<label for="prod-all">All</label>';
+                                    echo '<legend>Products</legend>';
                                     while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                                        echo '<input type="checkbox" data-js="checkbox-item" class="product" id="' . basename(get_permalink()) . '">';
-                                        echo '<label for="' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
+                                        echo '<input type="checkbox" class="product" id="prod_' . basename(get_permalink()) . '">';
+                                        echo '<label for="prod_' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
                                     endwhile;
                                 endif;
                                 wp_reset_query();
+                                ?>
+                            </fieldset>
+                            <fieldset class="flavors">
+                                <?php
+                                $terms_flavors = get_terms('flavors', $args = array('hide_empty' => false));
+                                if (!empty($terms_flavors) && !is_wp_error($terms_flavors)) {
+                                    echo '<legend>Flavors</legend>';
+                                    foreach ($terms_flavors as $flavor) {
+                                        $query = new WP_Query(array(
+                                            'post_type' => 'recipes',
+                                            'posts_per_page' => -1,
+                                            'meta_query' => array(
+                                                'relation' => 'AND',
+                                                array(
+                                                    'key' => 'select_flavor',
+                                                    'value' => $flavor->term_id,
+                                                    'compare' => 'LIKE',
+                                                )
+                                            ),
+                                        ));
+                                        $posts = $query->posts;
+                                        foreach($posts as $post) {
+                                            $product = get_field('select_product')[0];
+                                            echo '<input type="checkbox" class="flavor" id="flavor_' . $flavor->slug . '" data-flavor-for-product="prod_' .  get_post($product)->post_name . '">';
+                                            echo '<label for="flavor_' . $flavor->slug . '">' . $flavor->name . '</label>';
+                                        }
+                                        wp_reset_query();
+                                    }
+                                }
                                 ?>
                             </fieldset>
                         </form>
@@ -36,31 +63,51 @@
                 </div>
                 <div class="filter-results">
                     <div class="recipes p-0">
-                        <div class="category-group m-0">
-                            <?php
-                            $cptt_query = new WP_Query(array(
-                                'post_type' => 'recipes_page',
-                                'posts_per_page' => -1
-                            ));
-                            if ($cptt_query->have_posts()) : while ($cptt_query->have_posts()) : $cptt_query->the_post(); ?>
-                                <?php $element_id = get_field('select_product_recipes'); ?>
-                                <div class="row mt-1 mb-1 justify-content-center panel"
-                                     data-aos="fade-up" data-aos-delay="600" data-filter-target="<?php echo basename(get_permalink($element_id)); ?>">
-                                    <div class="col-12">
-                                        <div class="">
-                                            <div class="teaser-desc position-absolute bg-transparent mw-100">
-                                                <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
-                                            </div>
-                                            <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail ">
-                                                <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?></a>
+                            <div class="category-group m-0">
+                                <?php
+                                $recipes_query = new WP_Query(array(
+                                    'post_type' => 'recipes',
+                                    'posts_per_page' => -1
+                                ));
+                                while ($recipes_query->have_posts()) : $recipes_query->the_post();
+                                    if(!empty(get_field('select_product'))) {
+                                        $prod_array = get_field('select_product');
+                                        $prod_list = '';
+                                        foreach ($prod_array as $prod) {
+                                            $prod_list .= 'prod_' . $prod->post_name . ',';
+                                        }
+                                    } else {
+                                        $prod_list = 'none';
+                                    }
+
+                                    if(!empty(get_field('select_flavor'))) {
+                                        $flavor_array = get_field('select_flavor');
+                                        $flavor_list = '';
+                                        foreach ($flavor_array as $flavor) {
+                                            $flavor_list .= 'flavor_' . $flavor->slug . ',';
+                                        }
+                                    } else {
+                                        $flavor_list = 'none';
+                                    }
+                                    echo '<!-- Recipe: ' . $prod_list . ' -->';
+                                    ?>
+                                    <div class="row mt-1 mb-1 justify-content-center panel" data-aos="fade-up" data-aos-delay="600" data-filter-target="<?php echo $prod_list; ?>" data-flavor-target="<?php echo $flavor_list; ?>">
+                                        <div class="col-12">
+                                            <div class="">
+                                                <div class="teaser-desc position-absolute bg-transparent mw-100">
+                                                    <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
+                                                </div>
+                                                <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail ">
+                                                    <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endwhile;
-                            endif; ?>
-                        </div>
-                        <?php wp_reset_postdata(); ?>
+                                <?php
+                                endwhile;
+                                wp_reset_query();
+                                ?>
+                            </div>
                     </div>
                 </div>
             </div>

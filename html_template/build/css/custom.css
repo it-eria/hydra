@@ -1,0 +1,19 @@
+.social-box{
+    margin-top: 20px;
+}
+body .social-likes__widget_single{
+    background: none;
+    font-size: 18px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+.social-likes_single.social-likes_opened{
+    left: 0!important;
+    margin-left: 0!important;
+}
+.article-content li{
+    list-style: inside;
+}
+body .social-likes__button{
+    text-transform: uppercase;
+}

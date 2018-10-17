@@ -10,8 +10,7 @@
                 ?>
                 <div class="main-slider__slide">
                     <?php if ($slide_image): ?><img src="<?php echo $slide_image; ?>" alt="slide"><?php endif; ?>
-                    <?php if ($slide_url): ?><a href="<?php echo $slide_url; ?>"
-                                                class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
+                    <?php if ($slide_url): ?><a href="<?php echo $slide_url; ?>" class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -80,7 +79,7 @@
             if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
                 <div class="row position-relative teaser">
                     <div class="col-10" data-aos="fade-right" data-aos-delay="600">
-                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="image" class="teaser-thumbnail">
+                        <?php echo get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'teaser-thumbnail')); ?>
                         <div class="teaser-desc teaser-desc--left" data-aos="fade-right" data-aos-delay="900">
                             <h3><?php the_title(); ?></h3>
                             <a href="<?php the_permalink(); ?>"
@@ -140,7 +139,7 @@
 <?php endif; ?>
 <section class="recipes" data-aos="fade-up">
     <?php
-    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes_page', 'post_status' => 'publish', 'posts_per_page' => 3));
+    $wpb_all_recipes = new WP_Query(array('post_type' => 'recipes', 'post_status' => 'publish', 'posts_per_page' => 3));
     if ($wpb_all_recipes->have_posts()) : ?>
         <div class="mb-4">
             <div class="section-title section-title--big" data-aos="fade-right" data-aos-delay="300">
@@ -158,7 +157,7 @@
                                    class="more-link"><?php _e('Read More', 'custom'); ?></a>
                             </div>
                             <div class="teaser-thumbnail" data-js="recipe-teaser-thumbnail">
-                                <?php echo get_the_post_thumbnail(get_the_ID(), 'full'); ?>
+                                <?php echo get_the_post_thumbnail(get_the_ID(), 'medium'); ?>
                             </div>
                         </div>
                     </div>
@@ -168,6 +167,8 @@
         <div class="view-all-row text-right px-3 mt-2" data-aos="fade-right" data-aos-delay="300">
             <a href="/recipes" class="view-all"><?php _e('View All', 'custom'); ?></a>
         </div>
+        <?php endif;
+        wp_reset_query(); ?>
         <div class="socials-wrapper mt-3 ml-auto" data-aos="fade-right">
             <?php if (have_rows('socials', 'option')): ?>
                 <div class="text-center">
@@ -188,8 +189,6 @@
                 </div>
             <?php endif; ?>
         </div>
-    <?php endif;
-    wp_reset_query(); ?>
 </section>
 <section class="stay-connected">
     <div class="container">

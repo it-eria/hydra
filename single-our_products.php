@@ -9,12 +9,13 @@
                                 <?php while (have_rows('product_type')): the_row(); ?>
                                     <ul data-priduct-type="type-<?php echo get_row_index(); ?>"
                                         class="ml-list position-absolute">
-                                        <?php while (have_rows('variables_product')): the_row(); ?>
-                                            <li class="choose-elem" id="id-<?php echo get_row_index(); ?>"><a
-                                                        data-product-img="<?php the_sub_field('variable_product_image'); ?>"
-                                                        data-product-url="<?php the_sub_field('variable_product_url'); ?>"
-                                                        data-product-photo-nutrition="<?php the_sub_field('nutrition_photo'); ?>"
-                                                        href="#"><?php the_sub_field('variable_product_capacity'); ?>
+                                        <?php while (have_rows('variables_product')): the_row();
+                                            $product_img = get_sub_field('variable_product_image')['sizes']['large'];
+                                            $product_url = get_sub_field('variable_product_url');
+                                            $product_photo_nutrition = get_sub_field('nutrition_photo');
+                                            ?>
+                                            <li class="choose-elem" id="id-<?php echo get_row_index(); ?>"><a data-product-img="<?php echo $product_img; ?>" data-product-url="<?php echo $product_url; ?>" data-product-photo-nutrition="<?php echo $product_photo_nutrition; ?>">
+                                                    <?php the_sub_field('variable_product_capacity'); ?>
                                                     <div style="display: none" class="data-product-content-nutrition">
                                                         <?php echo get_sub_field("nutrition_content"); ?>
                                                     </div>
@@ -30,7 +31,7 @@
                                 ?>
                                 <div class="product-thumbnail w-100 position-relative">
                                     <img id="product-img" class="img-fluid"
-                                         src="<?php echo $param["variable_product_image"]; ?>" alt="sport">
+                                         src="<?php echo $param["variable_product_image"]['sizes']['large']; ?>" alt="sport">
                                 </div>
                             </div>
                         </div>
@@ -48,15 +49,19 @@
                             <div class="filter" data-js="filter">
                                 <ul>
                                     <?php
-                                    while (have_rows('product_type')): the_row(); ?>
-                                        <?php echo '<li><a class="filter-taste" data-color="' . get_sub_field("color_body") . '" data-priduct-type="type-' . get_row_index() . '" data-product-type="type-' . get_row_index() . '">' . get_sub_field("product_type_name") . '</a></li>'; ?>
-                                    <?php endwhile; ?>
+                                    while (have_rows('product_type')): the_row();
+                                        $flavor = get_sub_field('flavor_name');
+                                        $color = get_sub_field("color_body");
+                                        $product_type = get_row_index();
+                                        echo '<li><a class="filter-taste" data-color="' . $color . '" data-priduct-type="type-' . $product_type . '" data-product-type="type-' . $product_type . '">' . $flavor->name . '</a></li>';
+                                    endwhile;
+                                    ?>
                                 </ul>
                                 <?php
                                 $taste_filter = get_field('product_type');
                                 $last_row = end($taste_filter);
                                 ?>
-                                <span class="current"><?php echo $last_row['product_type_name']; ?></span>
+                                <span class="current"><?php echo $last_row['flavor_name']->name; ?></span>
                                 <i class="arrow"></i>
                             </div>
                         </div>
@@ -89,42 +94,50 @@
                                         $params = end($ihas);
                                         ?>
                                         <div id="product-content-nutrition"><?php echo $params['nutrition_content']; ?></div>
-                                        <img id="product-photo-nutrition"
-                                             src="<?php echo $params['nutrition_photo']; ?>" alt="img"/>
+                                        <img id="product-photo-nutrition" src="<?php echo $params['nutrition_photo']; ?>" alt="img"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="inf-window" id="recipes">
+                        <div class="filter-elements inf-window" id="recipes">
                             <div class="content">
                                 <?php
-                                $wp_product_recipes = new WP_Query(array(
-                                    'post_type' => 'recipes_page',
+                                $recipes_query = new WP_Query(array(
+                                    'post_type' => 'recipes',
                                     'posts_per_page' => -1,
                                     'meta_query' => array(
                                         'relation' => 'AND',
                                         array(
-                                            'key' => 'select_product_recipes',
+                                            'key' => 'select_product',
                                             'value' => get_the_ID(),
-                                            'compare' => '=',
+                                            'compare' => 'LIKE',
                                         )
                                     )
                                 ));
-                                if ($wp_product_recipes->have_posts()) : ?>
+                                if ($recipes_query->have_posts()) : ?>
                                     <h5><?php _e('Recipes', 'custom'); ?></h5>
-                                    <?php while ($wp_product_recipes->have_posts()) : $wp_product_recipes->the_post(); ?>
-                                        <div class="row mt-1 mb-1 justify-content-center panel"
-                                             data-aos="fade-up" data-aos-delay="600">
+                                    <?php
+                                        while ($recipes_query->have_posts()) : $recipes_query->the_post();
+                                            if(!empty(get_field('select_flavor'))) {
+                                                $flavor_array = get_field('select_flavor');
+                                                $flavor_list = '';
+                                                foreach ($flavor_array as $flavor) {
+                                                    $flavor_list .= $flavor->name . ',';
+                                                }
+                                            } else {
+                                                $flavor_list = 'none';
+                                            }
+                                    ?>
+                                        <div class="row mt-1 mb-1 justify-content-center panel" data-flavor-target="<?php echo $flavor_list; ?>">
                                             <div class="col-12">
                                                 <div>
                                                     <div class="teaser-desc position-absolute bg-transparent mw-100 p-4">
                                                         <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
                                                     </div>
-                                                    <div class="teaser-thumbnail-page mw-100"
-                                                         data-js="recipe-teaser-thumbnail ">
-                                                        <a href="<?php the_permalink(); ?>"><img
-                                                                    src="<?php the_post_thumbnail_url('large'); ?>"
-                                                                    alt="img"/> </a>
+                                                    <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail">
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="img"/>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,10 +157,8 @@
                                 <div class="results">
                                     <div class="results__header">
                                         <div class="row">
-                                            <div class="col-4 pr-0 list-count">
-                                            </div>
-                                            <div class="col-4 text-center">
-                                            </div>
+                                            <div class="col-4 pr-0 list-count"></div>
+                                            <div class="col-4 text-center"></div>
                                             <div class="col-4 text-right">
                                                 <i class="mail"></i>
                                             </div>
@@ -181,7 +192,6 @@
                                             <?php endwhile; ?>
                                             <div class="empty-item show-res">
                                                 <?php the_field('locator_content', 'option'); ?>
-
                                             </div>
                                         </ul>
                                         <?php endif; ?>
@@ -189,9 +199,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="inf-window" id="faq">
+                        <div class="filter-elements inf-window" id="faq">
                             <?php
-                            $wp_product_faq = new WP_Query(array(
+                            $faq_query = new WP_Query(array(
                                 'post_type' => 'faq_post_type',
                                 'posts_per_page' => -1,
                                 'meta_query' => array(
@@ -199,18 +209,28 @@
                                     array(
                                         'key' => 'select_product',
                                         'value' => get_the_ID(),
-                                        'compare' => '=',
+                                        'compare' => 'LIKE',
                                     )
                                 ),
-                            )); ?>
-                            <?php if ($wp_product_faq->have_posts()) : ?>
-                                <h5>
-                                    <?php _e('Frequently Asked Questions:', 'custom'); ?></h5>
+                            ));
+                            ?>
+                            <?php if ($faq_query->have_posts()) : ?>
+                                <h5><?php _e('Frequently Asked Questions:', 'custom'); ?></h5>
                                 <div class="content">
-                                    <h3>
-                                        <?php _e('Still have questions', 'custom'); ?></h3>
-                                    <?php while ($wp_product_faq->have_posts()) : $wp_product_faq->the_post(); ?>
-                                        <div class="panel">
+                                    <h3><?php _e('Still have questions', 'custom'); ?></h3>
+                                    <?php
+                                        while ($faq_query->have_posts()) : $faq_query->the_post();
+                                        if(!empty(get_field('select_flavor'))) {
+                                            $flavor_array = get_field('select_flavor');
+                                            $flavor_list = '';
+                                            foreach ($flavor_array as $flavor) {
+                                                $flavor_list .= $flavor->name . ',';
+                                            }
+                                        } else {
+                                            $flavor_list = 'none';
+                                        }
+                                        ?>
+                                        <div class="panel" data-flavor-target="<?php echo $flavor_list; ?>">
                                             <div class="panel__title" data-js="panel__title">
                                                 <?php the_title(); ?>
                                             </div>
@@ -220,7 +240,10 @@
                                         </div>
                                     <?php endwhile; ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php
+                            endif;
+                            wp_reset_query();
+                            ?>
                         </div>
                     </div>
                     <div class="product-page-nav" data-js="product-page-nav">
