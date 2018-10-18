@@ -8,11 +8,16 @@
                 $slide_image = get_sub_field('slide_image');
                 $slide_url = get_sub_field('slide_url');
                 $flavor_for_url = get_sub_field('flavor_for_url');
-                if(!empty($flavor_for_url)) { $flavor = '?flavor=' . $flavor_for_url->slug; } else { $flavor = ''; }
+                if (!empty($flavor_for_url)) {
+                    $flavor = '?flavor=' . $flavor_for_url->slug;
+                } else {
+                    $flavor = '';
+                }
                 ?>
                 <div class="main-slider__slide">
                     <?php if ($slide_image): ?><img src="<?php echo $slide_image; ?>" alt="slide"><?php endif; ?>
-                    <?php if ($slide_url): ?><a href="<?php echo $slide_url; echo $flavor; ?>" class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
+                    <?php if ($slide_url): ?><a href="<?php echo $slide_url;
+                    echo $flavor; ?>" class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -169,28 +174,28 @@
         <div class="view-all-row text-right px-3 mt-2" data-aos="fade-right" data-aos-delay="300">
             <a href="/recipes" class="view-all"><?php _e('View All', 'custom'); ?></a>
         </div>
-        <?php endif;
-        wp_reset_query(); ?>
-        <div class="socials-wrapper mt-3 ml-auto" data-aos="fade-right">
-            <?php if (have_rows('socials', 'option')): ?>
-                <div class="text-center">
-                    <a href="#" class="follow"><?php _e('Follow Us', 'custom'); ?></a>
-                    <ul class="socials-list">
-                        <?php while (have_rows('socials', 'option')): the_row();
-                            $facebook_url = get_sub_field('facebook_url', 'option');
-                            $instagram_url = get_sub_field('instagram_url', 'option');
-                            $youtube_url = get_sub_field('youtube_url', 'option');
-                            $pinterest_url = get_sub_field('pinterest_url', 'option');
-                            ?>
-                            <li><a href="<?php echo $facebook_url; ?>" class="fb"></a></li>
-                            <li><a href="<?php echo $instagram_url; ?>" class="inst"></a></li>
-                            <li><a href="<?php echo $youtube_url; ?>" class="yt"></a></li>
-                            <li><a href="<?php echo $pinterest_url; ?>" class="pt"></a></li>
-                        <?php endwhile; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-        </div>
+    <?php endif;
+    wp_reset_query(); ?>
+    <div class="socials-wrapper mt-3 ml-auto" data-aos="fade-right">
+        <?php if (have_rows('socials', 'option')): ?>
+            <div class="text-center">
+                <a href="#" class="follow"><?php _e('Follow Us', 'custom'); ?></a>
+                <ul class="socials-list">
+                    <?php while (have_rows('socials', 'option')): the_row();
+                        $facebook_url = get_sub_field('facebook_url', 'option');
+                        $instagram_url = get_sub_field('instagram_url', 'option');
+                        $youtube_url = get_sub_field('youtube_url', 'option');
+                        $pinterest_url = get_sub_field('pinterest_url', 'option');
+                        ?>
+                        <li><a href="<?php echo $facebook_url; ?>" class="fb"></a></li>
+                        <li><a href="<?php echo $instagram_url; ?>" class="inst"></a></li>
+                        <li><a href="<?php echo $youtube_url; ?>" class="yt"></a></li>
+                        <li><a href="<?php echo $pinterest_url; ?>" class="pt"></a></li>
+                    <?php endwhile; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+    </div>
 </section>
 <section class="stay-connected">
     <div class="container">
@@ -222,4 +227,4 @@
         </div>
     </div>
 </section>
-<?php get_footer(); ?>  
+<?php get_footer(); ?>

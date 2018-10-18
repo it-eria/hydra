@@ -572,3 +572,16 @@ body .cooked-nutrition-label dl.cooked-nut-bottom dt {
     }
   }
 }
+
+.social-likes__button_single {
+  position: relative;
+  opacity: 0;
+}
+
+body .social-likes__widget_single {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  background-image: url('../img/img-socials.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}

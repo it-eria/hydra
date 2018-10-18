@@ -11,7 +11,6 @@
                             </div>
                         <div class="article-content clearfix">
                             <?php the_content(); ?>
-
                         </div>
                         <?php endwhile; ?>
                     <?php endif; ?>

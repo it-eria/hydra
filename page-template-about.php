@@ -8,9 +8,9 @@
                     $slide_url = get_sub_field('slide_url');
                     ?>
                     <div class="main-slider__slide">
-                        <?php if ($slide_image): ?><img src="<?php echo $slide_image; ?>" alt="slide"><?php endif; ?>
-                        <?php if ($slide_url): ?><a href="<?php echo $slide_url; ?>"
-                                                    class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
+                        <?php if ($slide_image): ?><img src="<?php echo $slide_image; ?>" alt="slide"><?php endif;
+                        if ($slide_url): ?><a href="<?php echo $slide_url; ?>"
+                                              class="learn-more "><?php _e('Learn More', 'custom'); ?></a><?php endif; ?>
                     </div>
                 <?php endwhile; ?>
             </div>
@@ -18,7 +18,7 @@
     </section>
     <section class="about-us pt-3 pb-5">
         <div class="container">
-            <div class="row" style="background-color: <?php the_field('bg-color-picker-1'); ?>">
+            <div class="row pt-4 pb-4" style="background-color: <?php the_field('bg-color-picker-1'); ?>">
                 <div class="col-12 mb-4 text-center">
                     <h2><?php the_field('title_for'); ?></h2>
                 </div>
@@ -26,9 +26,8 @@
                     <?php the_field('description_for'); ?>
                 </div>
             </div>
-
             <?php if (have_rows('contact_us_emails', 'option')): ?>
-                <div class="row mt-5 justify-content-center"
+                <div class="row pt-4 pb-4 mt-5 justify-content-center"
                      style="background-color: <?php the_field('bg-color-picker-2'); ?>">
                     <div class="col-12 text-center">
                         <h2><?php _e('Contact us'); ?></h2>
@@ -59,21 +58,20 @@
                     $content = get_sub_field('content');
                     $colorpicker = get_sub_field('colorpicker');
                     ?>
-
-                <div class="row mt-5" style="background-color: <?php echo $colorpicker; ?>">
+                <div class="row mt-5 pt-4 pb-4" style="background-color: <?php echo $colorpicker; ?>">
                     <?php if ($title): ?>
                         <div class="col-12 mb-4 text-center">
                             <h2><?php echo $title; ?></h2>
                         </div>
-                    <?php endif; ?>
-                    <?php if ($content): ?>
+                    <?php endif;
+                    if ($content): ?>
                         <div class="col-12">
                             <?php echo $content; ?>
                         </div>
                         </div>
-                    <?php endif; ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
+                    <?php endif;
+                endwhile;
+            endif; ?>
         </div>
     </section>
 <?php get_footer(); ?>
