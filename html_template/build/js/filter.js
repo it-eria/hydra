@@ -103,4 +103,13 @@
         }
     });
 
+    $(window).on('load', function() {
+        if (window.location.href.indexOf("?flavor=") > -1) {
+            var url = $(location).attr('href');
+            var parts = url.split("?flavor=");
+            var last_part = "#" + parts[parts.length - 1];
+            $(last_part).find('a').trigger("click");
+        }
+    });
+
 })(jQuery);

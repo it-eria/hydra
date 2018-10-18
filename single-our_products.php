@@ -53,7 +53,7 @@
                                         $flavor = get_sub_field('flavor_name');
                                         $color = get_sub_field("color_body");
                                         $product_type = get_row_index();
-                                        echo '<li><a class="filter-taste" data-color="' . $color . '" data-priduct-type="type-' . $product_type . '" data-product-type="type-' . $product_type . '">' . $flavor->name . '</a></li>';
+                                        echo '<li id="' . $flavor->slug . '"><a class="filter-taste" data-color="' . $color . '" data-priduct-type="type-' . $product_type . '" data-product-type="type-' . $product_type . '">' . $flavor->name . '</a></li>';
                                     endwhile;
                                     ?>
                                 </ul>
