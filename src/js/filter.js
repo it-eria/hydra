@@ -24,7 +24,15 @@ $(function() {
       $('.f-filter').find('fieldset.flavors').slideDown(300);
       $('fieldset.flavors input, fieldset.flavors label').fadeOut(300);
       for(var i=0;i<productsFilters.length; i++) {
-        $('fieldset.flavors input[data-flavor-for-product="'+ productsFilters[i] +'"] + label').fadeIn(300);
+        $('fieldset.flavors input[data-flavor-for-product]').each(function() {
+          var currentAttrArr = $(this).attr('data-flavor-for-product').split(',');
+          for(var j = 0; j < currentAttrArr.length; j++) {
+            if(currentAttrArr[j] == productsFilters[i]) {
+              $(this).next('label').fadeIn(300);   
+            }
+          }
+        });
+        // $('fieldset.flavors input[data-flavor-for-product="'+ productsFilters[i] +'"] + label').fadeIn(300);
       }
     } else {
       $('.f-filter').find('fieldset.flavors').slideUp(300);
