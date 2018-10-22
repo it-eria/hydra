@@ -20,6 +20,7 @@ $(function() {
         }
       }
     });
+
     if(productsFilters.length > 0) {
       $('.f-filter').find('fieldset.flavors').slideDown(300);
       $('fieldset.flavors input, fieldset.flavors label').fadeOut(300);
@@ -32,10 +33,26 @@ $(function() {
             }
           }
         });
-        // $('fieldset.flavors input[data-flavor-for-product="'+ productsFilters[i] +'"] + label').fadeIn(300);
       }
     } else {
       $('.f-filter').find('fieldset.flavors').slideUp(300);
+    }
+
+    if(categoryFilters.length > 0) {
+      $('.f-filter').find('fieldset.products').slideDown(300);
+      $('fieldset.products input, fieldset.products label').fadeOut(300);
+      for(var i=0;i<categoryFilters.length; i++) {
+        $('fieldset.products input[data-product-for-category]').each(function() {
+          var currentAttrArr = $(this).attr('data-product-for-category').split(',');
+          for(var j = 0; j < currentAttrArr.length; j++) {
+            if(currentAttrArr[j] == categoryFilters[i]) {
+              $(this).next('label').fadeIn(300);   
+            }
+          }
+        });
+      }
+    } else {
+      $('.f-filter').find('fieldset.products').slideUp(300);
     }
     
     if(categoryFilters.length > 0) {
