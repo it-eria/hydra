@@ -331,7 +331,7 @@ i.quotes {
       padding: 2px 5px;
       margin: 0;
     }
-    input[type="checkbox"] {
+    input[type="checkbox"], input[type="radio"] {
       display: none;
       &:checked + label:before {
         background-color: $c-dark-blue;

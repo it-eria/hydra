@@ -3,7 +3,7 @@ $(function() {
     var categoryFilters = [];
     var productsFilters = [];
     var flavorsFilters = [];
-    $('.f-filter input[type="checkbox"]').each(function() {
+    $('.f-filter input[type="checkbox"], .f-filter input[type="radio"]').each(function() {
       var currentParent = $(this).parent().attr('class');
       var currentState = $(this).prop('checked');
       if(currentState) {
@@ -114,7 +114,12 @@ $(function() {
   
   filter();
   
-  $('.f-filter input[type="checkbox"]').on('change', function() {
+  $('.f-filter input[type="checkbox"], .f-filter input[type="radio"]').on('change', function() {
+    if($(this).attr('name') == 'cat') {
+      $('.products input[type="checkbox"], .products input[type="radio"], .flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+    } else if ($(this).attr('name') == 'prod') {
+      $('.flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+    }
     filter();
   });
 });
