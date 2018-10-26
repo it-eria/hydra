@@ -113,6 +113,26 @@ $(function() {
   }
   
   filter();
+
+  var radioCatState;
+  var radioProdState;
+
+  $('.f-filter input[type="radio"]').on('click', function() {
+    if (radioCatState === this || radioProdState === this) {
+      $(this).prop('checked', false);
+      if($(this).attr('name') == 'cat') radioCatState = null;
+      if($(this).attr('name') == 'prod') radioProdState = null;
+      if($(this).attr('name') == 'cat') {
+        $('.products input[type="checkbox"], .products input[type="radio"], .flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+      } else if ($(this).attr('name') == 'prod') {
+        $('.flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+      }
+      filter();
+    } else {
+      if($(this).attr('name') == 'cat') radioCatState = this;
+      if($(this).attr('name') == 'prod') radioProdState = this;
+    }
+  });
   
   $('.f-filter input[type="checkbox"], .f-filter input[type="radio"]').on('change', function() {
     if($(this).attr('name') == 'cat') {
