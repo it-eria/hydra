@@ -1,59 +1,63 @@
 <?php /* Template Name: Recipes Page */ ?>
 <?php get_header(); ?>
-<section class="banner pt-5">
-    <img src="<?php the_field('recipes_main_bg', 'option'); ?>" alt="banner" class="img-fluid">
-</section>
+<?php get_template_part("partials/organisms/banner"); ?>
 <section class="b-faq py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="panel panel--filter mt-0">
                     <div class="panel__title" data-js="panel__title">
-                        Recipes filter
+                        Filter
                     </div>
                     <div class="panel__body">
                         <form class="f-filter">
+                            <fieldset class="category">
+                                <?php
+                                $terms = get_terms('recipes_cat', $args = array('parent' => 0, 'hide_empty' => false, 'hierarchical' => false));
+                                if (!empty($terms) && !is_wp_error($terms)) {
+                                    echo '<legend>Categories</legend>';
+                                    foreach ($terms as $term) {
+                                        echo '<input type="radio" name="cat" class="category" id="cat_' . $term->slug . '">';
+                                        echo '<label for="cat_' . $term->slug . '">' . $term->name . '</label>';
+                                    }
+                                }
+                                ?>
+                            </fieldset>
                             <fieldset class="products">
                                 <?php
-                                $cpt_query = new WP_Query(array(
-                                    'post_type' => 'our_products',
-                                    'posts_per_page' => -1
-                                ));
-                                if ($cpt_query->have_posts()) :
+                                $terms = get_terms('recipes_cat', $args = array('parent' => 0, 'hide_empty' => false, 'hierarchical' => false));
+                                if (!empty($terms) && !is_wp_error($terms)) {
                                     echo '<legend>Products</legend>';
-                                    while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                                        echo '<input type="checkbox" class="product" id="prod_' . basename(get_permalink()) . '">';
-                                        echo '<label for="prod_' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
-                                    endwhile;
-                                endif;
-                                wp_reset_query();
+                                    foreach ($terms as $term) {
+                                        $term_children = get_terms('recipes_cat', $args = array('parent' => $term->term_id, 'hide_empty' => false, 'hierarchical' => 0));
+                                        if (!empty($term_children) && !is_wp_error($term_children)) {
+                                            foreach ($term_children as $child) {
+                                                echo '<input type="radio" name="prod" class="product" id="prod_' . $child->slug . '" data-product-for-category="cat_' . $term->slug . '">';
+                                                echo '<label for="prod_' . $child->slug . '">' . $child->name . '</label>';
+                                            }
+                                        }
+                                    }
+                                }
                                 ?>
                             </fieldset>
                             <fieldset class="flavors">
                                 <?php
-                                $terms_flavors = get_terms('flavors', $args = array('hide_empty' => false));
-                                if (!empty($terms_flavors) && !is_wp_error($terms_flavors)) {
+                                $terms = get_terms('recipes_cat', $args = array('parent' => 0, 'hide_empty' => false, 'hierarchical' => false));
+                                if (!empty($terms) && !is_wp_error($terms)) {
                                     echo '<legend>Flavors</legend>';
-                                    foreach ($terms_flavors as $flavor) {
-                                        $query = new WP_Query(array(
-                                            'post_type' => 'recipes',
-                                            'posts_per_page' => -1,
-                                            'meta_query' => array(
-                                                'relation' => 'AND',
-                                                array(
-                                                    'key' => 'select_flavor',
-                                                    'value' => $flavor->term_id,
-                                                    'compare' => 'LIKE',
-                                                )
-                                            ),
-                                        ));
-                                        $posts = $query->posts;
-                                        foreach($posts as $post) {
-                                            $product = get_field('select_product')[0];
-                                            echo '<input type="checkbox" class="flavor" id="flavor_' . $flavor->slug . '" data-flavor-for-product="prod_' .  get_post($product)->post_name . '">';
-                                            echo '<label for="flavor_' . $flavor->slug . '">' . $flavor->name . '</label>';
+                                    foreach ($terms as $term) {
+                                        $term_children = get_terms('recipes_cat', $args = array('parent' => $term->term_id, 'hide_empty' => false, 'hierarchical' => 0));
+                                        if (!empty($term_children) && !is_wp_error($term_children)) {
+                                            foreach ($term_children as $child) {
+                                                $term_sub_children = get_terms('recipes_cat', $args = array('parent' => $child->term_id, 'hide_empty' => false, 'hierarchical' => 0));
+                                                if (!empty($term_sub_children) && !is_wp_error($term_sub_children)) {
+                                                    foreach ($term_sub_children as $sub_child) {
+                                                        echo '<input type="checkbox" class="category" id="flavor_' . $sub_child->slug . '"  data-flavor-for-product="prod_' .  $child->slug . '">';
+                                                        echo '<label for="flavor_' . $sub_child->slug . '">' . $sub_child->name . '</label>';
+                                                    }
+                                                }
+                                            }
                                         }
-                                        wp_reset_query();
                                     }
                                 }
                                 ?>
@@ -62,45 +66,48 @@
                     </div>
                 </div>
                 <div class="filter-results">
-                    <div class="recipes p-0">
-                            <div class="category-group m-0">
+                    <?php
+                    function get_tax_level($id, $tax){
+                        $ancestors = get_ancestors($id, $tax);
+                        return count($ancestors)+1;
+                    }
+                    $terms = get_terms('recipes_cat', $args = array('parent' => 0, 'hide_empty' => false));
+                    if (!empty($terms) && !is_wp_error($terms)) {
+                        foreach ($terms as $term) { ?>
+                            <div class="category-group" data-filter-target="<?php echo 'cat_' . $term->slug; ?>">
+                                <h2><?php echo $term->name; ?></h2>
                                 <?php
-                                $recipes_query = new WP_Query(array(
+                                $faq_query = new WP_Query(array(
                                     'post_type' => 'recipes',
-                                    'posts_per_page' => -1
+                                    'posts_per_page' => -1,
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'recipes_cat',
+                                            'field' => 'slug',
+                                            'terms' => $term->slug
+                                        )
+                                    )
                                 ));
-                                while ($recipes_query->have_posts()) : $recipes_query->the_post();
-                                    if(!empty(get_field('select_product'))) {
-                                        $prod_array = get_field('select_product');
-                                        $prod_list = '';
-                                        foreach ($prod_array as $prod) {
-                                            $prod_list .= 'prod_' . $prod->post_name . ',';
+                                while ($faq_query->have_posts()) : $faq_query->the_post();
+                                    $term_list = wp_get_post_terms($post->ID, 'recipes_cat', array("fields" => "all","orderby" => "parent", 'order' => 'ASC'));
+                                    $prod_list = '';
+                                    $flavor_list = '';
+                                    foreach($term_list as $term_single) {
+                                        $current_term_level = get_tax_level($term_single->term_id, 'recipes_cat');
+                                        if ($current_term_level == 2) {
+                                            $prod_list .= 'prod_' . $term_single->slug . ',';
                                         }
-                                    } else {
-                                        $prod_list = 'none';
-                                    }
-
-                                    if(!empty(get_field('select_flavor'))) {
-                                        $flavor_array = get_field('select_flavor');
-                                        $flavor_list = '';
-                                        foreach ($flavor_array as $flavor) {
-                                            $flavor_list .= 'flavor_' . $flavor->slug . ',';
+                                        if ($current_term_level == 3) {
+                                            $flavor_list .= 'flavor_' . $term_single->slug . ',';
                                         }
-                                    } else {
-                                        $flavor_list = 'none';
                                     }
-                                    echo '<!-- Recipe: ' . $prod_list . ' -->';
                                     ?>
-                                    <div class="row mt-1 mb-1 justify-content-center panel" data-aos="fade-up" data-aos-delay="600" data-filter-target="<?php echo $prod_list; ?>" data-flavor-target="<?php echo $flavor_list; ?>">
-                                        <div class="col-12">
-                                            <div class="">
-                                                <div class="teaser-desc position-absolute bg-transparent mw-100">
-                                                    <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
-                                                </div>
-                                                <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail ">
-                                                    <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?></a>
-                                                </div>
-                                            </div>
+                                    <div class="panel justify-content-center mt-1 mb-1" data-filter-target="<?php echo rtrim($prod_list, ','); ?>" data-flavor-target="<?php echo rtrim($flavor_list, ','); ?>">
+                                        <div class="teaser-desc position-absolute bg-transparent mw-100 p-4">
+                                            <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
+                                        </div>
+                                        <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail ">
+                                            <a href="<?php the_permalink(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'medium'); ?></a>
                                         </div>
                                     </div>
                                 <?php
@@ -108,7 +115,9 @@
                                 wp_reset_query();
                                 ?>
                             </div>
-                    </div>
+                        <?php }
+                    }
+                    ?>
                 </div>
             </div>
         </div>

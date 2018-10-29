@@ -1,13 +1,11 @@
 <?php /* Template Name: FAQ Page */ ?>
 <?php get_header(); ?>
-    <section class="banner">
-        <img src="<?php the_field('faq_main_bg', 'option'); ?>" alt="banner" class="img-fluid">
-    </section>
+    <?php get_template_part("partials/organisms/banner"); ?>
     <section class="b-faq py-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="panel panel--filter active mt-0">
+                    <div class="panel panel--filter mt-0">
                         <div class="panel__title" data-js="panel__title">
                             Still have questions
                         </div>
@@ -19,7 +17,7 @@
                                     if (!empty($terms) && !is_wp_error($terms)) {
                                         echo '<legend>Categories</legend>';
                                         foreach ($terms as $term) {
-                                            echo '<input type="checkbox" class="category" id="cat_' . $term->slug . '">';
+                                            echo '<input type="radio" class="category" id="cat_' . $term->slug . '">';
                                             echo '<label for="cat_' . $term->slug . '">' . $term->name . '</label>';
                                         }
                                     }
@@ -34,7 +32,7 @@
                                     if ($cpt_query->have_posts()) :
                                         echo '<legend>Products</legend>';
                                         while ($cpt_query->have_posts()) : $cpt_query->the_post();
-                                            echo '<input type="checkbox" class="product" id="prod_' . basename(get_permalink()) . '">';
+                                            echo '<input type="radio" class="product" id="prod_' . basename(get_permalink()) . '">';
                                             echo '<label for="prod_' . basename(get_permalink()) . '">' . get_the_title() . '</label>';
                                         endwhile;
                                     endif;
@@ -48,7 +46,7 @@
                                         echo '<legend>Flavors</legend>';
                                         foreach ($terms_flavors as $flavor) {
                                             $query = new WP_Query(array(
-                                                'post_type' => 'faq_post_type',
+                                                'post_type' => 'faqs',
                                                 'posts_per_page' => -1,
                                                 'meta_query' => array(
                                                     'relation' => 'AND',
@@ -60,11 +58,20 @@
                                                 ),
                                             ));
                                             $posts = $query->posts;
+                                            $prod_list = 'none';
                                             foreach($posts as $post) {
-                                                $product = get_field('select_product')[0];
-                                                echo '<input type="checkbox" class="flavor" id="flavor_' . $flavor->slug . '" data-flavor-for-product="prod_' .  get_post($product)->post_name . '">';
-                                                echo '<label for="flavor_' . $flavor->slug . '">' . $flavor->name . '</label>';
+                                                if(!empty(get_field('select_product'))) {
+                                                    $prod_array = get_field('select_product');
+                                                    $prod_list = '';
+                                                    foreach ($prod_array as $prod) {
+                                                        $prod_list .= 'prod_' . $prod->post_name . ',';
+                                                    }
+                                                } else {
+                                                    $prod_list = 'none';
+                                                }
                                             }
+                                            echo '<input type="checkbox" class="flavor" id="flavor_' . $flavor->slug . '" data-flavor-for-product="' .  $prod_list . '">';
+                                            echo '<label for="flavor_' . $flavor->slug . '">' . $flavor->name . '</label>';
                                             wp_reset_query();
                                         }
                                     }
@@ -73,7 +80,6 @@
                             </form>
                         </div>
                     </div>
-
                     <div class="filter-results">
                         <?php
                         $terms = get_terms('categories_faq', $args = array('hide_empty' => false));
@@ -83,7 +89,7 @@
                                     <h2><?php echo $term->name; ?></h2>
                                     <?php
                                     $faq_query = new WP_Query(array(
-                                        'post_type' => 'faq_post_type',
+                                        'post_type' => 'faqs',
                                         'posts_per_page' => -1,
                                         'tax_query' => array(
                                             array(

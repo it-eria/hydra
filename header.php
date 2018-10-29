@@ -20,10 +20,15 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-6">
+                <?php
+                $logo = get_field('logos','options');
+                if($logo):
+                ?>
                 <a href="<?php echo get_site_url(); ?>" class="logo" data-js="logo">
-                    <img src="<?php the_field('logotype_unactive', 'option'); ?>" alt="logo unactive" class="logo__visible">
-                    <img src="<?php the_field('logotype_active', 'option'); ?>" alt="logo active">
+                    <img src="<?php echo $logo['logotype_unactive']['url']; ?>" alt="<?php echo $logo['logotype_unactive']['alt']; ?>" class="logo__visible">
+                    <img src="<?php echo $logo['logotype_active']['url']; ?>" alt="<?php echo $logo['logotype_active']['alt']; ?>">
                 </a>
+                <?php endif; ?>
             </div>
             <div class="col-6 text-right">
                 <a href="#" class="btn btn--burger" data-js="btn--burger">
@@ -33,24 +38,8 @@
             <div class="col-12">
                 <nav class="main-nav" data-js="main-nav">
                     <?php
-                    wp_nav_menu( array(
-                        'theme_location'  => 'primary',
-                        'menu'            => '',
-                        'container'       => '',
-                        'container_class' => '',
-                        'container_id'    => '',
-                        'menu_class'      => '',
-                        'menu_id'         => '',
-                        'echo'            => true,
-                        'fallback_cb'     => 'wp_page_menu',
-                        'before'          => '',
-                        'after'           => '',
-                        'link_before'     => '',
-                        'link_after'      => '',
-                        'items_wrap'      => '<ul>%3$s</ul>',
-                        'depth'           => 0,
-                        'walker'          => '',
-                    ) );
+                    $defaults = array('theme_location' => 'primary', 'menu' => '', 'container' => '', 'items_wrap' => '<ul>%3$s</ul>');
+                    wp_nav_menu($defaults);
                     ?>
                 </nav>
             </div>

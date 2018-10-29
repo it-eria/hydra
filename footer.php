@@ -8,64 +8,38 @@
                     </div>
                     <nav class="footer__nav">
                         <?php
-                        wp_nav_menu( array(
-                            'theme_location'  => 'primary',
-                            'menu'            => '',
-                            'container'       => '',
-                            'container_class' => '',
-                            'container_id'    => '',
-                            'menu_class'      => '',
-                            'menu_id'         => '',
-                            'echo'            => true,
-                            'fallback_cb'     => 'wp_page_menu',
-                            'before'          => '',
-                            'after'           => '',
-                            'link_before'     => '',
-                            'link_after'      => '',
-                            'items_wrap'      => '<ul>%3$s</ul>',
-                            'depth'           => 0,
-                            'walker'          => '',
-                        ) );
+                        $defaults = array('theme_location' => 'primary', 'menu' => '', 'container' => '', 'items_wrap' => '<ul>%3$s</ul>');
+                        wp_nav_menu($defaults);
                         ?>
                     </nav>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
     <section>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <a href="<?php echo get_site_url(); ?>"><img src="<?php the_field('footer_logotype', 'option'); ?>"
-                         alt="logo" class="img-fluid"></a>
+                    <?php
+                    $footer_logo = get_field('logos','options');
+                    if($footer_logo):
+                    ?>
+                    <a href="<?php echo get_site_url(); ?>">
+                        <img src="<?php echo $footer_logo['footer_logotype']['url']; ?>" alt="<?php echo $footer_logo['footer_logotype']['alt']; ?>" class="img-fluid" />
+                    </a>
+                    <?php endif; ?>
                     <div class="mt-4">
-            <span class="copyright">
-              <?php the_field('copyright', 'option'); ?>
-            </span>
+                        <span class="copyright">
+                          <?php the_field('copyright', 'option'); ?>
+                        </span>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-11">
                     <?php
-                    wp_nav_menu( array(
-                        'theme_location'  => 'footer_menu',
-                        'menu'            => '',
-                        'container'       => '',
-                        'container_class' => '',
-                        'container_id'    => '',
-                        'menu_class'      => '',
-                        'menu_id'         => '',
-                        'echo'            => true,
-                        'fallback_cb'     => 'wp_page_menu',
-                        'before'          => '',
-                        'after'           => '',
-                        'link_before'     => '',
-                        'link_after'      => '',
-                        'items_wrap'      => '<ul class="service-nav">%3$s</ul>',
-                        'depth'           => 0,
-                        'walker'          => '',
-                    ) );
+                    $defaults = array('theme_location' => 'footer_menu', 'menu' => '', 'container' => '', 'items_wrap' => '<ul class="service-nav">%3$s</ul>');
+                    wp_nav_menu($defaults);
                     ?>
                 </div>
             </div>
@@ -89,7 +63,6 @@
         });
     })(jQuery);
 </script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bae0dde4086b7ab"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

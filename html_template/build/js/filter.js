@@ -4,7 +4,7 @@
             var categoryFilters = [];
             var productsFilters = [];
             var flavorsFilters = [];
-            $('.f-filter input[type="checkbox"]').each(function() {
+            $('.f-filter input[type="checkbox"], .f-filter input[type="radio"]').each(function() {
                 var currentParent = $(this).parent().attr('class');
                 var currentState = $(this).prop('checked');
                 if(currentState) {
@@ -19,16 +19,54 @@
                             flavorsFilters.push($(this).attr('id'));
                             break;
                     }
-                }
+                } 
             });
+
             if(productsFilters.length > 0) {
-                $('.f-filter').find('fieldset.flavors').slideDown(300);
+                var isAnyFlavors = false;
                 $('fieldset.flavors input, fieldset.flavors label').fadeOut(300);
                 for(var i=0;i<productsFilters.length; i++) {
-                    $('fieldset.flavors input[data-flavor-for-product="'+ productsFilters[i] +'"] + label').fadeIn(300);
+                    $('fieldset.flavors input[data-flavor-for-product]').each(function() {
+                        var currentAttrArr = $(this).attr('data-flavor-for-product').split(',');
+                        for(var j = 0; j < currentAttrArr.length; j++) {
+                            if(currentAttrArr[j] == productsFilters[i]) {
+                                $(this).next('label').fadeIn(300);
+                                isAnyFlavors = true;
+                            }
+                        }
+                    });
+                }
+                if(isAnyFlavors) $('.f-filter').find('fieldset.flavors').slideDown(300);
+                else {
+                    $('.f-filter').find('fieldset.flavors input').prop('checked', false);
+                    $('.f-filter').find('fieldset.flavors').slideUp(300);
                 }
             } else {
                 $('.f-filter').find('fieldset.flavors').slideUp(300);
+            }
+
+            if(categoryFilters.length > 0) {
+                var isAnyProducts = false;
+                $('fieldset.products input, fieldset.products label').fadeOut(300);
+                for(var i=0;i<categoryFilters.length; i++) {
+                    $('fieldset.products input[data-product-for-category]').each(function() {
+                        var currentAttrArr = $(this).attr('data-product-for-category').split(',');
+                        for(var j = 0; j < currentAttrArr.length; j++) {
+                            if(currentAttrArr[j] == categoryFilters[i]) {
+                                $(this).next('label').fadeIn(300);
+                                isAnyProducts = true;
+                            }
+                        }
+                    });
+                }
+                if(isAnyProducts) $('.f-filter').find('fieldset.products').slideDown(300);
+                else {
+                    $('.f-filter').find('fieldset.products input').prop('checked', false);
+                    $('.f-filter').find('fieldset.products').slideUp(300);
+                }
+            } else {
+                $('.f-filter').find('fieldset.products').slideUp(300);
+                $('.f-filter').find('fieldset.products input').prop('checked', false);
             }
 
             if(categoryFilters.length > 0) {
@@ -77,10 +115,36 @@
 
         filter();
 
-        $('.f-filter input[type="checkbox"]').on('change', function() {
+        var radioCatState;
+        var radioProdState;
+
+        $('.f-filter input[type="radio"]').on('click', function() {
+            if (radioCatState === this || radioProdState === this) {
+                $(this).prop('checked', false);
+                if($(this).attr('name') == 'cat') radioCatState = null;
+                if($(this).attr('name') == 'prod') radioProdState = null;
+                if($(this).attr('name') == 'cat') {
+                    $('.products input[type="checkbox"], .products input[type="radio"], .flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+                } else if ($(this).attr('name') == 'prod') {
+                    $('.flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+                }
+                filter();
+            } else {
+                if($(this).attr('name') == 'cat') radioCatState = this;
+                if($(this).attr('name') == 'prod') radioProdState = this;
+            }
+        });
+
+        $('.f-filter input[type="checkbox"], .f-filter input[type="radio"]').on('change', function() {
+            if($(this).attr('name') == 'cat') {
+                $('.products input[type="checkbox"], .products input[type="radio"], .flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+            } else if ($(this).attr('name') == 'prod') {
+                $('.flavors input[type="checkbox"], .flavors input[type="radio"]').prop('checked', false);
+            }
             filter();
         });
     });
+
 
     $(function() {
         $('.filter-elements .panel').fadeOut(300);
@@ -110,6 +174,14 @@
             var last_part = "#" + parts[parts.length - 1];
             $(last_part).find('a').trigger("click");
         }
+    });
+
+    $(function() {
+        $(".choose-elem a").on('click', function (e) {
+            $element_id = $(this).parent('li').attr('id');
+            $('.nutrition').addClass('hide');
+            $('.' + $element_id).removeClass('hide');
+        });
     });
 
 })(jQuery);

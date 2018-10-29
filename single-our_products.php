@@ -6,19 +6,18 @@
                     <div class="row align-items-center mt-5">
                         <div class="col-9 pr-0 position-relative z-index-200">
                             <div class="d-flex flex-row align-items-center">
-                                <?php while (have_rows('product_type')): the_row(); ?>
-                                    <ul data-priduct-type="type-<?php echo get_row_index(); ?>"
-                                        class="ml-list position-absolute">
-                                        <?php while (have_rows('variables_product')): the_row();
-                                            $product_img = get_sub_field('variable_product_image')['sizes']['large'];
-                                            $product_url = get_sub_field('variable_product_url');
-                                            $product_photo_nutrition = get_sub_field('nutrition_photo');
+                                <?php
+                                    while (have_rows('product_type')): the_row();
+                                    $product_type_row = get_row_index();
+                                    ?>
+                                    <ul data-priduct-type="type-<?php echo $product_type_row; ?>" class="ml-list position-absolute">
+                                        <?php
+                                            while (have_rows('variables_product')): the_row();
+                                            $variables_product_row = get_row_index();
                                             ?>
-                                            <li class="choose-elem" id="id-<?php echo get_row_index(); ?>"><a data-product-img="<?php echo $product_img; ?>" data-product-url="<?php echo $product_url; ?>" data-product-photo-nutrition="<?php echo $product_photo_nutrition; ?>">
+                                            <li class="choose-elem" id="<?php echo 'type-' . $product_type_row . '-variable-' . $variables_product_row; ?>">
+                                                <a data-product-img="<?php echo get_sub_field('variable_product_image')['sizes']['large']; ?>" data-product-url="<?php echo get_sub_field('variable_product_url'); ?>">
                                                     <?php the_sub_field('variable_product_capacity'); ?>
-                                                    <div style="display: none" class="data-product-content-nutrition">
-                                                        <?php echo get_sub_field("nutrition_content"); ?>
-                                                    </div>
                                                 </a>
                                             </li>
                                         <?php endwhile; ?>
@@ -30,8 +29,7 @@
                                 $param = end($iha);
                                 ?>
                                 <div class="product-thumbnail w-100 position-relative">
-                                    <img id="product-img" class="img-fluid"
-                                         src="<?php echo $param["variable_product_image"]['sizes']['large']; ?>" alt="sport">
+                                    <img id="product-img" class="img-fluid" src="<?php echo $param["variable_product_image"]['sizes']['large']; ?>" />
                                 </div>
                             </div>
                         </div>
@@ -84,21 +82,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="inf-window text-center" id="nutrion">
-                            <div class="content">
-                                <div class="nutrition-table clearfix">
-                                    <div class="recipes_container">
-                                        <?php
-                                        $taste_filters = get_field('product_type');
-                                        $ihas = end($taste_filters)["variables_product"];
-                                        $params = end($ihas);
-                                        ?>
-                                        <div id="product-content-nutrition"><?php echo $params['nutrition_content']; ?></div>
-                                        <img id="product-photo-nutrition" src="<?php echo $params['nutrition_photo']; ?>" alt="img"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php get_template_part("partials/organisms/nutrion"); ?>
+
                         <div class="filter-elements inf-window" id="recipes">
                             <div class="content">
                                 <?php
@@ -134,9 +120,9 @@
                                                     <div class="teaser-desc position-absolute bg-transparent mw-100 p-4">
                                                         <h3 style="color: <?php the_field('choose_title_color'); ?>"><?php the_title(); ?></h3>
                                                     </div>
-                                                    <div class="teaser-thumbnail-page mw-100" data-js="recipe-teaser-thumbnail">
+                                                    <div class="teaser-thumbnail-page mw-100" >
                                                         <a href="<?php the_permalink(); ?>">
-                                                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="img"/>
+                                                            <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="img"/>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -147,62 +133,13 @@
                                 wp_reset_query(); ?>
                             </div>
                         </div>
-                        <div class="inf-window" id="store">
-                            <h5>Store Locator:</h5>
-                            <div class="content">
-                                <a href="#" class="specific-product">Select Specific Products</a>
-                                <form action="#">
-                                    <input type="text" id="search-text" placeholder="City/Zip Code" class="search-box">
-                                </form>
-                                <div class="results">
-                                    <div class="results__header">
-                                        <div class="row">
-                                            <div class="col-4 pr-0 list-count"></div>
-                                            <div class="col-4 text-center"></div>
-                                            <div class="col-4 text-right">
-                                                <i class="mail"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php if (have_rows('addresses')): ?>
-                                    <div class="results__list">
-                                        <ul id="list">
-                                            <?php while (have_rows('addresses')): the_row();
-                                                $address = get_sub_field('address');
-                                                $location_on_google = get_sub_field('location_on_google');
-                                                ?>
-                                                <li class="hiding out hidden">
-                                                    <div class="row align-items-center">
-                                                        <?php if ($address): ?>
-                                                            <div class="col-9">
-                                                                <address>
-                                                                    <?php echo $address; ?>
-                                                                </address>
-                                                            </div>
-                                                            <?php if ($location_on_google): ?>
-                                                                <div class="col-3 text-right">
-                                                                    <a target="_blank"
-                                                                       href="<?php echo $location_on_google; ?>"
-                                                                       class="more"></a>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </li>
-                                            <?php endwhile; ?>
-                                            <div class="empty-item show-res">
-                                                <?php the_field('locator_content', 'option'); ?>
-                                            </div>
-                                        </ul>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php get_template_part("partials/organisms/store"); ?>
+
                         <div class="filter-elements inf-window" id="faq">
                             <?php
                             $faq_query = new WP_Query(array(
-                                'post_type' => 'faq_post_type',
+                                'post_type' => 'faqs',
                                 'posts_per_page' => -1,
                                 'meta_query' => array(
                                     'relation' => 'AND',
@@ -284,6 +221,6 @@
                 </div>
             <?php endwhile;
         endif;
-        wp_reset_query(); ?>
+        ?>
     </section>
 <?php get_footer(); ?>
