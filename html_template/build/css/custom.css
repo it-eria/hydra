@@ -38,3 +38,6 @@ img{
 .f-filter fieldset input[type="radio"]:checked + label:before  {
     background-color: rgba(255,255,255,0.8);
 }
+.share-container{
+    margin-top: 20px;
+}

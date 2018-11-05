@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/style.css">
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/html_template/build/css/custom.css">
     <title><?php wp_title(); ?></title>
+	<!---add by ira.che--->
+	<!---<meta property="og:url"           content="<?php // the_permalink(); ?>" />--->
+  <!---<meta property="og:type"          content="website" />--->
+  <!---<meta property="og:title"         content="<?php // wp_title(); ?>" />--->
+  <!---<meta property="og:description"   content="<?php // setup_postdata( $post ); echo get_the_excerpt(); ?>" />--->
+  <!---<meta property="og:image"         content="https://hydracoco.com/wp-content/uploads/2018/10/shutterstock_564136039-e1539732534537.jpg" />--->
+	<!---end of add by ira.che--->
     <?php wp_head(); ?>
 </head>
 <body style="background-color:  !important" class="<?php if(!is_front_page()) {echo 'inner-page';}?>">
